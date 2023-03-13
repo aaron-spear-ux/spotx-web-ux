@@ -1,0 +1,100 @@
+.single-day {
+  padding: 0;
+  header,
+  .logo,
+  .sidebar {
+    -webkit-transition: all ease-in-out .2s;
+    transition: all ease-in-out .2s;
+  }
+  header {
+    background: #fff;
+    height: 90px;
+    width: 100%;
+    position: fixed;
+    z-index: 1000;
+    border-bottom: #aaa 1px solid;
+    box-shadow: 0 0 10px rgba(0,0,0,.2);
+    .logo {
+      display: block;
+      background: url('../../dist/img/logo-spotx.png') no-repeat;
+      width: 178px;
+      height: 38px;
+      background-size: 178px 38px;
+      margin: 28px 0 0 15px;
+    }
+  }
+  .sidebar {
+    padding: 0;
+    height: 100%;
+    position: fixed;
+    top: 90px;
+    .tab {
+      background: #eee;
+      border-bottom: 1px solid #aaa;
+      a {
+        display: block;
+        font-size: 14px;
+        color: #444;
+        padding: 12px 20px;
+        line-height: 20px;
+        &:hover,
+        &:focus {
+          text-decoration: none;
+        }
+        &:hover {
+          color: #000;
+        }
+        p {
+          font-size: 12px;
+          color: #888;
+        }
+      }
+      &:hover {
+        background: #f3f3f3;
+      }
+      &.active {
+        background: #fff;
+        color: #000;
+      }
+      p {
+        white-space: pre-line;
+        margin: 0;
+      }
+    }
+  }
+  .main {
+    padding: 0 0 140px;
+    height: auto;
+    border-left: #aaa 1px solid;
+    margin-top: 90px;
+    margin-left: 16.66666667%;
+    .view_sub_header {
+      padding: 25px 20px 0 30px;
+      h2 {
+        margin: 0;
+        float: left;
+      }
+    }
+    .sub_header_controls {
+      float: right;
+      padding-top: 3px;
+    }
+    .week-chart {
+      width: 75%;
+      float: left;
+    }
+    .day-chart {
+      width: 23%;
+      float: left;
+      margin-right: 2%;
+    }
+  }
+}
+
+.alt {
+  header {
+    height: 45px;
+  }
+}
+
+

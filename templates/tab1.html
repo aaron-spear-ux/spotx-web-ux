@@ -1,0 +1,31 @@
+<div ng-controller="tableCreativeCtrl">
+    <table st-table="rowCollection" class="table table-sort">
+        <thead>
+            <tr>
+                <th st-sort="name">Creative Endpoint Name<i class="icon"></i></th>
+                <th st-sort="type">Endpoint Type<i class="icon"></i></th>
+                <th st-sort="type"># Beacons<i class="icon"></i></th>
+                <th st-sort="status">Status<i class="icon"></i></th>
+            </tr>
+            <tr>
+                <th><input st-search="'name'" placeholder="search name" class="input-sm form-control" type="search"/></th>
+                <th></th>
+                <th></th>
+                <th><input st-search="'name'" placeholder="search status" class="input-sm form-control" type="search"/></th>
+            </tr>
+        </thead>
+        <tbody ng-controller="collapseCtrl">
+            <tr ng-repeat="row in rowCollection">
+                <td class="name row-{{row.status}}">
+                    <div class="checkbox checkbox-primary">
+                        <input type="checkbox" name="checkbox" id="{{row.name}}" value="{{row.name}}">
+                        <label for="{{row.name}}">{{row.name}}</label>
+                    </div>
+                </td>
+                <td class="row-{{row.status}}">{{row.type}}</td>
+                <td class="row-{{row.status}}">{{row.beacons}}</td>
+                <td class="row-{{row.status}}"><span>{{row.status}}</span></td>
+            </tr>
+        </tbody>
+    </table>
+</div>

@@ -1,0 +1,92 @@
+.forecasting {
+    .btn-forecast {
+        position: absolute;
+        right: 10px;
+        top: 10px;
+        border-radius: 20px;
+        padding: 0;
+        opacity: 1;
+        width: 38px;
+        height: 38px;
+        -webkit-transition: all ease-out 0.3s;
+        transition: all ease-out 0.3s;
+        box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14), 
+                    0 3px 1px -2px rgba(0, 0, 0, 0.2), 
+                    0 1px 5px 0 rgba(0, 0, 0, 0.12);
+    }
+    .main {
+        margin: 60px 0 0;
+        .form-container {
+            .form-section {
+                position: relative;
+            }
+        }
+    }
+    .side-bar-right {
+        top: 60px;
+        .form-container {
+            .form-section {
+                padding: 0;
+                margin-bottom: 2px;
+                legend {
+                    padding: 10px 15px;
+                    margin: 0;
+                    border-bottom: #ddd 1px solid;
+                }
+                .close-sidebar {
+                    padding: 10px 0 0;
+                }
+            }
+        }
+    }
+}
+
+.forecasting-widget {
+    .dimension-list {
+        margin: 0;
+        padding: 0;
+        list-style: none;
+        li {
+            padding: 12px 15px 10px;
+            border-bottom: #ddd 1px solid;
+            label {
+                display: block;
+                margin: 0;
+            }
+            span {
+                font-size: 30px;
+                font-weight: 600;
+                line-height: 30px;
+            }
+            &:last-child {
+                border: none;
+            }
+            &.imp {
+                border-left: rgb(186, 4, 4) 5px solid;
+            }
+            &.req {
+                border-left: rgb(27, 157, 208) 5px solid;
+            }
+        }
+    }
+    .target-list {
+        margin: 15px 0;
+        li {
+            line-height: 34px;
+        }
+    }
+    .forecast-details {
+        label {
+            min-width: 110px;
+        }
+    }
+}
+
+.shift-right {
+    &.forecasting {
+        .btn-forecast {
+            opacity: 0;
+            pointer-events: none;
+        }
+    }
+}

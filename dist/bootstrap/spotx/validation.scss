@@ -1,0 +1,37 @@
+.validation-text {
+  display: none;
+}
+.validation-active {
+  .alert {
+    bottom: 0;
+    &.alert-close {
+      bottom: -60px;
+    }
+  }
+  .error {
+    .required-remove {
+      display: none;
+    }
+    .required-control,
+    .select2-container .select2-selection {
+      border: #ca3737 1px solid;
+      &.select2 {
+        border: none;
+        > a {
+          border: #ca3737 1px solid;
+        }
+      }
+    }
+    .required-radio {
+      &:before {
+        border: #ca3737 1px solid;
+      }
+    }
+    .validation-text {
+      display: block;
+      color: #ca3737;
+      font-size: 14px;
+      margin-bottom: 5px;
+    }
+  }
+}

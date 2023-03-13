@@ -1,0 +1,87 @@
+.csn {
+    .table-container {
+        padding: 10px 20px;
+    }
+    .filter-header {
+        .col {
+            background: #fff;
+            color: #333;
+            font-weight: 600;
+            &.no-padding {
+                padding: 0;
+            }
+            .header-section {
+                border: none;
+                height: 40px;
+                border-top: 1px solid #d9d9d9;
+                border-bottom: 1px solid #d9d9d9;
+            }
+        }
+    }
+    .sub-filter-header {
+        background-color: #ebedf0;;
+    }
+    .filter-row {
+        .line-height {
+            line-height: 40px;
+        }
+        .fa {
+            padding-top: 10px;
+        }
+    }
+    .code {
+        font-size: 90%;
+        color: #555;
+    }
+    .dropdown-menu {
+        width: 222px;
+    }
+    .exclusions {
+        .scroll-section {
+            overflow: scroll;
+            height: calc(100vh - 233px);
+            .exclusion-list {
+                margin: 0;
+                padding: 0;
+                list-style: none;
+                max-height: 200px;
+                overflow: scroll;
+            }
+            ::-webkit-scrollbar {
+                -webkit-appearance: none;
+            }
+            ::-webkit-scrollbar:vertical {
+                width: 11px;
+            }
+            ::-webkit-scrollbar:horizontal {
+                height: 11px;
+            }
+            ::-webkit-scrollbar-thumb {
+                border-radius: 8px;
+                border: 2px solid white; /* should match background, can't be transparent */
+                background-color: rgba(0, 0, 0, .4);
+            }
+            ::-webkit-scrollbar-track { 
+                background-color: #fff; 
+                border-radius: 8px; 
+            } 
+        }
+        .action-btns {
+            position: absolute;
+            width: 100%;
+            height: 130px;
+            bottom: 0;
+            padding: 15px;
+            border-top: #ddd 1px solid;
+            box-shadow: 0px 0px 3px rgba(0, 0, 0, 0.1);
+            background: rgba(255, 255, 255, 0.7);
+            .btn {
+                width: 100%;
+            }
+        }
+    }
+    .creative-show .table-container .hide-dropdown, 
+    .sidebar-show .table-container .hide-dropdown {
+        padding: 4px 8px 8px;
+    }
+}

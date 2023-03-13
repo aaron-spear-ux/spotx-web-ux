@@ -1,0 +1,175 @@
+<h4 class="fixed-header" ng-cloak>Forms</h4>
+<div class="alert alert-red" role="alert">
+	Please complete the required fields.
+	<a href="#" class="close-alert">
+		<span class="ex"></span>
+	</a>
+</div>
+<form class="form-container">
+	<div class="form-section">
+        <fieldset class="required">
+            <legend>Endpoint Settings</legend>
+            <p>Select the creative settings for this endpoint.</p>
+            <div class="form-horizontal">
+                <div class="container">
+                    <div class="row form-group">
+                        <div class="col col-md-5 error required invalid">
+                            <label class="required-remove">Endpoint Name</label>
+                            <label class="validation-text">Please enter an endpoint name.</label>
+                            <span class="required-dot"></span>
+                            <input type="text" class="form-control required-control" id="name">
+                            <small class="form-text text-muted">Enter endpoint name in 50 characters or less.</small>
+                        </div>
+                        <div class="col col-md-5">
+                            <label for="request" class="required-remove">Request Feed</label>
+                            <select class="form-control select2 required-control" id="request">
+                                <option selected>Server Side</option>
+                                <option>Client Side</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="row form-group" style="margin-bottom: 0;">
+                        <div class="col col-md-5">
+                            <label for="scheme" class="required-remove">Feed Scheme</label>
+                            <select class="form-control select2 required-control" id="scheme">
+                                <option>VAST 2</option>
+                                <option>OpenRTB</option>
+                                <option>OpenRTB : 2.1</option>
+                                <option selected="selected">OpenRTB : 2.2</option>
+                                <option>Custom</option>
+                            </select>
+                        </div>
+                        <div class="col col-md-5 error required invalid">
+                            <label for="advID" class="required-remove">Feed URL</label>
+                            <label class="validation-text">Please enter a feed URL.</label>
+                            <span class="required-dot"></span>
+                            <input type="url" class="form-control required-control" id="feedurl">
+                            <small class="form-text text-muted">URL must include http:// or https://.</small>
+                        </div>
+                    </div>
+                    <div class="row form-group">
+                        <div class="col col-md-10">
+                            <label for="audio">Audio / Video Type</label>
+                            <select multiple="" name="multiple" class="form-control select2" id="audio">
+                                <option selected="selected">FLV</option>
+                                <option selected="selected">MP4</option>
+                                <option selected="selected">SWF</option>
+                                <option selected="selected">JS</option>
+                                <option selected="selected">WebM</option>
+                                <option selected="selected">OGA</option>
+                                <option selected="selected">MP3</option>
+                                <option selected="selected">FLAC</option>
+                                <option selected="selected">M4A</option>
+                                <option selected="selected">AAC</option>
+                            </select>
+                            <small class="form-text text-muted">Select all audio and video types that apply.</small>
+                        </div>
+                    </div>
+                    <div class="row form-group">
+                        <div class="col col-md-2" style="min-width: 220px;">
+                            <label style="float: none;">Supports Ad ID</label>
+                            <div class="path">
+                                <span class="shape trail"></span> 
+                                <div class="radio-custom auto-gran-btn">
+                                    <input type="radio" name="radio" class="btn-radio" checked id="radio1"/>
+                                    <label for="radio1" class="select">Yes</label>
+                                </div>    
+                                <div class="radio-custom dense-gran-btn">
+                                    <input type="radio" name="radio" class="btn-radio" id="radio2"/>
+                                    <label for="radio2" class="unselect">No</label>
+                                </div>    
+                            </div>
+                        </div>
+                    </div>    
+                </div>
+            </div>        
+        </fieldset>
+	</div>
+	<div class="form-section">
+        <fieldset class="form-group hide-row">
+            <legend>Targeting</legend>
+            <p>Select which targeting options you would like for this endpoint.</p>
+            <div class="col" style="padding-right: 0;">
+                <div class="form-horizontal form-table">
+                    <div class="container">
+                        <div class="filter-header clearfix">
+                            <div class="row">
+                                <div class="col col-md-3" style="padding: 0;">
+                                    <div class="header-section">
+                                        Category
+                                    </div>
+                                </div>
+                                <div class="col col-md-3" style="padding: 0;">
+                                    <div class="header-section">
+                                        Operator
+                                    </div>
+                                </div>
+                                <div class="col col-md-5" style="padding: 0;">
+                                    <div class="header-section">
+                                        Targeting Options
+                                    </div>
+                                </div>
+                                <div class="col col-md-1" style="padding: 0;">
+                                </div>
+                            </div>
+                        </div>    
+                        <div class="filter-form clearfix">
+                            <div class="filter-row row">
+                                <div class="col col-md-3">
+                                    <select class="form-control select2">
+                                        <option>Data Center</option>
+                                        <option>Device Type</option>
+                                    </select>
+                                </div>
+                                <div class="col col-md-3">
+                                    <select class="form-control select2-search">
+                                        <option>is any of</option>
+                                        <option>is not any of</option>
+                                    </select>
+                                </div>
+                                <div class="col col-md-5">
+                                    <select multiple="" class="form-control select2">
+                                        <option>Denver</option>
+                                        <option>Virginia</option>
+                                        <option>Amsterdam</option>
+                                        <option>Singapore</option>
+                                    </select>
+                                </div>
+                                <div class="col col-md-1" style="padding: 5px 8px;">
+                                    <div class="pull-right" style="width: 115px;">
+                                        <a href="javascript:void(0)"class="remove-line">
+                                            <span class="ex"></span>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div> 
+                    </div>    
+                    <div class="btns-group clearfix" style="padding: 20px 0 0; text-align: right;">
+                            <a href="javascript:void(0)" class="btn btn-success btn-row">Add Targeting</a>
+                    </div>  
+                </div>
+            </div> 
+        </fieldset>  
+        <div class="btns-group btns-divider">
+            <button type="submit" class="btn btn-link cancel">Cancel</button>
+            <button type="submit" class="btn btn-success validate">Create Endpoint</button>
+        </div>
+	</div>
+</form>
+<script type="text/javascript">
+	$('.auto-gran-btn').click(function(){
+		$(this).parents().eq(3).removeClass('dense-gran-show');
+		$(this).parents().eq(3).addClass('auto-gran-show');
+	});
+	$('.dense-gran-btn').click(function(){
+		$(this).parents().eq(3).removeClass('auto-gran-show');
+		$(this).parents().eq(3).addClass('dense-gran-show');
+	});
+	$('.btn-row').click(function(){
+		$(this).parents().eq(3).removeClass('hide-row');
+	});
+	$('.remove-line').click(function(){
+		$(this).parents().eq(7).addClass('hide-row');
+	});
+</script>

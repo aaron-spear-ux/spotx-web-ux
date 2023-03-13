@@ -1,0 +1,34 @@
+<h4 class="fixed-header" ng-cloak>CSS / LESS Guidelines</h4>
+<div class="form-container">
+    <div class="form-section">
+        <legend>Style Lint - <a href="https://stylelint.io/">stylelint.io</a></legend>
+        <p>Stylelint is a dependable mistake-preventing machine that understands CSS and understands our intentions, preferences, ideals, and weaknesses.</p>
+        <h6>1. Catch Errors</h6>
+        <h6>2. Enforce Best Practices</h6>
+        <h6>3. Enforce code style conventions</h6>
+        <h6>4. Customize and extend</h6>
+    </div>
+    <div class="form-section">
+        <legend>::ng-deep (aka. /deep/ and >>>) - depreciated</legend>
+        <p>Applying the ::ng-deep pseudo-class to any CSS rule completely disables view-encapsulation for that rule. 
+            Any style with ::ng-deep applied becomes a global style. 
+            In order to scope the specified style to the current component and all its descendants, 
+            be sure to include the :host selector before ::ng-deep. 
+            If the ::ng-deep combinator is used without the :host pseudo-class selector, the style can bleed into other components.</p>
+        <p>The following example targets all h3 elements, from the host element down through this component to all of its child elements in the DOM.</p>
+        <pre rel="CSS" class="language-css">
+            <code>
+:host ::ng-deep h3 {
+    font-style: italic;
+}
+            </code>
+        </pre>
+    </div>
+    <div class="form-section">
+        <legend>PX to REM (coming soon)</legend>
+        <p>REMs are a way of setting font-sizes based on the font-size of the root HTML element. They also allow you to quickly scale an entire project by changing the root font-size, for example at a certain media query/screen size.
+            “[The REM] unit represents the font-size of the root element (e.g. the font-size of the <html> element). When used on the font-size on this root element, it represents its initial value.”</p>
+    </div>
+</div>
+
+<script src="dist/js/lib/prism/prism.js"></script>

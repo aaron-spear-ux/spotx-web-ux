@@ -1,0 +1,53 @@
+<form class="form-horizontal" style="padding: 0 20px;">
+    <p style="margin-bottom: 20px;">
+        We accept any file in a valid video or image format with a 2GB file size
+        restriction.  We recommend a 1080p resolution video file or a web-ready banner.
+    </p>
+    <div class="form-group required">
+        <label class="control-label col-sm-3">
+            Name:
+        </label>
+        <div class="controls col-sm-8">
+            <input class="form-control" id="creativeLibrary_Name" name="strCreativeName" style="width:90%" type="text">
+            <div id="strCreativeName-errors"></div>
+        </div>
+    </div>
+
+    <div class="form-group required">
+        <label class="control-label col-sm-3" for="creativeLibrary_File">
+            Media File:
+        </label>
+        <div class="controls col-sm-8">
+            <button type="button" class="btn btn-primary uploadButton btn-sm" ng-click="openFilePicker();">Choose file</button>
+            <div id="mediaFileErrorOutputContainer"></div>
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label class="control-label col-sm-3" for="creativeLibrary_Transcoding">Transcoding:</label>
+        <div class="controls col-sm-8" style="padding-left: 2px;" id="creativeLibrary_Transcoding">
+            <div class="checkbox checkbox-primary">
+			    <input type="checkbox" checked="checked" id="transcodingCB"/>
+			    <label for="transcodingCB">Transcode this file into multiple formats (video only)</label>
+			</div>
+        </div>
+        <label class="control-label col-sm-3"></label>
+        <div class="controls col-sm-8" style="padding-left: 2px;">
+            <div class="checkbox checkbox-primary">
+			    <input type="checkbox" id="bTermsAndConditions">
+			    <label for="bTermsAndConditions">
+                    I accept the
+                    <a href="/terms_and_conditions.pdf" target="_blank">
+                        Terms and Conditions
+                    </a>
+                </label>
+			</div>
+            <div id="bTermsAndConditions-errors"></div>
+        </div>
+    </div>
+    <div class="form-modal-footer">
+        <a class="btn btn-primary">
+            Upload
+        </a>
+    </div>
+</form>

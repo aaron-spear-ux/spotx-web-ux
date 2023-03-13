@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="styleApp">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="description" content="">
+        <meta name="author" content="">
+        <link rel="icon" href="dist/img/favicon.ico">
+
+        <title>Create Custom Report</title>
+
+        <script src="dist/js/requirejs/require.js"></script>
+
+        <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+        <!--[if lt IE 9]>
+          <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+          <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+        <![endif]-->
+
+        <!-- Google fonts Source Sans -->
+        <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700' rel='stylesheet' type='text/css'>
+        <style type="text/css">
+            [ng\:cloak], [ng-cloak], [data-ng-cloak], [x-ng-cloak], .ng-cloak, .x-ng-cloak {
+                display: none !important;
+            }
+        </style>
+    </head>
+
+    <body class="spotx stones-throw side-nav" ng-controller="mainCtrl" ng-cloak>
+
+        <div class="container-fluid">
+            <div class="row">
+                <div class="side-bar">
+                    <div class="side-container">
+                        <a href="#" class="logo" activenav></a>
+                        <ul class="nav nav-side" ng-controller="navCtrl">
+                            <li class="level-1 campaign" activenav>
+                                <a href="#" closesub>
+                                    <i class="fa fa-line-chart" tooltip="Campaigns" tooltip-placement="right" tooltip-trigger="mouseenter"></i> 
+                                    <span>Campaigns</span>
+                                </a>
+                                <div class="nav-drop-container">
+                                    <ul class="nav-drop">
+                                        <li><a href="#">Publisher Campaigns</a></li>
+                                        <li><a href="#">Advertiser Campaigns</a></li>
+                                        <li><a href="#">Campaign Reports</a></li>
+                                    </ul>
+                                </div>
+                            </li>
+                            <li class="level-1 channel" activenav>
+                                <a href="#" closesub>
+                                    <i class="fa fa-area-chart" tooltip="Channels" tooltip-placement="right" tooltip-trigger="mouseenter"></i> 
+                                    <span>Channels</span>
+                                </a>
+                                <div class="nav-drop-container">
+                                    <ul class="nav-drop">
+                                        <li><a href="#">Manage Channels</a></li>
+                                        <li><a href="#">Create New Channel</a></li>
+                                        <li><a href="#">Channel Reports</a></li>
+                                    </ul> 
+                                </div>    
+                            </li>
+                            <li class="level-1 report" activenav>
+                                <a href="#" closesub>
+                                    <i class="fa fa-bar-chart" tooltip="Reports" tooltip-placement="right" tooltip-trigger="mouseenter"></i> 
+                                    <span>Reports</span>
+                                </a>
+                                <div class="nav-drop-container">
+                                    <ul class="nav-drop">
+                                        <li><a href="#">Report Center</a></li>
+                                        <li class="publisher" activepubnav>
+                                            <a href="#">Publisher Reports</a>
+                                        </li>
+                                        <div class="nav-drop-pub-container">
+                                            <ul class="nav-drop-sub">
+                                                <li><a href="#">Publishers</a></li>
+                                                <li><a href="#">Channels</a></li>
+                                                <li><a href="#">Key Value Pairs</a></li>
+                                                <li><a href="#">Scheduled Reports</a></li>
+                                                <li><a href="#">Custom Reports</a></li>
+                                                <li><a href="#">Traffic</a></li>
+                                                <li><a href="#">Inventory</a></li>
+                                            </ul>
+                                        </div>
+                                        <li class="advertiser" activeadvnav>
+                                            <a href="#">Advertiser Reports</a>
+                                        </li>
+                                        <div class="nav-drop-adv-container">
+                                            <ul class="nav-drop-sub">
+                                                <li><a href="#">Advertisers</a></li>
+                                                <li><a href="#">Campaigns</a></li>
+                                                <li><a href="#">Traffic</a></li>
+                                                <li><a href="#">Tags</a></li>
+                                                <li><a href="#">Transactions</a></li>
+                                            </ul>
+                                        </div>
+                                    </ul>
+                                </div>
+                            </li>
+                            <li class="level-1 tools" activenav>
+                                <a href="#" closesub>
+                                    <i class="fa fa-cogs" tooltip="Tools" tooltip-placement="right" tooltip-trigger="mouseenter"></i> 
+                                    <span>Tools</span>
+                                </a>
+                                <div class="nav-drop-container">
+                                    <ul class="nav-drop">
+                                        <li><a href="#">Key Value Pairs</a></li>
+                                        <li><a href="#">Tags</a></li>
+                                        <li><a href="#">Seat Mapping</a></li>
+                                        <li><a href="#">Forecasting</a></li>
+                                        <li><a href="#">Audience Management</a></li>
+                                        <li activesubnav>
+                                            <a href="#">Site List</a>
+                                        </li>
+                                        <div class="nav-drop-sub-container">
+                                            <ul class="nav-drop-sub">
+                                                <li><a href="#">Advertiser Site List</a></li>
+                                                <li><a href="#">Campaign Site List</a></li>
+                                                <li><a href="#">Network Wide Site List</a></li>
+                                            </ul>
+                                        </div>
+                                    </ul>
+                                </div>   
+                            </li>
+                            <li class="level-1 account" activenav>
+                                <a href="#" closesub>
+                                    <i class="fa account-icon" tooltip="Account Info" tooltip-placement="right" tooltip-trigger="mouseenter"></i>
+                                    <span>Account Info</span>
+                                </a>
+                                <div class="nav-drop-container">
+                                    <ul class="nav-drop">
+                                        <li><a href="#">Account</a></li>
+                                        <li><a href="#">Manage Users</a></li>
+                                        <li><a href="#">Settings</a></li>
+                                        <li><a href="#">Change Password</a></li>
+                                        <li><a href="#">Logout</a></li>
+                                    </ul>
+                                </div>
+                            </li>
+                            <li class="level-1 search" activenav>
+                                <a href="#">
+                                    <i class="search fa icon icon-zoom"></i>
+                                    <span>Search</span>
+                                </a>
+                            </li>
+                        </ul> 
+                    </div>
+                    <div class="search-expanded">
+                        <div class="search icon icon-zoom"></div>
+                        <input type="text" class="form-control" id="sitewide" autofocus placeholder="Search..."/>
+                        <a href="#" class="close-search">
+                            <span class="ex"></span>
+                        </a>
+                    </div>
+                    <ul class="search-dropdown dropdown-content">
+                        <li class="dropdown-header">Quick Links</li>
+                        <li><a href="#">Campaigns</a></li>
+                        <li><a href="#">Channels</a></li>
+                        <li><a href="#">Reports</a></li>
+                        <li><a href="#">Forecasting</a></li>
+                        <li class="drop-divider"></li>
+                        <li class="dropdown-header">Suggested Searches</li>
+                        <li><a href="#">Scheduled Reports</a></li>
+                        <li><a href="#">Custom Reports</a></li>
+                        <li><a href="#">Campaign Reports</a></li>
+                    </ul>
+                    <a href="#" class="minimize-toggle">
+                        <div class="patty"></div>
+                    </a>
+                </div>
+                <div class="main"></div>
+            </div>
+        </div>
+
+        <script type="text/javascript">
+            require(["dist/js/main"]);
+        </script>
+
+    </body>
+</html>
+
+

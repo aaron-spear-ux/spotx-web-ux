@@ -1,0 +1,395 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="styleApp">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="description" content="">
+        <meta name="author" content="">
+        <link rel="icon" href="dist/img/favicon.ico">
+
+        <title>Advertiser Campaigns</title>
+
+        <script src="dist/js/requirejs/require.js"></script>
+
+        <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+        <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+        <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+        <![endif]-->
+
+        <!-- Google fonts Source Sans -->
+        <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700' rel='stylesheet' type='text/css'>
+        <style type="text/css">
+            [ng\:cloak], [ng-cloak], [data-ng-cloak], [x-ng-cloak], .ng-cloak, .x-ng-cloak {
+                display: none !important;
+            }
+        </style>
+    </head>
+
+    <body class="spotx dayparting" header-collapse ng-controller="mainCtrl" ng-cloak>
+
+        <header class="navbar-fixed">
+            <div class="header-left">
+                <a href="#" class="logo"></a>
+            </div>
+        </header>
+
+        <div class="form-section">
+            <fieldset class="form-group required">
+                <div class="swatch-container clearfix">
+                    <div class="swatch-section">
+                        <ul class="swatch-list slate">
+                            <li class="swatch sx-slate-light-95">
+                                <span class="hex">#f2f5fc</span>
+                            </li>
+                            <li class="swatch sx-slate-light-85">
+                                <span class="hex">#dee3f0</span>
+                            </li>
+                            <li class="swatch sx-slate-light-65">
+                                <span class="hex">#bcc2d3</span>
+                            </li>
+                            <li class="swatch sx-slate-light-45">
+                                <span class="hex">#79cdee</span>
+                            </li>
+                            <li class="swatch sx-slate-light-25">
+                                <span class="hex">#48bbe7</span>
+                            </li>
+                            <li class="swatch default sx-slate">
+                                <span class="name">slate</span>
+                                <span class="hex">#747B8B</span>
+                            </li>
+                            <li class="swatch sx-slate-dark-25">
+                                <span class="hex light">#14769c</span>
+                            </li>
+                            <li class="swatch sx-slate-dark-45">
+                                <span class="hex light">#0f5672</span>
+                            </li>
+                            <li class="swatch sx-slate-dark-65">
+                                <span class="hex light">#093749</span>
+                            </li>
+                            <li class="swatch sx-slate-dark-85">
+                                <span class="hex light">#031820</span>
+                            </li>
+                            <li class="swatch sx-slate-dark-95">
+                                <span class="hex light">#031820</span>
+                            </li>
+                        </ul>
+                    </div>   
+                    <div class="swatch-section">
+                        <ul class="swatch-list moss">
+                            <li class="swatch sx-moss-light-95">
+                                <span class="hex">#eef8e1</span>
+                            </li>
+                            <li class="swatch sx-moss-light-85">
+                                <span class="hex">#eef8e1</span>
+                            </li>
+                            <li class="swatch sx-moss-light-65">
+                                <span class="hex">#d7ebbd</span>
+                            </li>
+                            <li class="swatch sx-moss-light-45">
+                                <span class="hex">#c1e097</span>
+                            </li>
+                            <li class="swatch sx-moss-light-25">
+                                <span class="hex">#aad471</span>
+                            </li>
+                            <li class="swatch default sx-moss">
+                                <span class="name">moss</span>
+                                <span class="hex">#8ec641</span>
+                            </li>
+                            <li class="swatch sx-moss-dark-25">
+                                <span class="hex light">#6b982e</span>
+                            </li>
+                            <li class="swatch sx-moss-dark-45">
+                                <span class="hex light">#4e6f21</span>
+                            </li>
+                            <li class="swatch sx-moss-dark-65">
+                                <span class="hex light">#324715</span>
+                            </li>
+                            <li class="swatch sx-moss-dark-85">
+                                <span class="hex light">#162007</span>
+                            </li>
+                            <li class="swatch sx-moss-dark-95">
+                                <span class="hex light">#162007</span>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="swatch-section">
+                        <ul class="swatch-list sky">
+                            <li class="swatch sx-sky-light-95">
+                                <span class="hex">#daf2fb</span>
+                            </li>
+                            <li class="swatch sx-sky-light-85">
+                                <span class="hex">#daf2fb</span>
+                            </li>
+                            <li class="swatch sx-sky-light-65">
+                                <span class="hex">#aadff4</span>
+                            </li>
+                            <li class="swatch sx-sky-light-45">
+                                <span class="hex">#79cdee</span>
+                            </li>
+                            <li class="swatch sx-sky-light-25">
+                                <span class="hex">#48bbe7</span>
+                            </li>
+                            <li class="swatch default sx-sky">
+                                <span class="name">sky</span>
+                                <span class="hex">#1b9dd0</span>
+                            </li>
+                            <li class="swatch sx-sky-dark-25">
+                                <span class="hex light">#14769c</span>
+                            </li>
+                            <li class="swatch sx-sky-dark-45">
+                                <span class="hex light">#0f5672</span>
+                            </li>
+                            <li class="swatch sx-sky-dark-65">
+                                <span class="hex light">#093749</span>
+                            </li>
+                            <li class="swatch sx-sky-dark-85">
+                                <span class="hex light">#031820</span>
+                            </li>
+                            <li class="swatch sx-sky-dark-95">
+                                <span class="hex light">#031820</span>
+                            </li>
+                        </ul>
+                    </div> 
+                    <div class="swatch-section">
+                        <ul class="swatch-list azure">
+                            <li class="swatch sx-azure-light-95">
+                                <span class="hex">#daf2fb</span>
+                            </li>
+                            <li class="swatch sx-azure-light-85">
+                                <span class="hex">#daf2fb</span>
+                            </li>
+                            <li class="swatch sx-azure-light-65">
+                                <span class="hex">#aadff4</span>
+                            </li>
+                            <li class="swatch sx-azure-light-45">
+                                <span class="hex">#79cdee</span>
+                            </li>
+                            <li class="swatch sx-azure-light-25">
+                                <span class="hex">#48bbe7</span>
+                            </li>
+                            <li class="swatch default sx-azure">
+                                <span class="name">azure</span>
+                                <span class="hex">#0E53F1</span>
+                            </li>
+                            <li class="swatch sx-azure-dark-25">
+                                <span class="hex light">#14769c</span>
+                            </li>
+                            <li class="swatch sx-azure-dark-45">
+                                <span class="hex light">#0f5672</span>
+                            </li>
+                            <li class="swatch sx-azure-dark-65">
+                                <span class="hex light">#093749</span>
+                            </li>
+                            <li class="swatch sx-azure-dark-85">
+                                <span class="hex light">#031820</span>
+                            </li>
+                            <li class="swatch sx-azure-dark-95">
+                                <span class="hex light">#031820</span>
+                            </li>
+                        </ul>
+                    </div> 
+                    <div class="swatch-section">
+                        <ul class="swatch-list grape">
+                            <li class="swatch sx-grape-light-95">
+                                <span class="hex">#daf2fb</span>
+                            </li>
+                            <li class="swatch sx-grape-light-85">
+                                <span class="hex">#daf2fb</span>
+                            </li>
+                            <li class="swatch sx-grape-light-65">
+                                <span class="hex">#aadff4</span>
+                            </li>
+                            <li class="swatch sx-grape-light-45">
+                                <span class="hex">#79cdee</span>
+                            </li>
+                            <li class="swatch sx-grape-light-25">
+                                <span class="hex">#48bbe7</span>
+                            </li>
+                            <li class="swatch default sx-grape">
+                                <span class="name">grape</span>
+                                <span class="hex">#703FC0</span>
+                            </li>
+                            <li class="swatch sx-grape-dark-25">
+                                <span class="hex light">#14769c</span>
+                            </li>
+                            <li class="swatch sx-grape-dark-45">
+                                <span class="hex light">#0f5672</span>
+                            </li>
+                            <li class="swatch sx-grape-dark-65">
+                                <span class="hex light">#093749</span>
+                            </li>
+                            <li class="swatch sx-grape-dark-85">
+                                <span class="hex light">#031820</span>
+                            </li>
+                            <li class="swatch sx-grape-dark-95">
+                                <span class="hex light">#031820</span>
+                            </li>
+                        </ul>
+                    </div> 
+                    <div class="swatch-section">
+                        <ul class="swatch-list guava">
+                            <li class="swatch sx-guava-light-95">
+                                <span class="hex">#daf2fb</span>
+                            </li>
+                            <li class="swatch sx-guava-light-85">
+                                <span class="hex">#daf2fb</span>
+                            </li>
+                            <li class="swatch sx-guava-light-65">
+                                <span class="hex">#aadff4</span>
+                            </li>
+                            <li class="swatch sx-guava-light-45">
+                                <span class="hex">#79cdee</span>
+                            </li>
+                            <li class="swatch sx-guava-light-25">
+                                <span class="hex">#48bbe7</span>
+                            </li>
+                            <li class="swatch default sx-guava">
+                                <span class="name">guava</span>
+                                <span class="hex">#E0457B</span>
+                            </li>
+                            <li class="swatch sx-guava-dark-25">
+                                <span class="hex light">#14769c</span>
+                            </li>
+                            <li class="swatch sx-guava-dark-45">
+                                <span class="hex light">#0f5672</span>
+                            </li>
+                            <li class="swatch sx-guava-dark-65">
+                                <span class="hex light">#093749</span>
+                            </li>
+                            <li class="swatch sx-guava-dark-85">
+                                <span class="hex light">#031820</span>
+                            </li>
+                            <li class="swatch sx-guava-dark-95">
+                                <span class="hex light">#031820</span>
+                            </li>
+                        </ul>
+                    </div> 
+                    <div class="swatch-section">
+                        <ul class="swatch-list tango">
+                            <li class="swatch sx-tango-light-95">
+                                <span class="hex">#eef8e1</span>
+                            </li>
+                            <li class="swatch sx-tango-light-85">
+                                <span class="hex">#eef8e1</span>
+                            </li>
+                            <li class="swatch sx-tango-light-65">
+                                <span class="hex">#d7ebbd</span>
+                            </li>
+                            <li class="swatch sx-tango-light-45">
+                                <span class="hex">#c1e097</span>
+                            </li>
+                            <li class="swatch sx-tango-light-25">
+                                <span class="hex">#aad471</span>
+                            </li>
+                            <li class="swatch default sx-tango">
+                                <span class="name">tango</span>
+                                <span class="hex">#E81717</span>
+                            </li>
+                            <li class="swatch sx-tango-dark-25">
+                                <span class="hex light">#6b982e</span>
+                            </li>
+                            <li class="swatch sx-tango-dark-45">
+                                <span class="hex light">#4e6f21</span>
+                            </li>
+                            <li class="swatch sx-tango-dark-65">
+                                <span class="hex light">#324715</span>
+                            </li>
+                            <li class="swatch sx-tango-dark-85">
+                                <span class="hex light">#162007</span>
+                            </li>
+                            <li class="swatch sx-tango-dark-95">
+                                <span class="hex light">#162007</span>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="swatch-section">
+                        <ul class="swatch-list mandarin">
+                            <li class="swatch sx-mandarin-light-95">
+                                <span class="hex">#daf2fb</span>
+                            </li>
+                            <li class="swatch sx-mandarin-light-85">
+                                <span class="hex">#daf2fb</span>
+                            </li>
+                            <li class="swatch sx-mandarin-light-65">
+                                <span class="hex">#aadff4</span>
+                            </li>
+                            <li class="swatch sx-mandarin-light-45">
+                                <span class="hex">#79cdee</span>
+                            </li>
+                            <li class="swatch sx-mandarin-light-25">
+                                <span class="hex">#48bbe7</span>
+                            </li>
+                            <li class="swatch default sx-mandarin">
+                                <span class="name">mandarin</span>
+                                <span class="hex">#FE7801</span>
+                            </li>
+                            <li class="swatch sx-mandarin-dark-25">
+                                <span class="hex light">#14769c</span>
+                            </li>
+                            <li class="swatch sx-mandarin-dark-45">
+                                <span class="hex light">#0f5672</span>
+                            </li>
+                            <li class="swatch sx-mandarin-dark-65">
+                                <span class="hex light">#093749</span>
+                            </li>
+                            <li class="swatch sx-mandarin-dark-85">
+                                <span class="hex light">#031820</span>
+                            </li>
+                            <li class="swatch sx-mandarin-dark-95">
+                                <span class="hex light">#031820</span>
+                            </li>
+                        </ul>
+                    </div> 
+                    <div class="swatch-section">
+                        <ul class="swatch-list lemon">
+                            <li class="swatch sx-lemon-light-95">
+                                <span class="hex">#daf2fb</span>
+                            </li>
+                            <li class="swatch sx-lemon-light-85">
+                                <span class="hex">#daf2fb</span>
+                            </li>
+                            <li class="swatch sx-lemon-light-65">
+                                <span class="hex">#aadff4</span>
+                            </li>
+                            <li class="swatch sx-lemon-light-45">
+                                <span class="hex">#79cdee</span>
+                            </li>
+                            <li class="swatch sx-lemon-light-25">
+                                <span class="hex">#48bbe7</span>
+                            </li>
+                            <li class="swatch default sx-lemon">
+                                <span class="name">lemon</span>
+                                <span class="hex">#FFC600</span>
+                            </li>
+                            <li class="swatch sx-lemon-dark-25">
+                                <span class="hex light">#14769c</span>
+                            </li>
+                            <li class="swatch sx-lemon-dark-45">
+                                <span class="hex light">#0f5672</span>
+                            </li>
+                            <li class="swatch sx-lemon-dark-65">
+                                <span class="hex light">#093749</span>
+                            </li>
+                            <li class="swatch sx-lemon-dark-85">
+                                <span class="hex light">#031820</span>
+                            </li>
+                            <li class="swatch sx-lemon-dark-95">
+                                <span class="hex light">#031820</span>
+                            </li>
+                        </ul>
+                    </div> 
+                </div>
+            </fieldset>
+        </div>
+
+        <script type="text/javascript">
+            require(["dist/js/main"]);
+        </script>
+
+    </body>
+</html>
+
+
+

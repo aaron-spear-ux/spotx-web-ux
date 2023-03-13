@@ -1,0 +1,455 @@
+$colors:
+rgba(130, 166, 32, 1)
+rgba(31, 155, 207, 1)
+rgba(31, 155, 207, 1)
+rgba(163, 196, 21, 1);
+$size: 7.5em;
+$thickness: 1.5em;
+
+// Calculated variables.
+$lat: ($size - $thickness) / 2;
+$offset: $lat - $thickness;
+
+html,
+body {
+  height: 100%;
+}
+
+.xcross {
+  position: relative;
+  width: $size;
+  height: $size;
+  transform: rotate(45deg) skew(10deg, 10deg);
+
+  &:before,
+  &:after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    display: block;
+    width: $thickness;
+    height: $thickness;
+    border-radius: $thickness / 20;
+    transform: translate(-50%, -50%);
+  }
+
+  &:before {
+    animation: before 2s alternate infinite linear both;
+    transform: skewX(-45deg);
+  }
+
+  &:after {
+    animation: after 2s alternate infinite linear both;
+    transform: skewY(-45deg);
+  }
+}
+
+@keyframes before {
+  0% {
+    opacity: 0;
+    width: $thickness;
+    box-shadow:
+      $lat (-$offset) nth($colors, 1),
+      (-$lat) $offset nth($colors, 3);
+  }
+  15% {
+    opacity: .25;
+    width: $thickness;
+    box-shadow:
+      $lat (-$offset) nth($colors, 1),
+      (-$lat) $offset nth($colors, 3);
+  }
+  35% {
+    opacity: .75;
+    width: $size;
+    box-shadow:
+      0 (-$offset) nth($colors, 1),
+      0   $offset  nth($colors, 3);
+  }
+  70% {
+    opacity: 1;
+    width: $thickness;
+    box-shadow:
+      (-$lat) (-$offset) nth($colors, 1),
+      $lat $offset nth($colors, 3);
+  }
+  70% {
+    opacity: 1;
+    width: $thickness;
+    box-shadow:
+      (-$lat) (-$offset) nth($colors, 1),
+      $lat $offset nth($colors, 3);
+  }
+}
+
+@keyframes after {
+  0% {
+    opacity: 0;
+    height: $thickness;
+    box-shadow:
+      $offset $lat nth($colors, 2),
+      (-$offset) (-$lat) nth($colors, 4);
+  }
+  15% {
+    opacity: .25;
+    height: $thickness;
+    box-shadow:
+      $offset $lat nth($colors, 2),
+      (-$offset) (-$lat) nth($colors, 4);
+  }
+  35% {
+    opacity: .75;
+    height: $size;
+    box-shadow:
+        $offset  0 nth($colors, 2),
+      (-$offset) 0 nth($colors, 4);
+  }
+  70% {
+    opacity: 1;
+    height: $thickness;
+    box-shadow:
+      $offset (-$lat) nth($colors, 2),
+      (-$offset) $lat nth($colors, 4);
+  }
+  70% {
+    opacity: 1;
+    height: $thickness;
+    box-shadow:
+      $offset (-$lat) nth($colors, 2),
+      (-$offset) $lat nth($colors, 4);
+  }
+}
+
+.xcross {
+  position: absolute;
+  top: 11px;
+  left: 41px;
+}
+
+.xmask {
+  position: relative;
+  overflow: hidden;
+  width: 200px;
+  height: 200px;
+  margin: 0 auto;
+  svg {
+    position: relative;
+    z-index: 1000;
+  }
+}
+// sx-loader //
+
+.sx-container {
+  position: absolute;
+  top: 32px;
+  left: 33px;
+  z-index: 100;
+  .sx-folding-cube {
+    width: 125px;
+    height: 125px;
+    position: relative;
+    -webkit-transform: rotateZ(90deg);
+    transform: rotateZ(90deg);
+    .sx-cube {
+      float: left;
+      width: 50%;
+      height: 50%;
+      position: relative;
+      &:before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: #00a1e1;
+        -webkit-animation: sx-slideCubeLeft 4s infinite both;
+        animation: sx-slideCubeLeft 4s infinite both;
+        -webkit-transform-origin: 100% 100%;
+        -ms-transform-origin: 100% 100%;
+        transform-origin: 100% 100%;
+      }
+    }
+    .sx-cube1 {
+      transform: skew(30deg, 20deg) rotateZ(120deg);
+      &:before {
+        -webkit-animation-delay: 0.9s;
+        animation-delay: 0.9s;
+      }
+    }
+    .sx-cube2 {
+      transform: skew(-40deg, -10deg) rotateZ(140deg);
+      left: 15px;
+      &:before {
+        -webkit-animation-delay: 0.6s;
+        animation-delay: 0.6s;
+      }
+    }
+    .sx-cube3 {
+      transform: skew(40deg, 10deg) rotateZ(40deg);
+      left: 15px;
+      top: -10px;
+      &:before {
+        -webkit-animation: sx-slideCubeRight 4s infinite both;
+        animation: sx-slideCubeRight 4s infinite both;
+        -webkit-animation-delay: 0.3s;
+        animation-delay: 0.3s;
+        background-color: #80bd01;
+        //box-shadow: 0px -12px 0px 0px #fff;
+      }
+    }
+    .sx-cube4 {
+      transform: skew(-30deg, -20deg) rotateZ(240deg);
+      top: -9px;
+      &:before {
+        -webkit-animation: sx-slideCubeBottom 4s infinite both;
+        animation: sx-slideCubeBottom 4s infinite both;
+        -webkit-animation-delay: 0.3s;
+        animation-delay: 0.3s;
+        background-color: #60a644;
+        //box-shadow: 12px 0px 0px #fff;
+      }
+    }
+    .diamond {
+      width: 100px;
+      height: 100px;
+      background: #fff;
+      position: absolute;
+      top: 50px;
+      left: 18px;
+      transform: rotate(38deg) skew(-15deg);
+    }
+  }
+}
+
+@-webkit-keyframes sx-slideCubeLeft {
+  0%, 10% {
+      left: -200px;
+      opacity: 0;
+  } 25%, 75% {
+        left: 0;
+        opacity: 1;
+    } 90%, 100% {
+          left: -200px;
+          opacity: 0;
+      }
+}
+
+@keyframes sx-slideCubeLeft {
+  0%, 10% {
+      left: -200px;
+      opacity: 0;
+  } 25%, 75% {
+        left: 0;
+        opacity: 1;
+    } 90%, 100% {
+          left: -200px;
+          opacity: 0;
+      }
+}
+
+@keyframes sx-slideCubeRight {
+  0%, 10% {
+      left: 200px;
+      opacity: 0;
+  } 25%, 75% {
+        left: 0;
+        opacity: 1;
+    } 90%, 100% {
+          left: 200px;
+          opacity: 0;
+      }
+}
+
+@keyframes sx-slideCubeBottom {
+  0%, 10% {
+      left: 200px;
+      opacity: 0;
+  } 25%, 75% {
+        left: 0;
+        opacity: 1;
+    } 90%, 100% {
+          left: -200px;
+          opacity: 0;
+      }
+}
+
+.sx-loader-container {
+  // position: absolute;
+  // left: 0;
+  // top: 0;
+  // z-index: 100000;
+  // width: 100%;
+  // height: 100%;
+  // background: rgba(255,255,255,1);
+  .sx-loader-center {
+
+  }
+  .sx-loader {
+    width: 200px;
+    height: 50px;
+    text-align: center;
+    margin: 40px auto 20px;
+    h2 {
+      color: #aaa;
+      margin: 0;
+      font: .8em verdana;
+      text-transform: uppercase;
+      letter-spacing: .1em;
+    }
+  
+    /*
+    * Loading Dots
+    * Can we use pseudo elements here instead :after?
+    */
+    .loading {
+      position: relative;
+      span {
+        display: inline-block;
+        vertical-align: middle;
+        width: 10px;
+        height: 10px;
+        margin: 3px;
+        background: #fff;
+        position: relative;
+        z-index: 1;
+        border-radius: 5px;
+        animation: loading 1s infinite alternate;
+      }
+      div {
+        position: absolute;
+        display: block;
+        position: absolute;
+        width: 12px;
+        height: 12px;
+        background: #1f9bcf;
+        border-radius: 7px;
+        top: 6px;
+        &.circle-one {
+          left: 35px;
+          background: #8EC641
+        }
+        &.circle-two {
+          left: 55px;
+          background: #73bc64;
+        }
+        &.circle-three {
+          left: 74px;
+          background: #41a8a3;
+        }
+        &.circle-four {
+          left: 94px;
+        }
+        &.circle-five {
+          left: 114px;
+          background: #41a8a3;
+        }
+        &.circle-six {
+          left: 133px;
+          background: #73bc64;
+        }
+        &.circle-seven {
+          left: 153px;
+          background: #8EC641
+        }
+      }
+    } 
+  
+    /*
+    * Dots Colors
+    * Smarter targeting vs nth-of-type?
+    */
+    .loading span:nth-of-type(1) {
+      //background: #1f9bcf;
+      //background: rgba(163, 196, 21, 1);
+      animation-delay: 0.2s;
+    }
+    .loading span:nth-of-type(2) {
+      //background: #1f9bcf;
+      //background: rgba(163, 196, 21, 1);
+      animation-delay: 0.4s;
+    }
+    .loading span:nth-of-type(3) {
+      //background: #009B9E;
+      //background: rgba(130, 166, 32, 1);
+      animation-delay: 0.6s;
+    }
+    .loading span:nth-of-type(4) {
+      //background: #00A77D;
+      animation-delay: 0.8s;
+    }
+    .loading span:nth-of-type(5) {
+      //background: #00B247;
+      animation-delay: 1.0s;
+    }
+    .loading span:nth-of-type(6) {
+      //background: #5AB027;
+      animation-delay: 1.2s;
+    }
+    .loading span:nth-of-type(7) {
+      //background: #82a620;
+      animation-delay: 1.4s;
+    }
+  
+    /*
+    * Animation keyframes
+    * Use transition opacity instead of keyframes?
+    */
+    @keyframes loading {
+      0% {
+        opacity: 0;
+      }
+      100% {
+        opacity: 1;
+      }
+    }
+  }
+}
+
+
+#countdown {
+  position: relative;
+  margin: 40px auto 20px;
+  height: 40px;
+  width: 40px;
+  text-align: center;
+  background: #ddd;
+  border-radius: 20px;
+  #countdown-number {
+    color: #0867af;
+    display: inline-block;
+    background: #fff;
+    width: 32px;
+    height: 32px;
+    border-radius: 20px;
+    line-height: 32px;
+    margin-top: 4px;
+  }
+  svg {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 40px;
+    height: 40px;
+    transform: rotateY(-180deg) rotateZ(-90deg);
+  }
+  svg circle {
+    stroke-dasharray: 113px;
+    stroke-dashoffset: 0px;
+    stroke-linecap: round;
+    stroke-width: 4px;
+    stroke: #0867af;
+    fill: none;
+    animation: countdown 10s linear infinite forwards;
+  }
+}
+
+@keyframes countdown {
+  from {
+    stroke-dashoffset: 0px;
+  }
+  to {
+    stroke-dashoffset: 113px;
+  }
+}

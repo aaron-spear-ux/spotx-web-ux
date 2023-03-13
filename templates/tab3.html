@@ -1,0 +1,263 @@
+<div ng-controller="formsController"></div>
+
+<form class="form-horizontal top-label" style="margin-bottom: 50px;">
+    <div class="form-group required">
+        <div class="col-md-6">
+            <label for="feed" class="control-label">
+                <span>Feed Scheme</span>
+            </label>
+            <select class="form-control select2" id="feed">
+                <option>ORTB2.1</option>
+                <option selected="selected">ORTB2.2</option>
+                <option>ORTB2.3</option>
+                <option>ORTB2.4</option>
+            </select>
+        </div>
+    </div>
+    <div class="form-group required">
+        <div class="col-md-6">
+            <label for="name" class="control-label">
+                <span>Feed URL</span>
+            </label>
+            <textarea type="url" class="form-control" id="feedurl" rows="5"></textarea>
+            <span class="info-block">URL must include http:// or https://.</span>
+        </div>
+    </div>
+    <div class="form-group required">
+        <div class="col-md-6">
+            <label for="video" class="control-label">
+                <span>Video Type</span>
+            </label>
+            <select multiple="" name="multiple" class="form-control select2" id="video">
+                <option selected="selected">FLV</option>
+                <option selected="selected">MP4</option>
+                <option selected="selected">SWF</option>
+                <option selected="selected">JS</option>
+                <option selected="selected">WebM</option>
+            </select>
+            <span class="info-block">Select all video types that apply.</span>
+        </div>
+    </div>
+    <div class="form-group required">
+        <div class="col-md-6">
+            <label for="request" class="control-label">
+                <span>Request Feed</span>
+            </label>
+            <select class="form-control select2" id="request">
+                <option selected>Server Side</option>
+                <option>Client Side</option>
+            </select>
+        </div>
+    </div>
+</form>
+<div class="section" style="padding: 0 0 10px;">
+    <legend>Beacons</legend>
+    <p>Select which 3rd party beacons you would like for this campaign.</p>
+    <div>
+        <table st-table="rowCollection" class="table table-sort">
+            <thead>
+                <tr>
+                    <th st-sort="label">Label<i class="icon"></i></th>
+                    <th st-sort="urltype">URL Type<i class="icon"></i></th>
+                    <th st-sort="protocol">Protocol<i class="icon"></i></th>
+                    <th st-sort="type">Type<i class="icon"></i></th>
+                    <th st-sort="url">URL<i class="icon"></i></th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody ng-controller="collapseCtrl">
+                <tr>
+                    <td>
+                        <input class="form-control" type="text"/>
+                    </td>
+                    <td>
+                        <select class="form-control select2">
+                            <option>Image</option>
+                            <option>Javascript</option>
+                        </select>
+                    </td>
+                    <td>
+                        <select class="form-control select2">
+                            <option>Dynamic</option>
+                            <option>Fixed</option>
+                        </select>
+                    </td>
+                    <td>
+                        <select class="form-control select2" style="min-width: 130px;">
+                            <option>Start</option>
+                            <option>Image</option>
+                            <option>25% View Complete</option>
+                            <option>50% View Complete</option>
+                            <option>75% View Complete</option>
+                        </select>
+                    </td>
+                    <td>
+                        <input class="form-control" type="text"/>
+                    </td>
+                    <td>
+                        <div class="pull-right">
+                            <a href="#" class="remove-line">
+                                <span class="ex"></span>
+                            </a>
+                        </div>
+                    </td> 
+                </tr>
+                <tr>
+                    <td>
+                        <input class="form-control" type="text"/>
+                    </td>
+                    <td>
+                        <select class="form-control select2">
+                            <option>Image</option>
+                            <option>Javascript</option>
+                        </select>
+                    </td>
+                    <td>
+                        <select class="form-control select2">
+                            <option>Dynamic</option>
+                            <option>Fixed</option>
+                        </select>
+                    </td>
+                    <td>
+                        <select class="form-control select2" style="min-width: 130px;">
+                            <option>Start</option>
+                            <option>Image</option>
+                            <option>25% View Complete</option>
+                            <option>50% View Complete</option>
+                            <option>75% View Complete</option>
+                        </select>
+                    </td>
+                    <td>
+                        <input class="form-control" type="text"/>
+                    </td>
+                    <td>
+                        <div class="pull-right">
+                            <a href="#" class="remove-line">
+                                <span class="ex"></span>
+                            </a>
+                        </div>
+                    </td> 
+                </tr>
+            </tbody>
+        </table>
+        <div class="btns-group" style="padding: 0; text-align: right;">
+            <a href="#" class="btn btn-default">Add Beacon</a>
+        </div>
+    </div>
+</div>
+<div class="section" style="padding: 0 0 30px;">
+    <legend>Targeting</legend>
+    <p>Select which targeting options you would like for this campaign.</p>
+    <form class="form-horizontal" style="padding: 10px 0;">
+        <div class="filter-header clearfix">
+            <div class="col-md-3" style="padding: 0;">
+                <div class="header-section">
+                    Category
+                </div>
+            </div>
+            <div class="col-md-3" style="padding: 0;">
+                <div class="header-section">
+                    Operator
+                </div>
+            </div>
+            <div class="col-md-3" style="padding: 0;">
+                <div class="header-section">
+                    Targeting Options
+                </div>
+            </div>
+            <div class="col-md-3" style="padding: 0;">
+            </div>
+        </div>
+        <div class="filter-form clearfix">
+            <div class="filter-row clearfix">
+
+                <div class="col-md-3" style="padding: 0 10px;">
+                    <select class="form-control select2-search">
+                        <option>Channel</option>
+                        <option>Device Type</option>
+                        <option>Device OS</option>
+                        <option>DMA</option>
+                        <option>Geography</option>
+                        <option>Host</option>
+                        <option>Inventory Source</option>
+                        <option>Player Size</option>
+                        <option>User Initiation Type</option>
+                        <option>US Zip Code</option>
+                    </select>
+                </div>
+                <div class="col-md-3" style="padding: 0 10px;">
+                    <select class="form-control select2-search">
+                        <option>is any of</option>
+                        <option>is not any of</option>
+                    </select>
+                </div>
+                <div class="col-md-4" style="padding: 0 10px;">
+                    <select multiple="" class="form-control select2">
+                        <option>Option1</option>
+                        <option>Option2</option>
+                        <option>Option3</option>
+                        <option>Option4</option>
+                        <option>Option5</option>
+                        <option>Option6</option>
+                        <option>Option7</option>
+                        <option>Option8</option>
+                    </select>
+                </div>
+                <div class="col-md-2" style="padding: 5px 10px;">
+                    <div class="pull-right">
+                        <a href="#" class="remove-line">
+                            <span class="ex"></span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div class="filter-row clearfix">
+                <div class="col-md-3" style="padding: 0 10px;">
+                    <select class="form-control select2-search">
+                        <option>Channel</option>
+                        <option>Device Type</option>
+                        <option>Device OS</option>
+                        <option>DMA</option>
+                        <option>Geography</option>
+                        <option>Host</option>
+                        <option>Inventory Source</option>
+                        <option>Player Size</option>
+                        <option>User Initiation Type</option>
+                        <option>US Zip Code</option>
+                    </select>
+                </div>
+                <div class="col-md-3" style="padding: 0 10px;">
+                    <select class="form-control select2-search">
+                        <option>is any of</option>
+                        <option>is not any of</option>
+                    </select>
+                </div>
+                <div class="col-md-4" style="padding: 0 10px;">
+                    <select multiple="" class="form-control select2">
+                        <option>Option1</option>
+                        <option>Option2</option>
+                        <option>Option3</option>
+                        <option>Option4</option>
+                        <option>Option5</option>
+                        <option>Option6</option>
+                        <option>Option7</option>
+                        <option>Option8</option>
+                    </select>
+                </div>
+                <div class="col-md-2" style="padding: 5px 10px;">
+                    <div class="pull-right">
+                        <a href="#" class="remove-line">
+                            <span class="ex"></span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="btns-group clearfix" style="padding: 20px 0 0; text-align: right;">
+            <a href="#" class="btn btn-default">Add Targeting</a>
+        </div>
+        <div class="btns-group btns-divider">
+            <a href="#" class="btn btn-primary">Create Endpoint</a>
+        </div>
+    </form>
+</div>

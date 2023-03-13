@@ -1,0 +1,1553 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="styleApp">
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description" content="" />
+    <meta name="author" content="" />
+    <link rel="icon" href="dist/img/favicon.ico" />
+    <title>Custom Report Builder</title>
+    <script src="dist/js/requirejs/require.js"></script>
+    <script type="text/javascript">
+      window.scroll(function (e) {
+        if ($(window).scrollTop() >= 422) {
+          $(window).scrollTop(422);
+        }
+      });
+    </script>
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+    <!-- Google fonts Source Sans -->
+    <link
+      href="http://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700"
+      rel="stylesheet"
+      type="text/css"
+    />
+    <style type="text/css">
+      [ng\:cloak],
+      [ng-cloak],
+      [data-ng-cloak],
+      [x-ng-cloak],
+      .ng-cloak,
+      .x-ng-cloak {
+        display: none !important;
+      }
+    </style>
+  </head>
+  <body
+    class="spotx side-nav madm crb shift-right"
+    ng-controller="mainCtrl"
+    ng-cloak
+  >
+    <div ng-controller="tableFilterCtrl"></div>
+    <div ng-controller="formsController"></div>
+    <div class="container-fluid">
+      <div class="row">
+        <div class="nav-drop-container"></div>
+        <div class="side-bar">
+          <ul class="nav nav-pills flex-column" ng-controller="navCtrl">
+            <nav-side-accordian class="nav-side">
+              <li class="level-1">
+                <a href="#">
+                  <i class="search fa icon-zoom"></i>
+                  <span>Search</span>
+                </a>
+              </li>
+            </nav-side-accordian>
+            <nav-side-accordian class="nav-side">
+              <li class="level-1 publisher">
+                <a href="dashboard.html">
+                  <i class="fa fa-tachometer"></i>
+                  <span>Dashboard</span>
+                </a>
+              </li>
+            </nav-side-accordian>
+            <nav-side-accordian class="nav-side">
+              <li class="level-1 publisher">
+                <a href="#" closesub>
+                  <i class="fa fa-line-chart"></i>
+                  <span>Campaings</span>
+                  <i class="icon fa"></i>
+                </a>
+                <ul class="accordion-items collapse">
+                  <li><a href="campaign-create.html">Campaign Create</a></li>
+                  <li><a href="endpoint-create.html">Endpoint Create</a></li>
+                </ul>
+              </li>
+            </nav-side-accordian>
+            <nav-side-accordian class="nav-side">
+              <li class="level-1 publisher active">
+                <a href="custom-report-builder.html">
+                  <i class="fa fa-bar-chart"></i>
+                  <span>Report Builder</span>
+                </a>
+              </li>
+            </nav-side-accordian>
+            <nav-side-accordian class="nav-side">
+              <li class="level-1 publisher">
+                <a href="creative-library.html">
+                  <i class="fa fa-play"></i>
+                  <span>Creative Library</span>
+                </a>
+              </li>
+            </nav-side-accordian>
+            <nav-side-accordian class="nav-side">
+              <li class="level-1 publisher">
+                <a href="header-bidding.html">
+                  <i class="fa fa-exchange"></i>
+                  <span>Header Bidding</span>
+                </a>
+              </li>
+            </nav-side-accordian>
+            <nav-side-accordian class="nav-side">
+              <li class="level-1 publisher">
+                <a href="maintenance.html" target="_blank">
+                  <i class="fa fa-question-circle-o"></i>
+                  <span>Maintenance</span>
+                </a>
+              </li>
+            </nav-side-accordian>
+          </ul>
+        </div>
+        <div class="page-header">
+          <a class="minimize-toggle open">
+            <div class="patty"></div>
+          </a>
+          <div class="header-left">
+            <a class="logo" href="dashboard.html"></a>
+          </div>
+          <h4>Custom Report Builder</h4>
+          <ul class="top-nav">
+            <li class="top-link">
+              <a href="#" class="account"
+                ><i class="fa account-icon"></i> Aaron Spear</a
+              >
+              <ul class="dropdown-content account-dropdown">
+                <li><a href="#">Account Information</a></li>
+                <li><a href="#">Manage Users</a></li>
+                <li><a href="#">Settings</a></li>
+                <li class="drop-divider"></li>
+                <li><a href="#">Change Password</a></li>
+                <li><a href="#">Logout</a></li>
+              </ul>
+            </li>
+          </ul>
+        </div>
+        <div class="search-bg"></div>
+        <div class="search-expanded">
+          <div class="search icon icon-zoom"></div>
+          <input
+            type="text"
+            class="form-control"
+            id="sitewide"
+            autofocus
+            placeholder="Search..."
+          />
+          <a href="#" class="close-search">
+            <span class="ex"></span>
+          </a>
+        </div>
+        <ul class="search-dropdown dropdown-content">
+          <li class="dropdown-header">Quick Links</li>
+          <li><a href="#">Campaigns</a></li>
+          <li><a href="#">Channels</a></li>
+          <li><a href="#">Reports</a></li>
+          <li><a href="#">Forecasting</a></li>
+          <li class="drop-divider"></li>
+          <li class="dropdown-header">Suggested Searches</li>
+          <li><a href="#">Scheduled Reports</a></li>
+          <li><a href="#">Custom Reports</a></li>
+          <li><a href="#">Campaign Reports</a></li>
+        </ul>
+        <div class="main sx-toast preview-show">
+          <div class="alert alert-red" role="alert">
+            Please complete the required fields.
+            <a href="#" class="close-alert">
+              <span class="ex"></span>
+            </a>
+          </div>
+          <form class="form-container">
+            <div class="form-section">
+              <fieldset class="form-group required" id="settings">
+                <legend>Settings</legend>
+                <div class="form-horizontal">
+                  <div class="container">
+                    <div class="row form-group">
+                      <div class="col">
+                        <div class="row form-group" style="margin: 0 0 1rem">
+                          <div class="col error required invalid">
+                            <label class="required-remove">Name</label>
+                            <label class="validation-text"
+                              >Please enter a report name.</label
+                            >
+                            <span class="required-dot"></span>
+                            <select
+                              class="select2-multiple select2-tag"
+                              multiple="multiple"
+                            ></select>
+                            <small class="form-text text-muted"
+                              >50 character limit</small
+                            >
+                          </div>
+                          <div
+                            class="col col-md-3 error required invalid"
+                            style="padding-right: 0"
+                          >
+                            <label class="required-remove"
+                              >Report Date Range</label
+                            >
+                            <label class="validation-text"
+                              >Please enter a date range name.</label
+                            >
+                            <span class="required-dot"></span>
+                            <select class="form-control select2" id="range">
+                              <option selected>Yesterday</option>
+                              <option>Month to Date</option>
+                              <option>Last Month</option>
+                              <option>Previous 7 Days</option>
+                              <option>Custom Date Range</option>
+                            </select>
+                          </div>
+                        </div>
+                        <div class="row form-group" style="margin: 0 0 1rem">
+                          <div class="col error required invalid">
+                            <label class="required-remove"
+                              >Recurring Delivery</label
+                            >
+                            <label class="validation-text"
+                              >Please choose a delivery method.</label
+                            >
+                            <span class="required-dot"></span>
+                            <select class="form-control select2">
+                              <option selected>Daily</option>
+                              <option>Monthly</option>
+                              <option>Once</option>
+                            </select>
+                            <small class="form-text text-muted"
+                              >Recurring reports typically deliver before
+                              10:00am GMT</small
+                            >
+                          </div>
+                          <div
+                            class="col error required invalid"
+                            style="padding-right: 0"
+                          >
+                            <label class="required-remove">Locale</label>
+                            <label class="validation-text"
+                              >Please choose a locale.</label
+                            >
+                            <span class="required-dot"></span>
+                            <select class="form-control select2">
+                              <option selected>United States</option>
+                              <option>United Kingdom</option>
+                              <option>China</option>
+                            </select>
+                          </div>
+                        </div>
+                        <div
+                          class="row form-group report-delivery"
+                          style="margin: 0"
+                        >
+                          <div
+                            class="col error required invalid"
+                            style="padding-right: 0"
+                          >
+                            <label class="required-remove"
+                              >Report Delivery</label
+                            >
+                            <label class="validation-text"
+                              >Please add at least one email address for the
+                              report delivery.</label
+                            >
+                            <span class="required-dot"></span>
+                            <select
+                              class="select2-multiple select2-tag"
+                              multiple="multiple"
+                            ></select>
+                            <small class="form-text text-muted"
+                              >Seperate each email with commas or a line</small
+                            >
+                            <div class="s3-container clearfix">
+                              <label>
+                                <input type="checkbox" name="s3"/
+                                style="margin-right: 3px;">
+                                <span style="vertical-align: middle"
+                                  >Deliver to my S3 bucket</span
+                                >
+                              </label>
+                            </div>
+                            <small class="form-text text-muted"
+                              >Contact your account team if SpotX does not have
+                              your S3 credentials.</small
+                            >
+                          </div>
+                        </div>
+                      </div>
+                      <div class="col col-md-4 col-hidden">
+                        <div class="row form-group" style="margin: 0">
+                          <div class="col">
+                            <label class="required-remove">Start Date</label>
+                            <input
+                              type="text"
+                              class="form-control"
+                              id="start-date"
+                            />
+                          </div>
+                          <div class="col" style="padding-right: 0">
+                            <label class="required-remove">End Date</label>
+                            <input
+                              type="text"
+                              class="form-control"
+                              id="end-date"
+                            />
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </fieldset>
+            </div>
+            <div class="form-section" style="padding: 0; margin-bottom: 80px">
+              <div class="flex-container">
+                <div class="flex-half">
+                  <fieldset class="form-group">
+                    <legend>
+                      <span class="step-circle">1</span>
+                      Select Data
+                      <a href="#" class="display-def">
+                        <i class="fa fa-book"></i>
+                      </a>
+                    </legend>
+                    <div class="data-header">
+                      <!-- <div class="search-data">
+                                                <input type="text" class="form-control" autofocus placeholder="Search..."/>
+                                                <div class="search icon icon-zoom"></div>
+                                            </div> -->
+                      <div class="path">
+                        <span class="shape trail"></span>
+                        <div class="tab tab-one">
+                          <i class="fa fa-table"></i> Dimensions
+                        </div>
+                        <div class="tab tab-two">
+                          <i class="fa fa-database"></i> Metrics
+                        </div>
+                        <div class="tab tab-three">
+                          <i class="fa fa-file-text"></i> Key Value Pairs
+                        </div>
+                      </div>
+                    </div>
+                    <div class="data-container dimensions">
+                      <ul class="data-set demand">
+                        <li class="set-header">
+                          <a href="#">
+                            <span>Demand</span>
+                            <i class="fa fa-angle-down"></i>
+                            <i class="fa fa-angle-up"></i>
+                          </a>
+                        </li>
+                        <li>
+                          Add Partner
+                          <a href="#" class="add-data">
+                            <i class="fa fa-plus-circle"></i>
+                          </a>
+                          <a href="#" class="remove-data">
+                            <span class="ex"></span>
+                          </a>
+                          <div class="definition">
+                            <p>
+                              Lorem ipsum dolor sizzle amizzle, uhuh ... yih!
+                              adipiscing funky fresh. Nullizzle shizznit
+                              velizzle, gangster volutpizzle, suscipit quizzle,
+                              gravida vizzle, dang. Pellentesque fizzle tortor.
+                              Sizzle erizzle.
+                            </p>
+                          </div>
+                        </li>
+                        <li>
+                          Add Partner ID
+                          <a href="#" class="add-data">
+                            <i class="fa fa-plus-circle"></i>
+                          </a>
+                          <a href="#" class="remove-data">
+                            <span class="ex"></span>
+                          </a>
+                          <div class="definition">
+                            <p>
+                              Lorem ipsum dolor sizzle amizzle, uhuh ... yih!
+                              adipiscing funky fresh. Nullizzle shizznit
+                              velizzle, gangster volutpizzle, suscipit quizzle,
+                              gravida vizzle, dang. Pellentesque fizzle tortor.
+                              Sizzle erizzle.
+                            </p>
+                          </div>
+                        </li>
+                        <li>
+                          Advertiser Domain
+                          <a href="#" class="add-data">
+                            <i class="fa fa-plus-circle"></i>
+                          </a>
+                          <a href="#" class="remove-data">
+                            <span class="ex"></span>
+                          </a>
+                          <div class="definition">
+                            <p>
+                              Lorem ipsum dolor sizzle amizzle, uhuh ... yih!
+                              adipiscing funky fresh. Nullizzle shizznit
+                              velizzle, gangster volutpizzle, suscipit quizzle,
+                              gravida vizzle, dang. Pellentesque fizzle tortor.
+                              Sizzle erizzle.
+                            </p>
+                          </div>
+                        </li>
+                        <li>
+                          Deal Deman Source
+                          <a href="#" class="add-data">
+                            <i class="fa fa-plus-circle"></i>
+                          </a>
+                          <a href="#" class="remove-data">
+                            <span class="ex"></span>
+                          </a>
+                          <div class="definition">
+                            <p>
+                              Lorem ipsum dolor sizzle amizzle, uhuh ... yih!
+                              adipiscing funky fresh. Nullizzle shizznit
+                              velizzle, gangster volutpizzle, suscipit quizzle,
+                              gravida vizzle, dang. Pellentesque fizzle tortor.
+                              Sizzle erizzle.
+                            </p>
+                          </div>
+                        </li>
+                        <li>
+                          Deal ID
+                          <a href="#" class="add-data">
+                            <i class="fa fa-plus-circle"></i>
+                          </a>
+                          <a href="#" class="remove-data">
+                            <span class="ex"></span>
+                          </a>
+                          <div class="definition">
+                            <p>
+                              Lorem ipsum dolor sizzle amizzle, uhuh ... yih!
+                              adipiscing funky fresh. Nullizzle shizznit
+                              velizzle, gangster volutpizzle, suscipit quizzle,
+                              gravida vizzle, dang. Pellentesque fizzle tortor.
+                              Sizzle erizzle.
+                            </p>
+                          </div>
+                        </li>
+                        <li>
+                          Deal Name
+                          <a href="#" class="add-data">
+                            <i class="fa fa-plus-circle"></i>
+                          </a>
+                          <a href="#" class="remove-data">
+                            <span class="ex"></span>
+                          </a>
+                          <div class="definition">
+                            <p>
+                              Lorem ipsum dolor sizzle amizzle, uhuh ... yih!
+                              adipiscing funky fresh. Nullizzle shizznit
+                              velizzle, gangster volutpizzle, suscipit quizzle,
+                              gravida vizzle, dang. Pellentesque fizzle tortor.
+                              Sizzle erizzle.
+                            </p>
+                          </div>
+                        </li>
+                        <li>
+                          Seat ID
+                          <a href="#" class="add-data">
+                            <i class="fa fa-plus-circle"></i>
+                          </a>
+                          <a href="#" class="remove-data">
+                            <span class="ex"></span>
+                          </a>
+                          <div class="definition">
+                            <p>
+                              Lorem ipsum dolor sizzle amizzle, uhuh ... yih!
+                              adipiscing funky fresh. Nullizzle shizznit
+                              velizzle, gangster volutpizzle, suscipit quizzle,
+                              gravida vizzle, dang. Pellentesque fizzle tortor.
+                              Sizzle erizzle.
+                            </p>
+                          </div>
+                        </li>
+                      </ul>
+                      <ul class="data-set inventory">
+                        <li class="set-header">
+                          <a href="#">
+                            <span>Inventory</span>
+                            <i class="fa fa-angle-down"></i>
+                            <i class="fa fa-angle-up"></i>
+                          </a>
+                        </li>
+                        <li>
+                          App Name
+                          <a href="#" class="add-data">
+                            <i class="fa fa-plus-circle"></i>
+                          </a>
+                          <a href="#" class="remove-data">
+                            <span class="ex"></span>
+                          </a>
+                          <div class="definition">
+                            <p>
+                              Lorem ipsum dolor sizzle amizzle, uhuh ... yih!
+                              adipiscing funky fresh. Nullizzle shizznit
+                              velizzle, gangster volutpizzle, suscipit quizzle,
+                              gravida vizzle, dang. Pellentesque fizzle tortor.
+                              Sizzle erizzle.
+                            </p>
+                          </div>
+                        </li>
+                        <li>
+                          Bundle ID
+                          <a href="#" class="add-data">
+                            <i class="fa fa-plus-circle"></i>
+                          </a>
+                          <a href="#" class="remove-data">
+                            <span class="ex"></span>
+                          </a>
+                          <div class="definition">
+                            <p>
+                              Lorem ipsum dolor sizzle amizzle, uhuh ... yih!
+                              adipiscing funky fresh. Nullizzle shizznit
+                              velizzle, gangster volutpizzle, suscipit quizzle,
+                              gravida vizzle, dang. Pellentesque fizzle tortor.
+                              Sizzle erizzle.
+                            </p>
+                          </div>
+                        </li>
+                        <li>
+                          Channel ID
+                          <a href="#" class="add-data">
+                            <i class="fa fa-plus-circle"></i>
+                          </a>
+                          <a href="#" class="remove-data">
+                            <span class="ex"></span>
+                          </a>
+                          <div class="definition">
+                            <p>
+                              Lorem ipsum dolor sizzle amizzle, uhuh ... yih!
+                              adipiscing funky fresh. Nullizzle shizznit
+                              velizzle, gangster volutpizzle, suscipit quizzle,
+                              gravida vizzle, dang. Pellentesque fizzle tortor.
+                              Sizzle erizzle.
+                            </p>
+                          </div>
+                        </li>
+                        <li>
+                          Channel Name
+                          <a href="#" class="add-data">
+                            <i class="fa fa-plus-circle"></i>
+                          </a>
+                          <a href="#" class="remove-data">
+                            <span class="ex"></span>
+                          </a>
+                          <div class="definition">
+                            <p>
+                              Lorem ipsum dolor sizzle amizzle, uhuh ... yih!
+                              adipiscing funky fresh. Nullizzle shizznit
+                              velizzle, gangster volutpizzle, suscipit quizzle,
+                              gravida vizzle, dang. Pellentesque fizzle tortor.
+                              Sizzle erizzle.
+                            </p>
+                          </div>
+                        </li>
+                        <li>
+                          Channel Price Floor
+                          <a href="#" class="add-data">
+                            <i class="fa fa-plus-circle"></i>
+                          </a>
+                          <a href="#" class="remove-data">
+                            <span class="ex"></span>
+                          </a>
+                          <div class="definition">
+                            <p>
+                              Lorem ipsum dolor sizzle amizzle, uhuh ... yih!
+                              adipiscing funky fresh. Nullizzle shizznit
+                              velizzle, gangster volutpizzle, suscipit quizzle,
+                              gravida vizzle, dang. Pellentesque fizzle tortor.
+                              Sizzle erizzle.
+                            </p>
+                          </div>
+                        </li>
+                        <li>
+                          Country
+                          <a href="#" class="add-data">
+                            <i class="fa fa-plus-circle"></i>
+                          </a>
+                          <a href="#" class="remove-data">
+                            <span class="ex"></span>
+                          </a>
+                          <div class="definition">
+                            <p>
+                              Lorem ipsum dolor sizzle amizzle, uhuh ... yih!
+                              adipiscing funky fresh. Nullizzle shizznit
+                              velizzle, gangster volutpizzle, suscipit quizzle,
+                              gravida vizzle, dang. Pellentesque fizzle tortor.
+                              Sizzle erizzle.
+                            </p>
+                          </div>
+                        </li>
+                        <li>
+                          DMA
+                          <a href="#" class="add-data">
+                            <i class="fa fa-plus-circle"></i>
+                          </a>
+                          <a href="#" class="remove-data">
+                            <span class="ex"></span>
+                          </a>
+                          <div class="definition">
+                            <p>
+                              Lorem ipsum dolor sizzle amizzle, uhuh ... yih!
+                              adipiscing funky fresh. Nullizzle shizznit
+                              velizzle, gangster volutpizzle, suscipit quizzle,
+                              gravida vizzle, dang. Pellentesque fizzle tortor.
+                              Sizzle erizzle.
+                            </p>
+                          </div>
+                        </li>
+                        <li>
+                          Device Model
+                          <a href="#" class="add-data">
+                            <i class="fa fa-plus-circle"></i>
+                          </a>
+                          <a href="#" class="remove-data">
+                            <span class="ex"></span>
+                          </a>
+                          <div class="definition">
+                            <p>
+                              Lorem ipsum dolor sizzle amizzle, uhuh ... yih!
+                              adipiscing funky fresh. Nullizzle shizznit
+                              velizzle, gangster volutpizzle, suscipit quizzle,
+                              gravida vizzle, dang. Pellentesque fizzle tortor.
+                              Sizzle erizzle.
+                            </p>
+                          </div>
+                        </li>
+                        <li>
+                          Device OS
+                          <a href="#" class="add-data">
+                            <i class="fa fa-plus-circle"></i>
+                          </a>
+                          <a href="#" class="remove-data">
+                            <span class="ex"></span>
+                          </a>
+                          <div class="definition">
+                            <p>
+                              Lorem ipsum dolor sizzle amizzle, uhuh ... yih!
+                              adipiscing funky fresh. Nullizzle shizznit
+                              velizzle, gangster volutpizzle, suscipit quizzle,
+                              gravida vizzle, dang. Pellentesque fizzle tortor.
+                              Sizzle erizzle.
+                            </p>
+                          </div>
+                        </li>
+                        <li>
+                          Device Type
+                          <a href="#" class="add-data">
+                            <i class="fa fa-plus-circle"></i>
+                          </a>
+                          <a href="#" class="remove-data">
+                            <span class="ex"></span>
+                          </a>
+                          <div class="definition">
+                            <p>
+                              Lorem ipsum dolor sizzle amizzle, uhuh ... yih!
+                              adipiscing funky fresh. Nullizzle shizznit
+                              velizzle, gangster volutpizzle, suscipit quizzle,
+                              gravida vizzle, dang. Pellentesque fizzle tortor.
+                              Sizzle erizzle.
+                            </p>
+                          </div>
+                        </li>
+                        <li>
+                          Device Vendor
+                          <a href="#" class="add-data">
+                            <i class="fa fa-plus-circle"></i>
+                          </a>
+                          <a href="#" class="remove-data">
+                            <span class="ex"></span>
+                          </a>
+                          <div class="definition">
+                            <p>
+                              Lorem ipsum dolor sizzle amizzle, uhuh ... yih!
+                              adipiscing funky fresh. Nullizzle shizznit
+                              velizzle, gangster volutpizzle, suscipit quizzle,
+                              gravida vizzle, dang. Pellentesque fizzle tortor.
+                              Sizzle erizzle.
+                            </p>
+                          </div>
+                        </li>
+                        <li>
+                          Host / Referrer
+                          <a href="#" class="add-data">
+                            <i class="fa fa-plus-circle"></i>
+                          </a>
+                          <a href="#" class="remove-data">
+                            <span class="ex"></span>
+                          </a>
+                          <div class="definition">
+                            <p>
+                              Lorem ipsum dolor sizzle amizzle, uhuh ... yih!
+                              adipiscing funky fresh. Nullizzle shizznit
+                              velizzle, gangster volutpizzle, suscipit quizzle,
+                              gravida vizzle, dang. Pellentesque fizzle tortor.
+                              Sizzle erizzle.
+                            </p>
+                          </div>
+                        </li>
+                        <li>
+                          Player Height
+                          <a href="#" class="add-data">
+                            <i class="fa fa-plus-circle"></i>
+                          </a>
+                          <a href="#" class="remove-data">
+                            <span class="ex"></span>
+                          </a>
+                          <div class="definition">
+                            <p>
+                              Lorem ipsum dolor sizzle amizzle, uhuh ... yih!
+                              adipiscing funky fresh. Nullizzle shizznit
+                              velizzle, gangster volutpizzle, suscipit quizzle,
+                              gravida vizzle, dang. Pellentesque fizzle tortor.
+                              Sizzle erizzle.
+                            </p>
+                          </div>
+                        </li>
+                        <li>
+                          Player Size Bucket
+                          <a href="#" class="add-data">
+                            <i class="fa fa-plus-circle"></i>
+                          </a>
+                          <a href="#" class="remove-data">
+                            <span class="ex"></span>
+                          </a>
+                          <div class="definition">
+                            <p>
+                              Lorem ipsum dolor sizzle amizzle, uhuh ... yih!
+                              adipiscing funky fresh. Nullizzle shizznit
+                              velizzle, gangster volutpizzle, suscipit quizzle,
+                              gravida vizzle, dang. Pellentesque fizzle tortor.
+                              Sizzle erizzle.
+                            </p>
+                          </div>
+                        </li>
+                        <li>
+                          Player Width
+                          <a href="#" class="add-data">
+                            <i class="fa fa-plus-circle"></i>
+                          </a>
+                          <a href="#" class="remove-data">
+                            <span class="ex"></span>
+                          </a>
+                          <div class="definition">
+                            <p>
+                              Lorem ipsum dolor sizzle amizzle, uhuh ... yih!
+                              adipiscing funky fresh. Nullizzle shizznit
+                              velizzle, gangster volutpizzle, suscipit quizzle,
+                              gravida vizzle, dang. Pellentesque fizzle tortor.
+                              Sizzle erizzle.
+                            </p>
+                          </div>
+                        </li>
+                        <li>
+                          Publisher
+                          <a href="#" class="add-data">
+                            <i class="fa fa-plus-circle"></i>
+                          </a>
+                          <a href="#" class="remove-data">
+                            <span class="ex"></span>
+                          </a>
+                          <div class="definition">
+                            <p>
+                              Lorem ipsum dolor sizzle amizzle, uhuh ... yih!
+                              adipiscing funky fresh. Nullizzle shizznit
+                              velizzle, gangster volutpizzle, suscipit quizzle,
+                              gravida vizzle, dang. Pellentesque fizzle tortor.
+                              Sizzle erizzle.
+                            </p>
+                          </div>
+                        </li>
+                        <li>
+                          Publisher ID
+                          <a href="#" class="add-data">
+                            <i class="fa fa-plus-circle"></i>
+                          </a>
+                          <a href="#" class="remove-data">
+                            <span class="ex"></span>
+                          </a>
+                          <div class="definition">
+                            <p>
+                              Lorem ipsum dolor sizzle amizzle, uhuh ... yih!
+                              adipiscing funky fresh. Nullizzle shizznit
+                              velizzle, gangster volutpizzle, suscipit quizzle,
+                              gravida vizzle, dang. Pellentesque fizzle tortor.
+                              Sizzle erizzle.
+                            </p>
+                          </div>
+                        </li>
+                        <li>
+                          Region
+                          <a href="#" class="add-data">
+                            <i class="fa fa-plus-circle"></i>
+                          </a>
+                          <a href="#" class="remove-data">
+                            <span class="ex"></span>
+                          </a>
+                          <div class="definition">
+                            <p>
+                              Lorem ipsum dolor sizzle amizzle, uhuh ... yih!
+                              adipiscing funky fresh. Nullizzle shizznit
+                              velizzle, gangster volutpizzle, suscipit quizzle,
+                              gravida vizzle, dang. Pellentesque fizzle tortor.
+                              Sizzle erizzle.
+                            </p>
+                          </div>
+                        </li>
+                      </ul>
+                      <ul class="data-set">
+                        <li class="set-header">
+                          <a href="#">
+                            <span>Time</span>
+                            <i class="fa fa-angle-down"></i>
+                            <i class="fa fa-angle-up"></i>
+                          </a>
+                        </li>
+                        <li>
+                          Date
+                          <a href="#" class="add-data">
+                            <i class="fa fa-plus-circle"></i>
+                          </a>
+                          <a href="#" class="remove-data">
+                            <span class="ex"></span>
+                          </a>
+                          <div class="definition">
+                            <p>
+                              Lorem ipsum dolor sizzle amizzle, uhuh ... yih!
+                              adipiscing funky fresh. Nullizzle shizznit
+                              velizzle, gangster volutpizzle, suscipit quizzle,
+                              gravida vizzle, dang. Pellentesque fizzle tortor.
+                              Sizzle erizzle.
+                            </p>
+                          </div>
+                        </li>
+                        <li>
+                          Hour
+                          <a href="#" class="add-data">
+                            <i class="fa fa-plus-circle"></i>
+                          </a>
+                          <a href="#" class="remove-data">
+                            <span class="ex"></span>
+                          </a>
+                          <div class="definition">
+                            <p>
+                              Lorem ipsum dolor sizzle amizzle, uhuh ... yih!
+                              adipiscing funky fresh. Nullizzle shizznit
+                              velizzle, gangster volutpizzle, suscipit quizzle,
+                              gravida vizzle, dang. Pellentesque fizzle tortor.
+                              Sizzle erizzle.
+                            </p>
+                          </div>
+                        </li>
+                      </ul>
+                    </div>
+                    <div class="data-container metrics">
+                      <ul class="data-set auction">
+                        <li class="set-header">
+                          <a href="#">
+                            <span>Auction Statistics</span>
+                            <i class="fa fa-angle-down"></i>
+                            <i class="fa fa-angle-up"></i>
+                          </a>
+                        </li>
+                        <li class="disabled">
+                          Calls / Ad Slots
+                          <span>Cannot Add</span>
+                        </li>
+                        <li class="disabled">
+                          Coverage
+                          <span>Cannot Add</span>
+                        </li>
+                        <li class="disabled">
+                          Opportunities
+                          <span>Cannot Add</span>
+                        </li>
+                      </ul>
+                      <ul class="data-set bid">
+                        <li class="set-header">
+                          <a href="#">
+                            <span>Bid Statistics</span>
+                            <i class="fa fa-angle-down"></i>
+                            <i class="fa fa-angle-up"></i>
+                          </a>
+                        </li>
+                        <li class="disabled">
+                          Above Floor
+                          <span>Cannot Add</span>
+                        </li>
+                        <li class="disabled">
+                          Below Floor
+                          <span>Cannot Add</span>
+                        </li>
+                        <li class="disabled">
+                          Bids
+                          <span>Cannot Add</span>
+                        </li>
+                        <li class="disabled">
+                          Out Bid
+                          <span>Cannot Add</span>
+                        </li>
+                        <li class="disabled">
+                          Placements
+                          <span>Cannot Add</span>
+                        </li>
+                      </ul>
+                      <ul class="data-set demand">
+                        <li class="set-header">
+                          <a href="#">
+                            <span>Monetization</span>
+                            <i class="fa fa-angle-down"></i>
+                            <i class="fa fa-angle-up"></i>
+                          </a>
+                        </li>
+                        <li>
+                          Gross Revenue
+                          <a href="#" class="add-data">
+                            <i class="fa fa-plus-circle"></i>
+                          </a>
+                          <a href="#" class="remove-data">
+                            <span class="ex"></span>
+                          </a>
+                        </li>
+                        <li>
+                          Gross eCPM
+                          <a href="#" class="add-data">
+                            <i class="fa fa-plus-circle"></i>
+                          </a>
+                          <a href="#" class="remove-data">
+                            <span class="ex"></span>
+                          </a>
+                        </li>
+                        <li>
+                          Impressions
+                          <a href="#" class="add-data">
+                            <i class="fa fa-plus-circle"></i>
+                          </a>
+                          <a href="#" class="remove-data">
+                            <span class="ex"></span>
+                          </a>
+                        </li>
+                      </ul>
+                    </div>
+                    <div class="kvp">
+                      <p>
+                        Your account currently has no KVPs
+                        <span
+                          >Contact your SpotX account manager to add KVPs to
+                          your account</span
+                        >
+                      </p>
+                    </div>
+                  </fieldset>
+                </div>
+                <div class="flex-half">
+                  <fieldset class="form-group">
+                    <legend>
+                      <span class="step-circle">2</span>
+                      Report Details
+                    </legend>
+                    <div class="report-container">
+                      <ul class="report-set">
+                        <li>
+                          <i class="fa fa-table"></i> Advertiser Domain
+                          <a href="#" class="remove-selection">
+                            <span class="ex"></span>
+                          </a>
+                          <a href="#" class="filter-selection">
+                            <i class="fa fa-filter"></i>
+                          </a>
+                        </li>
+                        <li>
+                          <i class="fa fa-table"></i> Ad Duration
+                          <a href="#" class="remove-selection">
+                            <span class="ex"></span>
+                          </a>
+                          <a href="#" class="filter-selection">
+                            <i class="fa fa-filter"></i>
+                          </a>
+                        </li>
+                        <li>
+                          <i class="fa fa-table"></i> Deal Name
+                          <a href="#" class="remove-selection">
+                            <span class="ex"></span>
+                          </a>
+                          <a href="#" class="filter-selection">
+                            <i class="fa fa-filter"></i>
+                          </a>
+                          <div class="filter-number">
+                            <span>67</span>
+                          </div>
+                          <!-- <a href="#" class="collapse-filter">
+                                                        <i class="fa fa-angle-up"></i>
+                                                        <i class="fa fa-angle-down"></i>
+                                                    </a>
+                                                    <ul class="sub-filter-list">
+                                                        <li class="clearfix">
+                                                            <div class="filter-name">
+                                                                Weekly Dayparting - Team Science Deal
+                                                                <span>10cc0.78b7f.3379</span>
+                                                            </div>
+                                                            <a href="#" class="remove-selection">
+                                                                <span class="ex"></span>
+                                                            </a>
+                                                        </li>
+                                                        <li class="clearfix">
+                                                            <div class="filter-name">
+                                                                Weekly Dayparting - Team Science Deal
+                                                                <span>10cc0.78b7f.3379</span>
+                                                            </div>
+                                                            <a href="#" class="remove-selection">
+                                                                <span class="ex"></span>
+                                                            </a>
+                                                        </li>
+                                                        <li class="clearfix">
+                                                            <div class="filter-name">
+                                                                Weekly Dayparting - Team Science Deal
+                                                                <span>10cc0.78b7f.3379</span>
+                                                            </div>
+                                                            <a href="#" class="remove-selection">
+                                                                <span class="ex"></span>
+                                                            </a>
+                                                        </li>
+                                                        <li class="clearfix">
+                                                            <div class="filter-name">
+                                                                Weekly Dayparting - Team Science Deal
+                                                                <span>10cc0.78b7f.3379</span>
+                                                            </div>
+                                                            <a href="#" class="remove-selection">
+                                                                <span class="ex"></span>
+                                                            </a>
+                                                        </li>
+                                                    </ul> -->
+                        </li>
+                        <li class="filter-active">
+                          <i class="fa fa-table"></i> Deal Id
+                          <a href="#" class="remove-selection">
+                            <span class="ex"></span>
+                          </a>
+                          <a href="#" class="filter-selection">
+                            <i class="fa fa-filter"></i>
+                          </a>
+                          <a href="#" class="filter-invalid">
+                            <i class="fa fa-exclamation"></i>
+                          </a>
+                        </li>
+                        <li>
+                          <i class="fa fa-database"></i> Coverage
+                          <a href="#" class="remove-selection">
+                            <span class="ex"></span>
+                          </a>
+                          <a href="#" class="filter-selection">
+                            <i class="fa fa-filter"></i>
+                          </a>
+                        </li>
+                        <li>
+                          <i class="fa fa-database"></i> Opportunities
+                          <a href="#" class="remove-selection">
+                            <span class="ex"></span>
+                          </a>
+                          <a href="#" class="filter-selection">
+                            <i class="fa fa-filter"></i>
+                          </a>
+                        </li>
+                        <li>
+                          <i class="fa fa-database"></i> Gross Revenue
+                          <a href="#" class="remove-selection">
+                            <span class="ex"></span>
+                          </a>
+                          <a href="#" class="filter-selection">
+                            <i class="fa fa-filter"></i>
+                          </a>
+                        </li>
+                      </ul>
+                    </div>
+                  </fieldset>
+                </div>
+              </div>
+            </div>
+          </form>
+          <div class="side-bar-right">
+            <form class="form-container">
+              <div class="form-section header-section">
+                <legend>Deal ID</legend>
+                <div class="upload-csv">
+                  <input type="file" name="myfile" id="filter-file" />
+                </div>
+              </div>
+              <div class="form-section invalid-section">
+                <span>
+                  <i class="fa fa-exclamation-triangle"></i>
+                  The following entries are invalid:
+                </span>
+                <ul>
+                  <li>10cc0.78b7f.3379</li>
+                  <li>10cc0.78b7f.3379</li>
+                  <li>10cc0.78b7f.3379</li>
+                  <li>10cc0.78b7f.3379</li>
+                  <li>10cc0.78b7f.3379</li>
+                  <li>10cc0.78b7f.3379</li>
+                  <li>10cc0.78b7f.3379</li>
+                  <li>10cc0.78b7f.3379</li>
+                  <li>10cc0.78b7f.3379</li>
+                  <li>10cc0.78b7f.3379</li>
+                  <li>10cc0.78b7f.3379</li>
+                  <li>10cc0.78b7f.3379</li>
+                  <li>10cc0.78b7f.3379</li>
+                  <li>10cc0.78b7f.3379</li>
+                </ul>
+              </div>
+              <div class="form-section cv-section">
+                <p>Copy and paste your filtering parameters.</p>
+                <fieldset class="form-group required" style="margin: 0">
+                  <!-- <textarea class="empty"></textarea> -->
+                  <textarea>
+10cc0.78b7f.3379
+10cc0.78b7f.3379
+10cc0.78b7f.3379
+10cc0.78b7f.3379
+10cc0.78b7f.3379
+10cc0.78b7f.3379
+10cc0.78b7f.3379
+10cc0.78b7f.3379
+10cc0.78b7f.3379
+10cc0.78b7f.3379
+10cc0.78b7f.3379
+10cc0.78b7f.3379
+10cc0.78b7f.3379
+10cc0.78b7f.3379
+10cc0.78b7f.3379
+10cc0.78b7f.3379
+10cc0.78b7f.3379
+10cc0.78b7f.3379
+10cc0.78b7f.3379
+10cc0.78b7f.3379
+10cc0.78b7f.3379
+10cc0.78b7f.3379
+10cc0.78b7f.3379
+10cc0.78b7f.3379
+10cc0.78b7f.3379
+10cc0.78b7f.3379
+10cc0.78b7f.3379
+10cc0.78b7f.3379
+10cc0.78b7f.3379
+10cc0.78b7f.3379
+10cc0.78b7f.3379
+10cc0.78b7f.3379
+10cc0.78b7f.3379
+10cc0.78b7f.3379
+10cc0.78b7f.3379
+10cc0.78b7f.3379
+10cc0.78b7f.3379
+10cc0.78b7f.3379
+10cc0.78b7f.3379
+10cc0.78b7f.3379
+10cc0.78b7f.3379
+10cc0.78b7f.3379
+10cc0.78b7f.3379
+10cc0.78b7f.3379
+10cc0.78b7f.3379
+10cc0.78b7f.3379
+10cc0.78b7f.3379
+10cc0.78b7f.3379
+10cc0.78b7f.3379
+10cc0.78b7f.3379
+10cc0.78b7f.3379
+10cc0.78b7f.3379
+10cc0.78b7f.3379
+10cc0.78b7f.3379
+10cc0.78b7f.3379
+10cc0.78b7f.3379
+10cc0.78b7f.3379
+10cc0.78b7f.3379
+10cc0.78b7f.3379
+10cc0.78b7f.3379
+10cc0.78b7f.3379
+10cc0.78b7f.3379
+10cc0.78b7f.3379
+10cc0.78b7f.3379
+10cc0.78b7f.3379
+10cc0.78b7f.3379
+10cc0.78b7f.3379
+10cc0.78b7f.3379
+10cc0.78b7f.3379
+10cc0.78b7f.3379
+10cc0.78b7f.3379
+10cc0.78b7f.3379
+10cc0.78b7f.3379
+10cc0.78b7f.3379
+10cc0.78b7f.3379
+10cc0.78b7f.3379
+10cc0.78b7f.3379
+10cc0.78b7f.3379
+10cc0.78b7f.3379
+10cc0.78b7f.3379
+10cc0.78b7f.3379
+10cc0.78b7f.3379
+10cc0.78b7f.3379
+10cc0.78b7f.3379
+10cc0.78b7f.3379
+10cc0.78b7f.3379
+10cc0.78b7f.3379
+10cc0.78b7f.3379
+10cc0.78b7f.3379
+10cc0.78b7f.3379
+10cc0.78b7f.3379
+10cc0.78b7f.3379
+                                    </textarea
+                  >
+                </fieldset>
+              </div>
+              <div class="form-section no-padding scroll-section">
+                <ul class="filter-list">
+                  <!-- <li class="clearfix select-all">
+                                        <div class="checkbox checkbox-primary">
+                                            <input type="checkbox" name="checkbox" id="select-all" value="select-all">
+                                            <label for="select-all" class="required-radio">Select All</label>
+                                        </div>
+                                   </li> -->
+                  <li class="clearfix">
+                    <label for="select1" class="required-radio">
+                      Weekly Dayparting - Team Science Deal
+                      <span>10cc0.78b7f.3379</span>
+                      <a href="#" class="remove-selection">
+                        <span class="ex"></span>
+                      </a>
+                    </label>
+                  </li>
+                  <li class="clearfix">
+                    <label for="select1" class="required-radio">
+                      Weekly Dayparting - Team Science Deal
+                      <span>10cc0.78b7f.3379</span>
+                      <a href="#" class="remove-selection">
+                        <span class="ex"></span>
+                      </a>
+                    </label>
+                  </li>
+                  <li class="clearfix">
+                    <label for="select1" class="required-radio">
+                      Weekly Dayparting - Team Science Deal
+                      <span>10cc0.78b7f.3379</span>
+                      <a href="#" class="remove-selection">
+                        <span class="ex"></span>
+                      </a>
+                    </label>
+                  </li>
+                  <li class="clearfix">
+                    <label for="select1" class="required-radio">
+                      Weekly Dayparting - Team Science Deal
+                      <span>10cc0.78b7f.3379</span>
+                      <a href="#" class="remove-selection">
+                        <span class="ex"></span>
+                      </a>
+                    </label>
+                  </li>
+                  <li class="clearfix">
+                    <label for="select1" class="required-radio">
+                      Weekly Dayparting - Team Science Deal
+                      <span>10cc0.78b7f.3379</span>
+                      <a href="#" class="remove-selection">
+                        <span class="ex"></span>
+                      </a>
+                    </label>
+                  </li>
+                  <li class="clearfix">
+                    <label for="select1" class="required-radio">
+                      Weekly Dayparting - Team Science Deal
+                      <span>10cc0.78b7f.3379</span>
+                      <a href="#" class="remove-selection">
+                        <span class="ex"></span>
+                      </a>
+                    </label>
+                  </li>
+                  <li class="clearfix">
+                    <label for="select1" class="required-radio">
+                      Weekly Dayparting - Team Science Deal
+                      <span>10cc0.78b7f.3379</span>
+                      <a href="#" class="remove-selection">
+                        <span class="ex"></span>
+                      </a>
+                    </label>
+                  </li>
+                  <li class="clearfix">
+                    <label for="select1" class="required-radio">
+                      Weekly Dayparting - Team Science Deal
+                      <span>10cc0.78b7f.3379</span>
+                      <a href="#" class="remove-selection">
+                        <span class="ex"></span>
+                      </a>
+                    </label>
+                  </li>
+                  <li class="clearfix">
+                    <label for="select1" class="required-radio">
+                      Weekly Dayparting - Team Science Deal
+                      <span>10cc0.78b7f.3379</span>
+                      <a href="#" class="remove-selection">
+                        <span class="ex"></span>
+                      </a>
+                    </label>
+                  </li>
+                  <li class="clearfix">
+                    <label for="select1" class="required-radio">
+                      Weekly Dayparting - Team Science Deal
+                      <span>10cc0.78b7f.3379</span>
+                      <a href="#" class="remove-selection">
+                        <span class="ex"></span>
+                      </a>
+                    </label>
+                  </li>
+                  <li class="clearfix">
+                    <label for="select1" class="required-radio">
+                      Weekly Dayparting - Team Science Deal
+                      <span>10cc0.78b7f.3379</span>
+                      <a href="#" class="remove-selection">
+                        <span class="ex"></span>
+                      </a>
+                    </label>
+                  </li>
+                  <li class="clearfix">
+                    <label for="select1" class="required-radio">
+                      Weekly Dayparting - Team Science Deal
+                      <span>10cc0.78b7f.3379</span>
+                      <a href="#" class="remove-selection">
+                        <span class="ex"></span>
+                      </a>
+                    </label>
+                  </li>
+                  <li class="clearfix">
+                    <label for="select1" class="required-radio">
+                      Weekly Dayparting - Team Science Deal
+                      <span>10cc0.78b7f.3379</span>
+                      <a href="#" class="remove-selection">
+                        <span class="ex"></span>
+                      </a>
+                    </label>
+                  </li>
+                  <li class="clearfix">
+                    <label for="select1" class="required-radio">
+                      Weekly Dayparting - Team Science Deal
+                      <span>10cc0.78b7f.3379</span>
+                      <a href="#" class="remove-selection">
+                        <span class="ex"></span>
+                      </a>
+                    </label>
+                  </li>
+                  <li class="clearfix">
+                    <label for="select1" class="required-radio">
+                      Weekly Dayparting - Team Science Deal
+                      <span>10cc0.78b7f.3379</span>
+                      <a href="#" class="remove-selection">
+                        <span class="ex"></span>
+                      </a>
+                    </label>
+                  </li>
+                  <li class="clearfix">
+                    <label for="select1" class="required-radio">
+                      Weekly Dayparting - Team Science Deal
+                      <span>10cc0.78b7f.3379</span>
+                      <a href="#" class="remove-selection">
+                        <span class="ex"></span>
+                      </a>
+                    </label>
+                  </li>
+                  <li class="clearfix">
+                    <label for="select1" class="required-radio">
+                      Weekly Dayparting - Team Science Deal
+                      <span>10cc0.78b7f.3379</span>
+                      <a href="#" class="remove-selection">
+                        <span class="ex"></span>
+                      </a>
+                    </label>
+                  </li>
+                  <li class="clearfix">
+                    <label for="select1" class="required-radio">
+                      Weekly Dayparting - Team Science Deal
+                      <span>10cc0.78b7f.3379</span>
+                      <a href="#" class="remove-selection">
+                        <span class="ex"></span>
+                      </a>
+                    </label>
+                  </li>
+                  <li class="clearfix">
+                    <label for="select1" class="required-radio">
+                      Weekly Dayparting - Team Science Deal
+                      <span>10cc0.78b7f.3379</span>
+                      <a href="#" class="remove-selection">
+                        <span class="ex"></span>
+                      </a>
+                    </label>
+                  </li>
+                  <li class="clearfix">
+                    <label for="select1" class="required-radio">
+                      Weekly Dayparting - Team Science Deal
+                      <span>10cc0.78b7f.3379</span>
+                      <a href="#" class="remove-selection">
+                        <span class="ex"></span>
+                      </a>
+                    </label>
+                  </li>
+                  <li class="clearfix">
+                    <label for="select1" class="required-radio">
+                      Weekly Dayparting - Team Science Deal
+                      <span>10cc0.78b7f.3379</span>
+                      <a href="#" class="remove-selection">
+                        <span class="ex"></span>
+                      </a>
+                    </label>
+                  </li>
+                  <li class="clearfix">
+                    <label for="select1" class="required-radio">
+                      Weekly Dayparting - Team Science Deal
+                      <span>10cc0.78b7f.3379</span>
+                      <a href="#" class="remove-selection">
+                        <span class="ex"></span>
+                      </a>
+                    </label>
+                  </li>
+                  <li class="clearfix">
+                    <label for="select1" class="required-radio">
+                      Weekly Dayparting - Team Science Deal
+                      <span>10cc0.78b7f.3379</span>
+                      <a href="#" class="remove-selection">
+                        <span class="ex"></span>
+                      </a>
+                    </label>
+                  </li>
+                  <li class="clearfix">
+                    <label for="select1" class="required-radio">
+                      Weekly Dayparting - Team Science Deal
+                      <span>10cc0.78b7f.3379</span>
+                      <a href="#" class="remove-selection">
+                        <span class="ex"></span>
+                      </a>
+                    </label>
+                  </li>
+                  <li class="clearfix">
+                    <label for="select1" class="required-radio">
+                      Weekly Dayparting - Team Science Deal
+                      <span>10cc0.78b7f.3379</span>
+                      <a href="#" class="remove-selection">
+                        <span class="ex"></span>
+                      </a>
+                    </label>
+                  </li>
+                  <li class="clearfix">
+                    <label for="select1" class="required-radio">
+                      Weekly Dayparting - Team Science Deal
+                      <span>10cc0.78b7f.3379</span>
+                      <a href="#" class="remove-selection">
+                        <span class="ex"></span>
+                      </a>
+                    </label>
+                  </li>
+                  <li class="clearfix">
+                    <label for="select1" class="required-radio">
+                      Weekly Dayparting - Team Science Deal
+                      <span>10cc0.78b7f.3379</span>
+                      <a href="#" class="remove-selection">
+                        <span class="ex"></span>
+                      </a>
+                    </label>
+                  </li>
+                  <li class="clearfix">
+                    <label for="select1" class="required-radio">
+                      Weekly Dayparting - Team Science Deal
+                      <span>10cc0.78b7f.3379</span>
+                      <a href="#" class="remove-selection">
+                        <span class="ex"></span>
+                      </a>
+                    </label>
+                  </li>
+                  <li class="clearfix">
+                    <label for="select1" class="required-radio">
+                      Weekly Dayparting - Team Science Deal
+                      <span>10cc0.78b7f.3379</span>
+                      <a href="#" class="remove-selection">
+                        <span class="ex"></span>
+                      </a>
+                    </label>
+                  </li>
+                  <li class="clearfix">
+                    <label for="select1" class="required-radio">
+                      Weekly Dayparting - Team Science Deal
+                      <span>10cc0.78b7f.3379</span>
+                      <a href="#" class="remove-selection">
+                        <span class="ex"></span>
+                      </a>
+                    </label>
+                  </li>
+                  <li class="clearfix">
+                    <label for="select1" class="required-radio">
+                      Weekly Dayparting - Team Science Deal
+                      <span>10cc0.78b7f.3379</span>
+                      <a href="#" class="remove-selection">
+                        <span class="ex"></span>
+                      </a>
+                    </label>
+                  </li>
+                  <li class="clearfix">
+                    <label for="select1" class="required-radio">
+                      Weekly Dayparting - Team Science Deal
+                      <span>10cc0.78b7f.3379</span>
+                      <a href="#" class="remove-selection">
+                        <span class="ex"></span>
+                      </a>
+                    </label>
+                  </li>
+                  <li class="clearfix">
+                    <label for="select1" class="required-radio">
+                      Weekly Dayparting - Team Science Deal
+                      <span>10cc0.78b7f.3379</span>
+                      <a href="#" class="remove-selection">
+                        <span class="ex"></span>
+                      </a>
+                    </label>
+                  </li>
+                  <li class="clearfix">
+                    <label for="select1" class="required-radio">
+                      Weekly Dayparting - Team Science Deal
+                      <span>10cc0.78b7f.3379</span>
+                      <a href="#" class="remove-selection">
+                        <span class="ex"></span>
+                      </a>
+                    </label>
+                  </li>
+                  <li class="clearfix">
+                    <label for="select1" class="required-radio">
+                      Weekly Dayparting - Team Science Deal
+                      <span>10cc0.78b7f.3379</span>
+                      <a href="#" class="remove-selection">
+                        <span class="ex"></span>
+                      </a>
+                    </label>
+                  </li>
+                </ul>
+              </div>
+              <div class="btns-absolute">
+                <a href="#" class="btn btn-success">Save</a>
+                <a href="#" class="btn btn-secondary cancel-filter">Cancel</a>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+    <script type="text/javascript">
+      require(["dist/js/main_new"]);
+    </script>
+  </body>
+</html>

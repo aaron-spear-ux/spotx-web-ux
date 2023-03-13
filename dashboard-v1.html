@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="styleApp">
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description" content="" />
+    <meta name="author" content="" />
+    <link rel="icon" href="dist/img/favicon.ico" />
+
+    <title>Dashboard V1</title>
+
+    <script src="dist/js/requirejs_new/require.js"></script>
+
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+    <!-- Google fonts Source Sans -->
+    <link
+      href="http://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700"
+      rel="stylesheet"
+      type="text/css"
+    />
+    <style type="text/css">
+      [ng\:cloak],
+      [ng-cloak],
+      [data-ng-cloak],
+      [x-ng-cloak],
+      .ng-cloak,
+      .x-ng-cloak {
+        display: none !important;
+      }
+    </style>
+  </head>
+
+  <body class="spotx pubtools maximize" ng-controller="mainCtrl" ng-cloak>
+    <div ng-controller="tableFilterCtrl"></div>
+    <div ng-controller="formsController"></div>
+
+    <div class="container-fluid">
+      <div class="row">
+        <div class="nav-drop-container"></div>
+        <div class="side-bar">
+          <ul class="nav nav-pills flex-column" ng-controller="navCtrl">
+            <nav-side-accordian class="nav-side">
+              <li class="level-1 publisher active">
+                <a href="#" class="dashboard" closesub>
+                  <i class="fa fa-tachometer"></i>
+                  <span>Dashboard</span>
+                </a>
+              </li>
+            </nav-side-accordian>
+            <nav-side-accordian class="nav-side">
+              <li class="level-1 publisher">
+                <a href="#" class="channel" closesub>
+                  <i class="fa fa-line-chart"></i>
+                  <span>Channels</span>
+                </a>
+              </li>
+            </nav-side-accordian>
+            <nav-side-accordian class="nav-side">
+              <li class="level-1 publisher">
+                <a href="#" closesub>
+                  <i class="fa fa-exchange"></i>
+                  <span>Campaigns</span>
+                </a>
+              </li>
+            </nav-side-accordian>
+            <nav-side-accordian class="nav-side">
+              <li class="level-1 publisher">
+                <a href="#" closesub>
+                  <i class="fa fa-bar-chart"></i>
+                  <span>Reports</span>
+                  <i class="icon fa"></i>
+                </a>
+                <ul class="accordion-items collapse">
+                  <li><a href="#">Advertiser Reports</a></li>
+                  <li><a href="#">Scheduled Reports</a></li>
+                  <li><a href="#">Custom Reports</a></li>
+                </ul>
+              </li>
+            </nav-side-accordian>
+            <nav-side-accordian class="nav-side">
+              <li class="level-1 publisher">
+                <a href="#" closesub>
+                  <i class="fa fa-play" style="font-size: 18px"></i>
+                  <span>Creatives</span>
+                  <i class="icon fa"></i>
+                </a>
+                <ul class="accordion-items collapse">
+                  <li><a href="#">Creative Review</a></li>
+                  <li><a href="#">Creative Library</a></li>
+                  <li><a href="#">Ad Exclusions</a></li>
+                </ul>
+              </li>
+            </nav-side-accordian>
+            <nav-side-accordian class="nav-side">
+              <li class="level-1 publisher">
+                <a href="#" closesub>
+                  <i class="fa fa-cogs"></i>
+                  <span>Utilities</span>
+                  <i class="icon fa"></i>
+                </a>
+                <ul class="accordion-items collapse">
+                  <li><a href="#">Ad Playlist</a></li>
+                  <li><a href="#">Campaign Inspector</a></li>
+                </ul>
+              </li>
+            </nav-side-accordian>
+            <nav-side-accordian class="nav-side">
+              <li class="level-1 publisher">
+                <a href="#" closesub>
+                  <i
+                    class="fa fa-question-circle-o"
+                    style="font-size: 22px"
+                  ></i>
+                  <span>Help</span>
+                  <i class="icon fa"></i>
+                </a>
+                <ul class="accordion-items collapse">
+                  <li><a href="#">What's New</a></li>
+                  <li><a href="#">SpotX Knowledge</a></li>
+                  <li><a href="#">Developer Center</a></li>
+                </ul>
+              </li>
+            </nav-side-accordian>
+          </ul>
+        </div>
+        <div class="page-header">
+          <a class="minimize-toggle open">
+            <div class="patty"></div>
+          </a>
+          <div class="header-left">
+            <a class="logo" href="#"></a>
+          </div>
+          <h4>Dashboard</h4>
+          <ul class="top-nav">
+            <li class="top-link">
+              <a href="#" class="account"
+                >auto1gross_pub <i class="user-icon"><span>AS</span></i></a
+              >
+              <ul class="dropdown-content account-dropdown">
+                <li><a href="#">Publisher Information</a></li>
+                <li><a href="#">My Account</a></li>
+                <li><a href="#">Publisher Activity</a></li>
+                <li><a href="#">Manage Users</a></li>
+                <li><a href="#">Manage Affiliates</a></li>
+                <li class="drop-divider"></li>
+                <li><a href="#">Change Password</a></li>
+                <li><a href="#">Logout</a></li>
+              </ul>
+            </li>
+          </ul>
+          <div class="create-container">
+            <a class="create btn btn-success" href="#">Create</a>
+            <ul class="dropdown-content create-dropdown">
+              <li><a href="#">Create new Channel</a></li>
+              <li><a href="#">Create new Campaign</a></li>
+            </ul>
+          </div>
+        </div>
+        <!-- <h5>April 11, 2018 <span>to</span> April 17,2018</h5> -->
+        <div class="action-bar">
+          <div class="channel-select-container">
+            <div class="channel-select">
+              <select class="form-control select2-tag" id="channelSelect">
+                <option>All Channels</option>
+                <option>
+                  auto1admin_PubCampaignCreateNewCampaignTest_0 (1047)
+                </option>
+                <option>
+                  auto1admin_PubCampaignCreateNewCampaignTest_1 (1048)
+                </option>
+                <option>
+                  auto1admin_PubCampaignCreateNewCampaignTest_2 (1049)
+                </option>
+                <option>
+                  auto1admin_PubCampaignCreateNewCampaignTest_3 (1050)
+                </option>
+                <option>
+                  auto1admin_PubCampaignCreateNewCampaignTest_4 (1051)
+                </option>
+                <option>
+                  auto1admin_PubCampaignCreateNewCampaignTest_5 (1052)
+                </option>
+                <option>
+                  auto1admin_PubCampaignCreateNewCampaignTest_6 (1053)
+                </option>
+                <option>
+                  auto1admin_PubCampaignCreateNewCampaignTest_7 (1054)
+                </option>
+              </select>
+            </div>
+          </div>
+          <div class="pull-right">
+            <select class="form-control select2">
+              <option>Today</option>
+              <option>Yesterday</option>
+              <option selected>Previous 7 Days</option>
+              <option>This Month</option>
+              <option>Last Month</option>
+              <option>This Year</option>
+              <option>Custom Date Range</option>
+            </select>
+            <div class="dropdown">
+              <a
+                class="btn btn-link btn-dropdown dropdown-toggle"
+                href="#"
+                role="button"
+                id="dropdownMenuLink"
+                data-toggle="dropdown"
+                aria-haspopup="true"
+                aria-expanded="false"
+              >
+                <i class="fa fa-download"></i>
+              </a>
+              <div
+                class="dropdown-menu dropdown-menu-right"
+                aria-labelledby="dropdownMenuLink"
+              >
+                <li><a class="dropdown-item" href="#">Refferer Report</a></li>
+                <li><a class="dropdown-item" href="#">Revenue Report</a></li>
+                <li><a class="dropdown-item" href="#">Region Report</a></li>
+                <li><a class="dropdown-item" href="#">Quality Report</a></li>
+                <li class="divider"></li>
+                <li><a class="dropdown-item" href="#">Schedule Delivery</a></li>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="search-bg"></div>
+        <div class="search-expanded">
+          <div class="search icon icon-zoom"></div>
+          <input
+            type="text"
+            class="form-control"
+            id="sitewide"
+            autofocus
+            placeholder="Search..."
+          />
+          <a href="#" class="close-search">
+            <span class="ex"></span>
+          </a>
+        </div>
+        <ul class="search-dropdown dropdown-content">
+          <li class="dropdown-header">Quick Links</li>
+          <li><a href="#">Campaigns</a></li>
+          <li><a href="#">Channels</a></li>
+          <li><a href="#">Reports</a></li>
+          <li><a href="#">Forecasting</a></li>
+          <li class="drop-divider"></li>
+          <li class="dropdown-header">Suggested Searches</li>
+          <li><a href="#">Scheduled Reports</a></li>
+          <li><a href="#">Custom Reports</a></li>
+          <li><a href="#">Campaign Reports</a></li>
+        </ul>
+        <div class="main sx-toast">
+          <form class="form-container">
+            <div class="section">
+              <div class="tabs tabs-style-default">
+                <ul class="nav nav-tabs">
+                  <li class="active revenue">
+                    <a>
+                      Gross Revenue
+                      <span>$200,738.38</span>
+                    </a>
+                  </li>
+                  <li class="traffic">
+                    <a>
+                      Traffic
+                      <span>57.26% Fill Rate</span>
+                    </a>
+                  </li>
+                  <li class="quality">
+                    <a>
+                      Quality
+                      <span>6.19% CTR</span>
+                    </a>
+                  </li>
+                </ul>
+              </div>
+            </div>
+            <div class="revenue-bg"></div>
+            <div class="traffic-bg"></div>
+            <div class="quality-bg"></div>
+          </form>
+        </div>
+      </div>
+    </div>
+
+    <script type="text/javascript">
+      require(["dist/js/main_new"]);
+    </script>
+  </body>
+</html>

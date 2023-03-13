@@ -1,0 +1,86 @@
+
+// bootstrap 
+@import "bootstrap.less";
+
+// base css
+@import (inline) "../dist/css/base.css";
+@import (inline) "../dist/css/bootstrap-theme.min.css";
+
+// spotX CSS
+@import "spotx/overrides.less";
+@import "spotx/logos.less";
+@import "spotx/colors.less";
+@import "spotx/sx-colors.less";
+@import "spotx/typography.less";
+@import "spotx/headings.less";
+@import "spotx/buttons.less";
+@import "spotx/layout.less";
+@import "spotx/icons.less";
+@import "spotx/less.less";
+@import "spotx/loading.less";
+@import "spotx/pagenotfound.less";
+@import "spotx/custom-report.less";
+@import "spotx/vmap.less";
+@import "spotx/campaign-filter.less";
+@import "spotx/revenue-single-day.less";
+@import "spotx/stones-throw.less";
+@import "spotx/advertiser-campaign.less";
+@import "spotx/dayparting.less";
+@import "spotx/top-nav.less";
+@import "spotx/madm.less";
+@import "spotx/channels.less";
+@import "spotx/campaign-view.less";
+@import "spotx/side-nav.less";
+@import "../dist/fonts/font-awesome-4.7.0/less/font-awesome.less";
+
+// lib CSS
+@import (inline) "../dist/css/lib/bootstrap-checkbox.css";
+@import (inline) "../dist/css/lib/fontastic.css";
+@import (inline) "../dist/css/lib/perfect-scrollbar.min.css";
+@import (inline) "../dist/css/lib/prettify.css";
+@import (inline) "../dist/css/lib/select2.css";
+@import (inline) "../dist/css/lib/select2-bootstrap.css";
+@import (inline) "../dist/css/lib/timepicker.css";
+@import (inline) "../dist/css/lib/ui-grid.css";
+@import (inline) "../dist/css/lib/jquery-ui.min.css";
+@import (inline) "../dist/css/lib/ng-grid.css";
+@import (inline) "../dist/css/lib/select2-4.0.4/css/select2.min.css";
+
+header {
+    .logo {
+        float: left;
+    }
+    nav {
+        float: right;
+        margin: 25px 25px 0 0;
+        -webkit-transition: all ease-in-out .2s;
+        transition: all ease-in-out .2s;
+        ul {
+            margin: 0;
+            list-style-type: none;
+            li {
+                float: left;
+                a {
+                    display: block;
+                    padding: 0 20px;
+                    font-size: 14px;
+                    line-height: 40px;
+                    text-decoration: none;
+                    position: relative;
+                    color: #888;
+                    background: #fff;
+                    &:hover {
+                        color: #333;
+                    }
+                }
+            }
+        }
+    }
+}
+&.alt {
+    header {
+        nav {
+            margin: 4px 25px 0 0;
+        }
+    }
+}

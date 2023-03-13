@@ -1,0 +1,205 @@
+<h3 class="sub-header">Option 1</h3>
+<div class="option-one">
+	<div class="loading-container"></div>
+	<div class="tables">
+		<section id="smart-table" ng-controller="tableCtrl">
+			<div>
+				<table st-table="rowCollection" class="table table-sort">
+					<thead>
+					<tr>
+						<th st-sort="name">Name<i class="icon"></i></th>
+						<th st-sort="ends">Ends<i class="icon"></i></th>
+						<th st-sort="floor">Floor<i class="icon"></i></th>
+						<th st-sort="rev">$ Rev<i class="icon"></i></th>
+						<th st-sort="imp"># Imp<i class="icon"></i></th>
+						<th st-sort="ecpm">eCPM<i class="icon"></i></th>
+						<th st-sort="status">Status<i class="icon"></i></th>
+						<th st-sort="tools"></th>
+					</tr>
+					<tr>
+						<th><input st-search="'name'" placeholder="search name" class="input-sm form-control" type="search"/></th>
+						<th><input st-search="'ends'" placeholder="search end date" class="input-sm form-control" type="search"/></th>
+						<th></th>
+						<th></th>
+						<th></th>
+						<th></th>
+						<th>
+							<select class="input-sm form-control select2" st-search="'status'">
+								<option>Paused</option>
+								<option>Running</option>
+								<option>Pending</option>
+								<option>Archived</option>
+							</select>
+						</th>
+						<th></th>
+					</tr>
+					</thead>
+					<tbody ng-controller="collapseCtrl">
+					<tr class="tier-collapse open" toggle ng-click="isCollapsed = !isCollapsed">
+						<td colspan="8"><i class="icon"></i>TIER 1 (4)</td>
+					</tr>
+					<tr ng-repeat="row in rowCollection" collapse="isCollapsed">
+						<td class="name row-{{row.status}}"><a href="">{{row.name}}</a><br/><span class="code">{{row.code}}</span></td>
+						<td class="row-{{row.status}}">{{row.ends}}</td>
+						<td class="row-{{row.status}}">{{row.floor}}</td>
+						<td class="row-{{row.status}}">{{row.rev}}</td>
+						<td class="row-{{row.status}}">{{row.imp}}</td>
+						<td class="row-{{row.status}}">{{row.cpm}}</td>
+						<td class="status status-{{row.status}} row-{{row.status}}"><span>{{row.status}}</span></td>
+						<td class="hide-dropdown row-{{row.status}}">
+    					    <span class="dropdown tools btn-group text-left pull-right" dropdown on-toggle="toggled(open)">
+            		            <button class="btn btn-default btn-sm dropdown-toggle" dropdown-toggle>
+            		            	<i class="icon icon-cog-gear"></i>
+            		            	<span class="caret"></span>
+            		            </button>
+        					      <ul class="dropdown-menu">
+        					          <li><a href="#">Edit Schedule</a></li>
+        					          <li><a href="#">Delete Schedule</a></li>
+        					          <li><a href="#">Download Report</a></li>
+        					      </ul>
+    					    </span>
+						</td>
+					</tr>
+					<tr class="tier-collapse open" toggle ng-click="isCollapsed2 = !isCollapsed2">
+						<td colspan="8"><i class="icon"></i>TIER 2 (4)</td>
+					</tr>
+					<tr ng-repeat="row in rowCollection" collapse="isCollapsed2">
+						<td class="name row-{{row.status}}"><a href="">{{row.name}}</a><br/><span class="code">{{row.code}}</span></td>
+						<td class="row-{{row.status}}">{{row.ends}}</td>
+						<td class="row-{{row.status}}">{{row.floor}}</td>
+						<td class="row-{{row.status}}">{{row.rev}}</td>
+						<td class="row-{{row.status}}">{{row.imp}}</td>
+						<td class="row-{{row.status}}">{{row.cpm}}</td>
+						<td class="status status-{{row.status}} row-{{row.status}}"><span>{{row.status}}</span></td>
+						<td class="hide-dropdown row-{{row.status}}">
+					    <span class="dropdown tools btn-group text-left pull-right" dropdown on-toggle="toggled(open)">
+                            <button class="btn btn-default btn-sm dropdown-toggle" dropdown-toggle>
+                                <i class="icon icon-cog-gear"></i>
+                                <span class="caret"></span>
+                            </button>
+                            <ul class="dropdown-menu">
+                                <li><a href="#">Edit Schedule</a></li>
+                                <li><a href="#">Delete Schedule</a></li>
+                                <li><a href="#">Download Report</a></li>
+                            </ul>
+					    </span>
+						</td>
+					</tr>
+					</tbody>
+				</table>
+			</div>
+		</section>
+	</div>
+</div>
+
+<h3 class="sub-header">Option 2</h3>
+<div class="option-two">
+	<div class="sx-container">
+		<div class="sx-folding-cube">
+			<div class="sx-cube1 sx-cube"></div>
+			<div class="sx-cube2 sx-cube"></div>
+			<div class="sx-cube4 sx-cube"></div>
+			<div class="sx-cube3 sx-cube"></div>
+		</div>
+	</div>
+	<div class="tables">
+		<section id="smart-table" ng-controller="tableCtrl">
+			<div>
+				<table st-table="rowCollection" class="table table-sort">
+					<thead>
+					<tr>
+						<th st-sort="name">Name<i class="icon"></i></th>
+						<th st-sort="ends">Ends<i class="icon"></i></th>
+						<th st-sort="floor">Floor<i class="icon"></i></th>
+						<th st-sort="rev">$ Rev<i class="icon"></i></th>
+						<th st-sort="imp"># Imp<i class="icon"></i></th>
+						<th st-sort="ecpm">eCPM<i class="icon"></i></th>
+						<th st-sort="status">Status<i class="icon"></i></th>
+						<th st-sort="tools"></th>
+					</tr>
+					<tr>
+						<th><input st-search="'name'" placeholder="search name" class="input-sm form-control" type="search"/></th>
+						<th><input st-search="'ends'" placeholder="search end date" class="input-sm form-control" type="search"/></th>
+						<th></th>
+						<th></th>
+						<th></th>
+						<th></th>
+						<th>
+							<select class="input-sm form-control select2" st-search="'status'">
+								<option>Paused</option>
+								<option>Running</option>
+								<option>Pending</option>
+								<option>Archived</option>
+							</select>
+						</th>
+						<th></th>
+					</tr>
+					</thead>
+					<tbody ng-controller="collapseCtrl">
+					<tr class="tier-collapse open" toggle ng-click="isCollapsed = !isCollapsed">
+						<td colspan="8"><i class="icon"></i>TIER 1 (4)</td>
+					</tr>
+					<tr ng-repeat="row in rowCollection" collapse="isCollapsed">
+						<td class="name row-{{row.status}}"><a href="">{{row.name}}</a><br/><span class="code">{{row.code}}</span></td>
+						<td class="row-{{row.status}}">{{row.ends}}</td>
+						<td class="row-{{row.status}}">{{row.floor}}</td>
+						<td class="row-{{row.status}}">{{row.rev}}</td>
+						<td class="row-{{row.status}}">{{row.imp}}</td>
+						<td class="row-{{row.status}}">{{row.cpm}}</td>
+						<td class="status status-{{row.status}} row-{{row.status}}"><span>{{row.status}}</span></td>
+						<td class="hide-dropdown row-{{row.status}}">
+    					    <span class="dropdown tools btn-group text-left pull-right" dropdown on-toggle="toggled(open)">
+            		            <button class="btn btn-default btn-sm dropdown-toggle" dropdown-toggle>
+            		            	<i class="icon icon-cog-gear"></i>
+            		            	<span class="caret"></span>
+            		            </button>
+        					      <ul class="dropdown-menu">
+        					          <li><a href="#">Edit Schedule</a></li>
+        					          <li><a href="#">Delete Schedule</a></li>
+        					          <li><a href="#">Download Report</a></li>
+        					      </ul>
+    					    </span>
+						</td>
+					</tr>
+					<tr class="tier-collapse open" toggle ng-click="isCollapsed2 = !isCollapsed2">
+						<td colspan="8"><i class="icon"></i>TIER 2 (4)</td>
+					</tr>
+					<tr ng-repeat="row in rowCollection" collapse="isCollapsed2">
+						<td class="name row-{{row.status}}"><a href="">{{row.name}}</a><br/><span class="code">{{row.code}}</span></td>
+						<td class="row-{{row.status}}">{{row.ends}}</td>
+						<td class="row-{{row.status}}">{{row.floor}}</td>
+						<td class="row-{{row.status}}">{{row.rev}}</td>
+						<td class="row-{{row.status}}">{{row.imp}}</td>
+						<td class="row-{{row.status}}">{{row.cpm}}</td>
+						<td class="status status-{{row.status}} row-{{row.status}}"><span>{{row.status}}</span></td>
+						<td class="hide-dropdown row-{{row.status}}">
+					    <span class="dropdown tools btn-group text-left pull-right" dropdown on-toggle="toggled(open)">
+                            <button class="btn btn-default btn-sm dropdown-toggle" dropdown-toggle>
+                                <i class="icon icon-cog-gear"></i>
+                                <span class="caret"></span>
+                            </button>
+                            <ul class="dropdown-menu">
+                                <li><a href="#">Edit Schedule</a></li>
+                                <li><a href="#">Delete Schedule</a></li>
+                                <li><a href="#">Download Report</a></li>
+                            </ul>
+					    </span>
+						</td>
+					</tr>
+					</tbody>
+				</table>
+			</div>
+		</section>
+	</div>
+</div>
+
+
+<script src="dist/js/lib/prettify.js"></script>
+<script src="dist/js/lib/lang-css.js"></script>
+
+
+
+
+
+
+

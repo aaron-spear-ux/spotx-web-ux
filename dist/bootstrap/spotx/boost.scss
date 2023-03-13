@@ -1,0 +1,702 @@
+//
+// Variables
+// --------------------------------------------------
+//== Colors
+
+$black: #000;
+$white: #fff;
+$slate: #747b8b;
+$moss: #84bd00;
+$sky: #00a3e0;
+$azure: #0e53f1;
+$grape: #703fc0;
+$guava: #e0457b;
+$tango: #e81717;
+$mandarin: #fe7801;
+$lemon: #ffc600;
+
+// --------------------------------------------------
+//== Slate
+
+$slate-05: lighten($slate, 45%);
+$slate-10: lighten($slate, 40%);
+$slate-20: lighten($slate, 30%);
+$slate-30: lighten($slate, 20%);
+$slate-40: lighten($slate, 10%);
+$slate-50: $slate;
+$slate-60: darken($slate, 10%);
+$slate-70: darken($slate, 20%);
+$slate-80: darken($slate, 30%);
+$slate-90: darken($slate, 40%);
+
+// --------------------------------------------------
+//== Moss
+
+$moss-05: #f3f8e6;
+$moss-10: #e6f2cc;
+$moss-20: #cee599;
+$moss-30: #b5d766;
+$moss-40: #9dca33;
+$moss-50: $moss;
+$moss-60: #6a9700;
+$moss-70: #4f7100;
+$moss-80: #354c00;
+$moss-90: #1a2600;
+
+// --------------------------------------------------
+//== Sky
+
+$sky-05: #e6f6fc;
+$sky-10: #ccedf9;
+$sky-20: #99daf3;
+$sky-30: #66c8ec;
+$sky-40: #33b5e6;
+$sky-50: $sky;
+$sky-60: #0082b3;
+$sky-70: #006286;
+$sky-80: #00415a;
+$sky-90: #00212d;
+
+// --------------------------------------------------
+//== Azure
+
+$azure-05: lighten($azure, 45%);
+$azure-10: lighten($azure, 40%);
+$azure-20: lighten($azure, 30%);
+$azure-30: lighten($azure, 20%);
+$azure-40: lighten($azure, 10%);
+$azure-50: $azure;
+$azure-60: darken($azure, 10%);
+$azure-70: darken($azure, 20%);
+$azure-80: darken($azure, 30%);
+$azure-90: darken($azure, 40%);
+
+// --------------------------------------------------
+//== Grape
+
+$grape-05: lighten($grape, 45%);
+$grape-10: lighten($grape, 40%);
+$grape-20: lighten($grape, 30%);
+$grape-30: lighten($grape, 20%);
+$grape-40: lighten($grape, 10%);
+$grape-50: $grape;
+$grape-60: darken($grape, 10%);
+$grape-70: darken($grape, 20%);
+$grape-80: darken($grape, 30%);
+$grape-90: darken($grape, 40%);
+
+// --------------------------------------------------
+//== Guava
+
+$guava-05: #fcecf2;
+$guava-10: #f9dae5;
+$guava-20: #f3b5ca;
+$guava-30: #ec8fb0;
+$guava-40: #e66a95;
+$guava-50: $guava;
+$guava-60: #b33762;
+$guava-70: #86294a;
+$guava-80: #5a1c31;
+$guava-90: #2d0e19;
+
+// --------------------------------------------------
+//== Tango
+
+$tango-05: lighten($tango, 45%);
+$tango-10: lighten($tango, 40%);
+$tango-20: lighten($tango, 30%);
+$tango-30: lighten($tango, 20%);
+$tango-40: lighten($tango, 10%);
+$tango-50: $tango;
+$tango-60: darken($tango, 10%);
+$tango-70: darken($tango, 20%);
+$tango-80: darken($tango, 30%);
+$tango-90: darken($tango, 40%);
+
+// --------------------------------------------------
+//== Mandarin
+
+$mandarin-05: lighten($mandarin, 45%);
+$mandarin-10: lighten($mandarin, 40%);
+$mandarin-20: lighten($mandarin, 30%);
+$mandarin-30: lighten($mandarin, 20%);
+$mandarin-40: lighten($mandarin, 10%);
+$mandarin-50: $mandarin;
+$mandarin-60: darken($mandarin, 10%);
+$mandarin-70: darken($mandarin, 20%);
+$mandarin-80: darken($mandarin, 30%);
+$mandarin-90: darken($mandarin, 40%);
+
+// --------------------------------------------------
+//== Lemon
+
+$lemon-05: lighten($lemon, 45%);
+$lemon-10: lighten($lemon, 40%);
+$lemon-20: lighten($lemon, 30%);
+$lemon-30: lighten($lemon, 20%);
+$lemon-40: lighten($lemon, 10%);
+$lemon-50: $lemon;
+$lemon-60: darken($lemon, 10%);
+$lemon-70: darken($lemon, 20%);
+$lemon-80: darken($lemon, 30%);
+$lemon-90: darken($lemon, 40%);
+
+// --------------------------------------------------
+//== LEGACY
+
+$sx-blue-legacy: #1b9dd0;
+
+// --------------------------------------------------
+//== Bootstrap color system overrides
+
+$gray-100: $slate-10;
+$gray-200: $slate-20;
+$gray-300: $slate-30;
+$gray-400: $slate-40;
+$gray-500: $slate-50;
+$gray-600: $slate-60;
+$gray-700: $slate-70;
+$gray-800: $slate-80;
+$gray-900: $slate-90;
+
+$blue: $azure;
+$purple: $grape;
+$pink: $guava;
+$red: $tango;
+$orange: $mandarin;
+$yellow: $lemon;
+$green: $moss;
+$cyan: $sky;
+
+$primary: $sky-60;
+$secondary: $white;
+$success: $moss;
+$info: $azure-70;
+$warning: $lemon;
+$danger: $tango;
+$light: $slate-10;
+$dark: $slate-80;
+
+.slate {
+  background: $slate;
+}
+.moss {
+  background: $moss;
+}
+.sky {
+  background: $sky;
+}
+.azure {
+  background: $azure;
+}
+.grape {
+  background: $grape;
+}
+.guava {
+  background: $guava;
+}
+.tango {
+  background: $tango;
+}
+.mandarin {
+  background: $mandarin;
+}
+.lemon {
+  background: $lemon;
+}
+
+.slate-05 {
+  background: $slate-05;
+}
+.slate-10 {
+  background: $slate-10;
+}
+.slate-20 {
+  background: $slate-20;
+}
+.slate-30 {
+  background: $slate-30;
+}
+.slate-40 {
+  background: $slate-40;
+}
+.slate-50 {
+  background: $slate;
+}
+.slate-60 {
+  background: $slate-60;
+}
+.slate-70 {
+  background: $slate-70;
+}
+.slate-80 {
+  background: $slate-80;
+}
+.slate-90 {
+  background: $slate-90;
+}
+
+.moss-05 {
+  background: $moss-05;
+}
+.moss-10 {
+  background: $moss-10;
+}
+.moss-20 {
+  background: $moss-20;
+}
+.moss-30 {
+  background: $moss-30;
+}
+.moss-40 {
+  background: $moss-40;
+}
+.moss-50 {
+  background: $moss;
+}
+.moss-60 {
+  background: $moss-60;
+}
+.moss-70 {
+  background: $moss-70;
+}
+.moss-80 {
+  background: $moss-80;
+}
+.moss-90 {
+  background: $moss-90;
+}
+
+.sky-05 {
+  background: $sky-05;
+}
+.sky-10 {
+  background: $sky-10;
+}
+.sky-20 {
+  background: $sky-20;
+}
+.sky-30 {
+  background: $sky-30;
+}
+.sky-40 {
+  background: $sky-40;
+}
+.sky-50 {
+  background: $sky;
+}
+.sky-60 {
+  background: $sky-60;
+}
+.sky-70 {
+  background: $sky-70;
+}
+.sky-80 {
+  background: $sky-80;
+}
+.sky-90 {
+  background: $sky-90;
+}
+
+.azure-05 {
+  background: $azure-05;
+}
+.azure-10 {
+  background: $azure-10;
+}
+.azure-20 {
+  background: $azure-20;
+}
+.azure-30 {
+  background: $azure-30;
+}
+.azure-40 {
+  background: $azure-40;
+}
+.azure-50 {
+  background: $azure;
+}
+.azure-60 {
+  background: $azure-60;
+}
+.azure-70 {
+  background: $azure-70;
+}
+.azure-80 {
+  background: $azure-80;
+}
+.azure-90 {
+  background: $azure-90;
+}
+
+.grape-05 {
+  background: $grape-05;
+}
+.grape-10 {
+  background: $grape-10;
+}
+.grape-20 {
+  background: $grape-20;
+}
+.grape-30 {
+  background: $grape-30;
+}
+.grape-40 {
+  background: $grape-40;
+}
+.grape-50 {
+  background: $grape;
+}
+.grape-60 {
+  background: $grape-60;
+}
+.grape-70 {
+  background: $grape-70;
+}
+.grape-80 {
+  background: $grape-80;
+}
+.grape-90 {
+  background: $grape-90;
+}
+
+.guava-05 {
+  background: $guava-05;
+}
+.guava-10 {
+  background: $guava-10;
+}
+.guava-20 {
+  background: $guava-20;
+}
+.guava-30 {
+  background: $guava-30;
+}
+.guava-40 {
+  background: $guava-40;
+}
+.guava-50 {
+  background: $guava;
+}
+.guava-60 {
+  background: $guava-60;
+}
+.guava-70 {
+  background: $guava-70;
+}
+.guava-80 {
+  background: $guava-80;
+}
+.guava-90 {
+  background: $guava-90;
+}
+
+.tango-05 {
+  background: $tango-05;
+}
+.tango-10 {
+  background: $tango-10;
+}
+.tango-20 {
+  background: $tango-20;
+}
+.tango-30 {
+  background: $tango-30;
+}
+.tango-40 {
+  background: $tango-40;
+}
+.tango-50 {
+  background: $tango;
+}
+.tango-60 {
+  background: $tango-60;
+}
+.tango-70 {
+  background: $tango-70;
+}
+.tango-80 {
+  background: $tango-80;
+}
+.tango-90 {
+  background: $tango-90;
+}
+
+.mandarin-05 {
+  background: $mandarin-05;
+}
+.mandarin-10 {
+  background: $mandarin-10;
+}
+.mandarin-20 {
+  background: $mandarin-20;
+}
+.mandarin-30 {
+  background: $mandarin-30;
+}
+.mandarin-40 {
+  background: $mandarin-40;
+}
+.mandarin-50 {
+  background: $mandarin;
+}
+.mandarin-60 {
+  background: $mandarin-60;
+}
+.mandarin-70 {
+  background: $mandarin-70;
+}
+.mandarin-80 {
+  background: $mandarin-80;
+}
+.mandarin-90 {
+  background: $mandarin-90;
+}
+
+.lemon-05 {
+  background: $lemon-05;
+}
+.lemon-10 {
+  background: $lemon-10;
+}
+.lemon-20 {
+  background: $lemon-20;
+}
+.lemon-30 {
+  background: $lemon-30;
+}
+.lemon-40 {
+  background: $lemon-40;
+}
+.lemon-50 {
+  background: $lemon;
+}
+.lemon-60 {
+  background: $lemon-60;
+}
+.lemon-70 {
+  background: $lemon-70;
+}
+.lemon-80 {
+  background: $lemon-80;
+}
+.lemon-90 {
+  background: $lemon-90;
+}
+
+//
+// Button variable overrides
+// --------------------------------------------------
+
+$input-btn-padding-y: 0.5rem;
+
+$btn-padding-y: $input-btn-padding-y;
+
+// Allows for customizing button radius independently from global border radius
+$border-radius: 2px;
+$border-radius-sm: 2px;
+$border-radius-lg: 2px;
+
+$btn-border-radius: $border-radius;
+$btn-border-radius-sm: $border-radius-sm;
+$btn-border-radius-lg: $border-radius-lg;
+
+// Typography
+//
+// Font, line-height, and color for body text, headings, and more.
+
+// stylelint-disable value-keyword-case
+$font-family-sans-serif: "Open Sans", "Helvetica Neue", Helvetica, Arial,
+  sans-serif;
+
+// $font-size-base effects the font size of the body text
+$font-size-base: 0.875rem; // Assumes the browser default, typically `16px`
+
+$headings-line-height: 1.25;
+
+$display1-size: 4.5rem;
+$display2-size: 4rem;
+$display3-size: 3.5rem;
+$display4-size: 3rem;
+
+$hero-1-font-size: $display1-size;
+$hero-2-font-size: $display2-size;
+$hero-3-font-size: $display3-size;
+$hero-4-font-size: $display4-size;
+
+$h1-font-size: $font-size-base * 2.5 !default;
+$h2-font-size: $font-size-base * 2 !default;
+$h3-font-size: $font-size-base * 1.5 !default;
+$h4-font-size: $font-size-base * 1.25 !default;
+$h5-font-size: $font-size-base * 1.125 !default;
+$h6-font-size: $font-size-base !default;
+
+/* Typography
+* -------------------------- */
+
+.hero-1 {
+  letter-spacing: -4.15px;
+  font-size: $hero-1-font-size;
+  line-height: $headings-line-height;
+}
+
+.hero-2 {
+  letter-spacing: -3.5px;
+  font-size: $hero-2-font-size;
+  line-height: $headings-line-height;
+}
+
+.hero-3 {
+  letter-spacing: -2.45px;
+  font-size: $hero-3-font-size;
+  line-height: $headings-line-height;
+}
+
+.hero-4 {
+  letter-spacing: -2.1px;
+  font-size: $hero-4-font-size;
+  line-height: $headings-line-height;
+}
+
+h1 {
+  letter-spacing: -1.75px;
+}
+
+h2 {
+  letter-spacing: -1.4px;
+}
+
+h1,
+h2,
+h3 {
+  line-height: $headings-line-height;
+}
+
+h3 {
+  letter-spacing: -1.05px;
+  line-height: $line-height-base;
+}
+
+h4 {
+  letter-spacing: -0.88px;
+  line-height: $line-height-base;
+}
+
+h5 {
+  letter-spacing: -0.79px;
+  line-height: $line-height-base;
+}
+
+h6 {
+  letter-spacing: -0.37px;
+  line-height: $line-height-base;
+}
+
+a {
+  color: $azure-60;
+  &:hover,
+  &:focus,
+  &:active {
+    color: $azure-70;
+  }
+  &:visited {
+    color: $grape-70;
+  }
+}
+
+.form-section {
+  padding: 15px;
+}
+
+.font-weight-semi-bold {
+  font-weight: 600;
+}
+
+.max-line-length {
+  max-width: 720px;
+}
+
+.swatch-container {
+  display: flex;
+  .swatch-section {
+    flex: 1;
+    margin: 0 5px;
+    legend {
+      font-size: 18px;
+      color: #555;
+      border: none;
+      margin-bottom: 40px;
+      font-style: italic;
+      text-transform: lowercase;
+    }
+    .swatch-list {
+      padding: 0;
+      margin: 0;
+      list-style: none;
+      li {
+        &:nth-child(1),
+        &:nth-child(11) {
+          height: 50px;
+        }
+        &:nth-child(2),
+        &:nth-child(10) {
+          height: 55px;
+        }
+        &:nth-child(3),
+        &:nth-child(9) {
+          height: 60px;
+        }
+        &:nth-child(4),
+        &:nth-child(8) {
+          height: 65px;
+        }
+        &:nth-child(5),
+        &:nth-child(7) {
+          height: 70px;
+        }
+      }
+    }
+  }
+  .swatch {
+    float: left;
+    width: 100%;
+    margin-bottom: 1px;
+    color: $white;
+    text-align: center;
+    cursor: default;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    &:hover {
+      span {
+        opacity: 1;
+        -webkit-transition: all ease-out 0.3s;
+        transition: all ease-out 0.3s;
+      }
+    }
+    span {
+      opacity: 0;
+      text-align: center;
+      color: $black;
+      -webkit-transition: all ease-out 0.3s;
+      transition: all ease-out 0.3s;
+      &.name {
+        font-size: 12px;
+      }
+      &.light {
+        color: $white;
+      }
+    }
+    &.default {
+      height: 100px;
+      span {
+        color: $white;
+        opacity: 1;
+        text-shadow: 1px 1px rgba(0, 0, 0, 0.7);
+        &.name {
+          font-size: 16px;
+        }
+      }
+    }
+  }
+}

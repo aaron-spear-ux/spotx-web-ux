@@ -1,0 +1,86 @@
+<h4 class="fixed-header" ng-cloak>Graphs / Highcharts</h4>
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="description" content="">
+        <meta name="author" content="">
+        <link rel="icon" href="dist/img/favicon.ico">
+
+        <title>Dashboard</title>
+
+        <!-- Stylesheets -->
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous">
+        <link rel='stylesheet' type='text/css' href='dist/css/style.css'>
+        <link rel="stylesheet" href="https://cdn.css.net/libs/gridstack.js/0.3.0/gridstack.min.css" type="text/css" />
+        
+        <!-- Javascript -->
+        <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+        <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.11.0/jquery-ui.js"></script>
+        <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/lodash.js/3.5.0/lodash.min.js"></script>
+		<script type="text/javascript" src="https://cdn.css.net/libs/gridstack.js/0.3.0/gridstack.js"></script>
+		<script type="text/javascript" src="https://cdn.css.net/libs/gridstack.js/0.3.0/gridstack.jQueryUI.js"></script>
+        <script type="text/javascript" src="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+        <script type="text/javascript" src="dashboard/js/dashboard.js"></script>
+
+        <script type="text/javascript" src="https://code.highcharts.com/highcharts.js"></script>
+        <script type="text/javascript" src="https://code.highcharts.com/highcharts-more.js"></script>
+        <script type="text/javascript" src="https://code.highcharts.com/highcharts-3d.js"></script>
+        <script type="text/javascript" src="https://code.highcharts.com/maps/modules/map.js"></script>
+        <script type="text/javascript" src="https://code.highcharts.com/mapdata/custom/world-continents.js"></script>
+
+        <!-- Google fonts Source Sans -->
+        <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700' rel='stylesheet' type='text/css'>
+    </head>
+
+    <body class="spotx dashboard">
+
+        <div class="container-fluid">
+            <div class="row">
+                <div class="main">  
+                    <div class="container-fluid">
+                        <div class="grid-stack" id="grid">
+                            <div class="chart-container" data-gs-width="9" data-gs-height="5">
+                                <div class="grid-stack-item-content">
+                                    <div id="container"></div>
+                                </div>
+                            </div>
+                            <div class="chart-container" data-gs-width="3" data-gs-height="5" data-gs-x="9">
+                                <div class="grid-stack-item-content">
+                                    <div id="container2"></div>
+                                </div>
+                            </div>     
+                            <div class="chart-container" data-gs-width="3" data-gs-height="5" data-gs-x="0" data-gs-y="5">
+                                <div class="grid-stack-item-content">
+                                    <div id="container3"></div>
+                                </div>
+                            </div>    
+                            <div class="chart-container" data-gs-width="3" data-gs-height="5" data-gs-x="3" data-gs-y="5">
+                                <div class="grid-stack-item-content">
+                                    <div id="container4"></div>
+                                </div>
+                            </div>
+                            <div class="chart-container" data-gs-width="6" data-gs-height="5" data-gs-x="6" data-gs-y="5">
+                                <div class="grid-stack-item-content">
+                                    <div id="container5"></div>
+                                </div>
+                            </div>
+                            <!-- <div class="chart-container" data-gs-width="3" data-gs-height="5" data-gs-x="3" data-gs-y="10">
+                                <div class="grid-stack-item-content">
+                                    <div id="container6"></div>
+                                </div>
+                            </div>                            
+                            <div class="chart-container" data-gs-width="6" data-gs-height="5" data-gs-x="6" data-gs-y="10">
+                                <div class="grid-stack-item-content">
+                                    <div id="container7"></div>
+                                </div>
+                            </div> -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </body>
+</html>

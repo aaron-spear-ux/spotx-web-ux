@@ -1,0 +1,268 @@
+body.dashboard {
+  height          : 100%;
+  background-color: rgb(238, 238, 238);
+
+  .main {
+    margin: 95px 0 0;
+
+    .container-fluid {
+      padding: 20px 40px;
+    }
+  }
+}
+
+.dash-header {
+  padding: 20px 25px 0;
+
+  .btn {
+    float: right;
+  }
+}
+
+.grid-stack {
+  background-color: rgb(238, 238, 238);
+
+  .grid-stack-item-content {
+    color           : rgba(0, 0, 0, 0.87);
+    background-color: rgb(255, 255, 255);
+    padding         : 20px 10px 5px;
+    border-radius   : 2px;
+    margin          : 8px;
+    overflow        : hidden !important;
+    box-shadow      : 0 1px 3px 0 rgba(0, 0, 0, .2), 0 1px 1px 0 rgba(0, 0, 0, .14), 0 2px 1px -1px rgba(0, 0, 0, .12);
+
+    >div {
+      height: 100%;
+      width : 100%;
+    }
+  }
+
+  .row {
+    margin: 0;
+  }
+}
+
+.highcharts-credits {
+  display: none;
+}
+
+.number-row {
+  .col {
+    display    : block;
+    font-size  : 15px;
+    line-height: 26px;
+    font-weight: 500;
+    color      : #888;
+    text-align : left;
+    padding    : 13px 15px 12px;
+
+    span {
+      display    : block;
+      color      : #555;
+      font-size  : 26px;
+      font-weight: 600;
+    }
+  }
+}
+
+.maximize {
+  .history-container {
+    margin-left: 280px;
+  }
+}
+
+.history {
+  .history-container {
+    bottom: 0;
+    width : 100%;
+  }
+
+  &.maximize {
+    .history-container {
+      width: calc(100% - 280px);
+    }
+  }
+}
+
+.history-container {
+  position  : fixed;
+  transition: all ease-out .3s;
+  bottom    : -400px;
+  left      : 0;
+  height    : 400px;
+  width     : calc(100% - 280px);
+  padding   : 10px 20px 15px;
+  display   : block;
+  background: #fff;
+  border-top: #ddd 1px solid;
+  box-shadow: 0px -1px 3px 0px rgba(0, 0, 0, 0.15);
+
+  .history-table {
+    height: 230px;
+    overflow-y: scroll;
+  }
+
+  .table-header {
+    display  : flex;
+    flex-wrap: wrap;
+
+    .col {
+      background : #fff;
+      color      : #333;
+      font-weight: 600;
+
+      &.no-padding {
+        padding: 0;
+      }
+
+      .header-section {
+        border       : none;
+        height       : 40px;
+        padding      : 8px;
+        border-top   : 1px solid #d9d9d9;
+        border-bottom: 1px solid #d9d9d9;
+      }
+    }
+  }
+
+  .collapse-row-container {
+    height    : 38px;
+    overflow  : hidden;
+    transition: all ease-out .3s;
+
+    &.expand {
+      height: auto;
+
+      .parent-row {
+        .fa {
+          &.fa-angle-down {
+            display: inline-block;
+          }
+
+          &.fa-angle-right {
+            display: none;
+          }
+        }
+      }
+    }
+
+    .parent-row {
+      display      : flex;
+      flex-wrap    : wrap;
+      padding      : 0;
+      background   : #eee;
+      cursor       : pointer;
+      border-top   : none;
+      border-bottom: 1px solid #dedede;
+
+      .col {
+        padding: 8px;
+      }
+
+      .fa {
+        margin-right: 5px;
+
+        &.fa-angle-down {
+          display: none;
+        }
+
+        &.fa-angle-right {
+          margin: 0 0 0 5px;
+          display: inline-block;
+        }
+      }
+
+      .arrow {
+        min-width: 20px;
+        display: inline-block;
+        .fa {
+          font-weight: 500;
+          font-size  : 18px;
+        }
+      }
+
+      .name {
+        text-align: right;
+        padding-right: 15px;
+      }
+    }
+
+    .attribute-row {
+      display      : flex;
+      flex-wrap    : wrap;
+      border-bottom: #ddd 1px solid;
+
+      .col {
+        padding: 8px;
+
+        .attr-name {
+          margin-left: 20px;
+        }
+      }
+    }
+  }
+  .pagination {
+    margin: 10px 0 0;
+    float: right;
+  }
+}
+
+.close-history {
+  display   : block;
+  float     : right;
+  padding   : 10px 0 0;
+  height    : 30px;
+  width     : 30px;
+  position  : absolute;
+  right     : 0;
+  top       : 5px;
+  text-align: center;
+  cursor    : pointer;
+
+  &:hover {
+    .ex {
+
+      &:after,
+      &:before {
+        background: rgba(0, 0, 0, 1);
+      }
+    }
+  }
+
+  .ex {
+    position: relative;
+    width   : 24px;
+    height  : 1px;
+    top     : 6px;
+    left    : 5px;
+
+    &:after,
+    &:before {
+      content   : '';
+      display   : block;
+      width     : 16px;
+      height    : 3px;
+      top       : 0;
+      background: #777;
+      position  : absolute;
+      z-index   : 1;
+      transition: all ease-out .2s;
+    }
+
+    &:before {
+      -webkit-transform: rotate(-45deg);
+      -moz-transform   : rotate(-45deg);
+      -ms-transform    : rotate(-45deg);
+      -o-transform     : rotate(-45deg);
+      transform        : rotate(-45deg);
+    }
+
+    &:after {
+      -webkit-transform: rotate(45deg);
+      -moz-transform   : rotate(45deg);
+      -ms-transform    : rotate(45deg);
+      -o-transform     : rotate(45deg);
+      transform        : rotate(45deg);
+    }
+  }
+}

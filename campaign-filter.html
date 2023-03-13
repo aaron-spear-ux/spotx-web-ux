@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="styleApp">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="description" content="">
+        <meta name="author" content="">
+        <link rel="icon" href="dist/img/favicon.ico">
+
+        <title>Create Custom Report</title>
+
+        <script src="dist/js/requirejs/require.js"></script>
+
+        <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+        <!--[if lt IE 9]>
+          <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+          <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+        <![endif]-->
+
+        <!-- Google fonts Source Sans -->
+        <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700' rel='stylesheet' type='text/css'>
+        <style type="text/css">
+            [ng\:cloak], [ng-cloak], [data-ng-cloak], [x-ng-cloak], .ng-cloak, .x-ng-cloak {
+                display: none !important;
+            }
+        </style>
+    </head>
+
+    <body class="spotx campaign-filter-alt-old" header-collapse ng-controller="mainCtrl" ng-cloak>
+
+        <header>
+            <a class="logo"></a>
+        </header>
+        <div class="container-fluid" ng-controller="scrollCtrl">
+            <div class="row" ng-controller="dimensionCtrl">
+                <div class="sidebar col-md-2">
+                    <div class="tab source">
+                        <a href="#" class="toggle-filters" collapse-filter>
+                            Source
+                            <span class="arrow"></span>
+                        </a>
+                        <ul class="filter-list">
+                            <div class="checkbox checkbox-primary">
+                                <input type="checkbox" id="SpotX">
+                                <label checked-toggle for="SpotX">SpotX</label>
+                            </div>
+                            <div class="checkbox checkbox-primary">
+                                <input type="checkbox" id="Booyah">
+                                <label checked-toggle for="Booyah">Booyah.tv</label>
+                            </div>
+                            <div class="checkbox checkbox-primary">
+                                <input type="checkbox" id="Krux">
+                                <label checked-toggle for="Krux">Krux</label>
+                            </div>
+                            <div class="checkbox checkbox-primary">
+                                <input type="checkbox" id="LiveRamp">
+                                <label checked-toggle for="LiveRamp">LiveRamp</label>
+                            </div>
+                        </ul>
+                    </div>
+                    <div class="tab category">
+                        <a href="#" class="toggle-filters" collapse-filter>
+                            Category
+                            <span class="arrow"></span>
+                        </a>
+                        <ul class="filter-list">
+                            <div class="checkbox checkbox-primary">
+                                <input type="checkbox" id="Channel">
+                                <label checked-toggle for="Channel">Channel</label>
+                            </div>
+                            <div class="checkbox checkbox-primary">
+                                <input type="checkbox" id="Device">
+                                <label checked-toggle for="Device">Device Type</label>
+                            </div>
+                            <div class="checkbox checkbox-primary">
+                                <input type="checkbox" id="Geography">
+                                <label checked-toggle for="Geography">Geography</label>
+                            </div>
+                            <div class="checkbox checkbox-primary">
+                                <input type="checkbox" id="Host">
+                                <label checked-toggle for="Host">Host</label>
+                            </div>
+                            <div class="checkbox checkbox-primary">
+                                <input type="checkbox" id="ZipCode">
+                                <label checked-toggle for="ZipCode">US Zip Code</label>
+                            </div>
+                        </ul>
+                    </div>
+                    <div class="tab targeting">
+                        <a href="#" class="toggle-filters" collapse-filter>
+                            Targeting Options
+                            <span class="arrow"></span>
+                        </a>
+                        <ul class="filter-list">
+                            <div class="checkbox checkbox-primary">
+                                <input type="checkbox" id="Option1">
+                                <label checked-toggle for="Option1">Option1</label>
+                            </div>
+                            <div class="checkbox checkbox-primary">
+                                <input type="checkbox" id="Option2">
+                                <label checked-toggle for="Option2">Option2</label>
+                            </div>
+                            <div class="checkbox checkbox-primary">
+                                <input type="checkbox" id="Option3">
+                                <label checked-toggle for="Option3">Option3</label>
+                            </div>
+                            <div class="checkbox checkbox-primary">
+                                <input type="checkbox" id="Option4">
+                                <label checked-toggle for="Option4">Option4</label>
+                            </div>
+                            <div class="checkbox checkbox-primary">
+                                <input type="checkbox" id="Option5">
+                                <label checked-toggle for="Option5">Option5</label>
+                            </div>
+                            <div class="checkbox checkbox-primary">
+                                <input type="checkbox" id="Option6">
+                                <label checked-toggle for="Option6">Option6</label>
+                            </div>
+                            <div class="checkbox checkbox-primary">
+                                <input type="checkbox" id="Option7">
+                                <label checked-toggle for="Option7">Option7</label>
+                            </div>
+                        </ul>
+                    </div>
+                </div>
+                <div class="main col-md-10">
+                    <div class="view_sub_header">
+                        <h2>Campaign Filters</h2>
+                    </div>
+                    <div class="table-container">
+                        <div class="form-horizontal advanced-filtering">
+                            <div style="height: 55px;">
+                                <div class="form-group pull-right" style="width: 370px;">
+                                    <label for="date" style="margin-left: 20px;" class="pull-left control-label">
+                                        Show Reporting for:
+                                    </label>
+                                    <div class="col-md-6" style="width: 220px;">
+                                        <select class="form-control select2">
+                                            <option value="today">Today</option>
+                                            <option value="yesterday">Yesterday</option>
+                                            <option value="last_7_days">Previous 7 Days</option>
+                                            <option value="this_month">This Month</option>
+                                            <option value="last_month">Last Month</option>
+                                            <option value="this_year">This Year</option>
+                                            <option value="custom">Custom Date Range</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <p class="filter-notify">Filtering applied. Currently showing 67 out of 281 campaigns.</p>
+                            </div>
+                        </div>
+                        <div ng-controller="tableFilterCtrl">
+                            <table st-table="rowCollection" class="table table-sort">
+                                <thead>
+                                    <tr>
+                                        <th st-sort="name">Name<i class="icon"></i></th>
+                                        <th st-sort="ends">Ends<i class="icon"></i></th>
+                                        <th st-sort="pacing">Pacing<i class="icon"></i></th>
+                                        <th st-sort="floor">Floor<i class="icon"></i></th>
+                                        <th st-sort="rev">$ Rev<i class="icon"></i></th>
+                                        <th st-sort="imp"># Imp<i class="icon"></i></th>
+                                        <th st-sort="ecpm">eCPM<i class="icon"></i></th>
+                                        <th st-sort="status">Status<i class="icon"></i></th>
+                                        <th st-sort="tools"></th>
+                                    </tr>
+                                    <tr>
+                                        <th><input st-search="'name'" placeholder="search name" class="input-sm form-control" type="search"/></th>
+                                        <th>
+                                            <select class="input-sm form-control select2" st-search="'ends'">
+                                              <option></option>
+                                              <option>Within 7 days</option>
+                                              <option>Within 30 days</option>
+                                              <option>Within 90 days</option>
+                                            </select>
+                                        </th>
+                                        <th>
+                                            <select class="input-sm form-control select2" st-search="'pacing'">
+                                                <option></option>
+                                                <option>No Pacing Set</option>
+                                                <option>&gt;10% Behind</option>
+                                                <option>6-10% Behind</option>
+                                                <option>On Pace</option>
+                                                <option>6-10% Over</option>
+                                                <option>&gt;10% Over</option>
+                                            </select>
+                                        </th>
+                                        <th></th>
+                                        <th></th>
+                                        <th></th>
+                                        <th></th>
+                                        <th>
+                                            <select class="input-sm form-control select2" st-search="'status'" title="Active">
+                                                <option class="opt-parent">Active</option>
+                                                <option class="opt-child">Running</option>
+                                                <option class="opt-child">Paused</option>
+                                                <option class="opt-child">Disabled</option>
+                                                <option class="opt-child">Pending</option>
+                                                <option class="opt-parent">Archived</option>
+                                            </select>
+                                        </th>
+                                        <th></th>
+                                    </tr>
+                                </thead>
+                                <tbody ng-controller="collapseCtrl">
+                                    <tr class="tier-collapse open" toggle ng-click="isCollapsed = !isCollapsed">
+                                        <td colspan="9"><i class="icon"></i>TIER 1 (4)</td>
+                                    </tr>
+                                    <tr ng-repeat="row in rowCollection" collapse="isCollapsed">
+                                        <td class="name row-{{row.status}}"><a href="">{{row.name}}</a><br/><span class="code">{{row.code}}</span></td>
+                                        <td class="row-{{row.status}}">{{row.ends}}</td>
+                                        <td class="row-{{row.status}}">
+                                            <div class="graphcontainer {{row.pacing}}">
+                                                <div class="fullprogress" style="width:{{row.progress}}">
+                                                    <div class="progress" style="width:{{row.percent}}">
+                                                        <span class="value">{{row.percent}}</span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <span class="goal">{{row.goal}}</span>
+                                        </td>
+                                        <td class="row-{{row.status}}">{{row.floor}}</td>
+                                        <td class="row-{{row.status}}">{{row.rev}}</td>
+                                        <td class="row-{{row.status}}">{{row.imp}}</td>
+                                        <td class="row-{{row.status}}">{{row.cpm}}</td>
+                                        <td class="status status-{{row.status}} row-{{row.status}}"><span>{{row.status}}</span></td>
+                                        <td class="hide-dropdown row-{{row.status}}">
+                                            <span class="dropdown tools btn-group text-left pull-right" dropdown on-toggle="toggled(open)">
+                                                <button class="btn btn-default btn-sm dropdown-toggle" dropdown-toggle>
+                                                    <i class="icon icon-cog-gear"></i>
+                                                    <span class="caret"></span>
+                                                </button>
+                                                <ul class="dropdown-menu">
+                                                    <li><a href="#">View Report</a></li>
+                                                    <li><a href="#">Move to Tier</a>
+                                                        <ul class="dropdown-menu">
+                                                            <li><a href="#">1</a></li>
+                                                            <li><a href="#">2</a></li>
+                                                            <li><a href="#">3</a></li>
+                                                            <li><a href="#">4</a></li>
+                                                        </ul>
+                                                    </li>
+                                                </ul>
+                                            </span>
+                                        </td>
+                                    </tr>
+                                    <tr class="tier-collapse open" toggle ng-click="isCollapsed2 = !isCollapsed2">
+                                        <td colspan="9"><i class="icon"></i>TIER 2 (4)</td>
+                                    </tr>
+                                    <tr ng-repeat="row in rowCollection" collapse="isCollapsed2">
+                                        <td class="name row-{{row.status}}"><a href="">{{row.name}}</a><br/><span class="code">{{row.code}}</span></td>
+                                        <td class="row-{{row.status}}">{{row.ends}}</td>
+                                        <td class="row-{{row.status}}">
+                                            <div class="graphcontainer {{row.pacing}}">
+                                                <div class="fullprogress" style="width:{{row.progress}}">
+                                                    <div class="progress" style="width:{{row.percent}}">
+                                                        <span class="value">{{row.percent}}</span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <span class="goal">{{row.goal}}</span>
+                                        </td>
+                                        <td class="row-{{row.status}}">{{row.floor}}</td>
+                                        <td class="row-{{row.status}}">{{row.rev}}</td>
+                                        <td class="row-{{row.status}}">{{row.imp}}</td>
+                                        <td class="row-{{row.status}}">{{row.cpm}}</td>
+                                        <td class="status status-{{row.status}} row-{{row.status}}"><span>{{row.status}}</span></td>
+                                        <td class="hide-dropdown row-{{row.status}}">
+                                            <span class="dropdown tools btn-group text-left pull-right" dropdown on-toggle="toggled(open)">
+                                                <button class="btn btn-default btn-sm dropdown-toggle" dropdown-toggle>
+                                                    <i class="icon icon-cog-gear"></i>
+                                                    <span class="caret"></span>
+                                                </button>
+                                                <ul class="dropdown-menu">
+                                                    <li><a href="#">View Report</a></li>
+                                                    <li><a href="#">Move to Tier</a>
+                                                        <ul class="dropdown-menu">
+                                                            <li><a href="#">1</a></li>
+                                                            <li><a href="#">2</a></li>
+                                                            <li><a href="#">3</a></li>
+                                                            <li><a href="#">4</a></li>
+                                                        </ul>
+                                                    </li>
+                                                </ul>
+                                            </span>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <script type="text/javascript">
+            require(["dist/js/main"]);
+        </script>
+
+    </body>
+</html>
+
+
+

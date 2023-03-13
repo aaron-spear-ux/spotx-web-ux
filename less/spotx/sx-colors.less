@@ -1,0 +1,568 @@
+//
+// Variables
+// --------------------------------------------------
+//== Colors
+
+@black:                   #000;
+@white:                   #fff;
+@sx-slate:                #747B8B;
+@sx-moss:                 #8ec641;
+@sx-sky:                  #1b9dd0;
+@sx-azure:                #0E53F1;
+@sx-grape:                #703FC0;
+@sx-guava:                #E0457B;
+@sx-tango:                #E81717;
+@sx-mandarin:             #FE7801;
+@sx-lemon:                #FFC600;
+
+@lighten-5:                      5%;
+@lighten-10:                    10%;
+@lighten-15:                    15%;
+@lighten-20:                    20%;
+@lighten-25:                    25%;
+@lighten-30:                    30%;
+@lighten-35:                    35%;
+@lighten-40:                    40%;
+@lighten-45:                    45%;
+@lighten-50:                    50%;
+@lighten-55:                    55%;
+@lighten-60:                    60%;
+
+@darken-5:                      5%;
+@darken-10:                    10%;
+@darken-15:                    15%;
+@darken-20:                    20%;
+@darken-25:                    25%;
+@darken-30:                    30%;
+@darken-35:                    35%;
+@darken-40:                    40%;
+@darken-45:                    45%;
+@darken-50:                    50%;
+@darken-55:                    55%;
+@darken-60:                    60%;
+
+@sx-slate-light-30: lighten(@sx-slate, @lighten-15);
+@sx-slate-light-35: lighten(@sx-slate, @lighten-25);
+@sx-slate-light-40: lighten(@sx-slate, @lighten-35);
+@sx-slate-light-55: lighten(@sx-slate, @lighten-40);
+@sx-slate-light-60: lighten(@sx-slate, @lighten-45);
+
+@sx-slate-dark-10: darken(@sx-slate, @darken-10);
+@sx-slate-dark-15: darken(@sx-slate, @darken-15);
+@sx-slate-dark-20: darken(@sx-slate, @darken-20);
+@sx-slate-dark-25: darken(@sx-slate, @darken-25);
+@sx-slate-dark-35: darken(@sx-slate, @darken-35);
+
+@sx-moss-light-10: lighten(@sx-moss, @lighten-10);
+@sx-moss-light-20: lighten(@sx-moss, @lighten-20);
+@sx-moss-light-30: lighten(@sx-moss, @lighten-30);
+@sx-moss-light-40: lighten(@sx-moss, @lighten-40);
+@sx-moss-light-45: lighten(@sx-moss, @lighten-45);
+
+@sx-moss-dark-10: darken(@sx-moss, @darken-5);
+@sx-moss-dark-15: darken(@sx-moss, @darken-15);
+@sx-moss-dark-25: darken(@sx-moss, @darken-25);
+@sx-moss-dark-35: darken(@sx-moss, @darken-35);
+@sx-moss-dark-45: darken(@sx-moss, @darken-40);
+
+@sx-sky-light-10: lighten(@sx-sky, @lighten-10);
+@sx-sky-light-20: lighten(@sx-sky, @lighten-20);
+@sx-sky-light-30: lighten(@sx-sky, @lighten-30);
+@sx-sky-light-40: lighten(@sx-sky, @lighten-40);
+@sx-sky-light-50: lighten(@sx-sky, @lighten-50);
+
+@sx-sky-dark-10: darken(@sx-sky, @darken-5);
+@sx-sky-dark-20: darken(@sx-sky, @darken-15);
+@sx-sky-dark-30: darken(@sx-sky, @darken-25);
+@sx-sky-dark-35: darken(@sx-sky, @darken-35);
+@sx-sky-dark-45: darken(@sx-sky, @darken-40);
+
+@sx-azure-light-10: lighten(@sx-azure, @lighten-10);
+@sx-azure-light-20: lighten(@sx-azure, @lighten-20);
+@sx-azure-light-30: lighten(@sx-azure, @lighten-30);
+@sx-azure-light-40: lighten(@sx-azure, @lighten-40);
+@sx-azure-light-50: lighten(@sx-azure, @lighten-45);
+
+@sx-azure-dark-10: darken(@sx-azure, @darken-5);
+@sx-azure-dark-20: darken(@sx-azure, @darken-15);
+@sx-azure-dark-30: darken(@sx-azure, @darken-25);
+@sx-azure-dark-35: darken(@sx-azure, @darken-35);
+@sx-azure-dark-45: darken(@sx-azure, @darken-40);
+
+@sx-grape-light-10: lighten(@sx-grape, @lighten-10);
+@sx-grape-light-20: lighten(@sx-grape, @lighten-20);
+@sx-grape-light-30: lighten(@sx-grape, @lighten-30);
+@sx-grape-light-40: lighten(@sx-grape, @lighten-40);
+@sx-grape-light-50: lighten(@sx-grape, @lighten-45);
+
+@sx-grape-dark-10: darken(@sx-grape, @darken-5);
+@sx-grape-dark-20: darken(@sx-grape, @darken-15);
+@sx-grape-dark-30: darken(@sx-grape, @darken-25);
+@sx-grape-dark-35: darken(@sx-grape, @darken-35);
+@sx-grape-dark-45: darken(@sx-grape, @darken-40);
+
+@sx-guava-light-10: lighten(@sx-guava, @lighten-10);
+@sx-guava-light-20: lighten(@sx-guava, @lighten-20);
+@sx-guava-light-30: lighten(@sx-guava, @lighten-25);
+@sx-guava-light-40: lighten(@sx-guava, @lighten-35);
+@sx-guava-light-50: lighten(@sx-guava, @lighten-40);
+
+@sx-guava-dark-10: darken(@sx-guava, @darken-10);
+@sx-guava-dark-20: darken(@sx-guava, @darken-20);
+@sx-guava-dark-30: darken(@sx-guava, @darken-30);
+@sx-guava-dark-35: darken(@sx-guava, @darken-40);
+@sx-guava-dark-45: darken(@sx-guava, @darken-45);
+
+@sx-tango-light-10: lighten(@sx-tango, @lighten-10);
+@sx-tango-light-20: lighten(@sx-tango, @lighten-20);
+@sx-tango-light-30: lighten(@sx-tango, @lighten-30);
+@sx-tango-light-40: lighten(@sx-tango, @lighten-40);
+@sx-tango-light-45: lighten(@sx-tango, @lighten-45);
+
+@sx-tango-dark-5: darken(@sx-tango, @darken-5);
+@sx-tango-dark-15: darken(@sx-tango, @darken-15);
+@sx-tango-dark-25: darken(@sx-tango, @darken-25);
+@sx-tango-dark-30: darken(@sx-tango, @darken-35);
+@sx-tango-dark-40: darken(@sx-tango, @darken-40);
+
+@sx-mandarin-light-10: lighten(@sx-mandarin, @lighten-10);
+@sx-mandarin-light-20: lighten(@sx-mandarin, @lighten-20);
+@sx-mandarin-light-30: lighten(@sx-mandarin, @lighten-30);
+@sx-mandarin-light-40: lighten(@sx-mandarin, @lighten-40);
+@sx-mandarin-light-50: lighten(@sx-mandarin, @lighten-45);
+
+@sx-mandarin-dark-10: darken(@sx-mandarin, @darken-5);
+@sx-mandarin-dark-20: darken(@sx-mandarin, @darken-15);
+@sx-mandarin-dark-30: darken(@sx-mandarin, @darken-35);
+@sx-mandarin-dark-35: darken(@sx-mandarin, @darken-35);
+@sx-mandarin-dark-45: darken(@sx-mandarin, @darken-40);
+
+@sx-lemon-light-10: lighten(@sx-lemon, @lighten-10);
+@sx-lemon-light-20: lighten(@sx-lemon, @lighten-20);
+@sx-lemon-light-30: lighten(@sx-lemon, @lighten-30);
+@sx-lemon-light-40: lighten(@sx-lemon, @lighten-40);
+@sx-lemon-light-50: lighten(@sx-lemon, @lighten-45);
+
+@sx-lemon-dark-10: darken(@sx-lemon, @darken-5);
+@sx-lemon-dark-20: darken(@sx-lemon, @darken-15);
+@sx-lemon-dark-30: darken(@sx-lemon, @darken-25);
+@sx-lemon-dark-35: darken(@sx-lemon, @darken-35);
+@sx-lemon-dark-45: darken(@sx-lemon, @darken-40);
+
+.sx-slate {
+  background: @sx-slate;
+}
+.sx-moss {
+  background: @sx-moss;
+}
+.sx-sky {
+  background: @sx-sky;
+}
+.sx-azure {
+  background: @sx-azure;
+}
+.sx-grape {
+  background: @sx-grape;
+}
+.sx-guava {
+  background: @sx-guava;
+}
+.sx-tango {
+  background: @sx-tango;
+}
+.sx-mandarin {
+  background: @sx-mandarin;
+}
+.sx-lemon {
+  background: @sx-lemon;
+}
+
+.sx-slate-light-25 {
+  background: lighten(@sx-slate, @lighten-10);
+}
+.sx-slate-light-45 {
+  background: lighten(@sx-slate, @lighten-20);
+}
+.sx-slate-light-65 {
+  background: lighten(@sx-slate, @lighten-30);
+}
+.sx-slate-light-85 {
+  background: lighten(@sx-slate, @lighten-40);
+}
+.sx-slate-light-95 {
+  background: lighten(@sx-slate, @lighten-50);
+}
+
+.sx-slate-dark-25 {
+  background: darken(@sx-slate, @darken-10);
+}
+.sx-slate-dark-45 {
+  background: darken(@sx-slate, @darken-15);
+}
+.sx-slate-dark-65 {
+  background: darken(@sx-slate, @darken-20);
+}
+.sx-slate-dark-85 {
+  background: darken(@sx-slate, @darken-25);
+}
+.sx-slate-dark-95 {
+  background: darken(@sx-slate, @darken-35);
+}
+
+.sx-moss-light-25 {
+  background: lighten(@sx-moss, @lighten-10);
+}
+.sx-moss-light-45 {
+  background: lighten(@sx-moss, @lighten-20);
+}
+.sx-moss-light-65 {
+  background: lighten(@sx-moss, @lighten-30);
+}
+.sx-moss-light-85 {
+  background: lighten(@sx-moss, @lighten-40);
+}
+.sx-moss-light-95 {
+  background: lighten(@sx-moss, @lighten-45);
+}
+
+.sx-moss-dark-25 {
+  background: darken(@sx-moss, @darken-5);
+}
+.sx-moss-dark-45 {
+  background: darken(@sx-moss, @darken-15);
+}
+.sx-moss-dark-65 {
+  background: darken(@sx-moss, @darken-25);
+}
+.sx-moss-dark-85 {
+  background: darken(@sx-moss, @darken-35);
+}
+.sx-moss-dark-95 {
+  background: darken(@sx-moss, @darken-40);
+}
+
+.sx-sky-light-25 {
+  background: lighten(@sx-sky, @lighten-10);
+}
+.sx-sky-light-45 {
+  background: lighten(@sx-sky, @lighten-20);
+}
+.sx-sky-light-65 {
+  background: lighten(@sx-sky, @lighten-30);
+}
+.sx-sky-light-85 {
+  background: lighten(@sx-sky, @lighten-40);
+}
+.sx-sky-light-95 {
+  background: lighten(@sx-sky, @lighten-50);
+}
+
+.sx-sky-dark-25 {
+  background: darken(@sx-sky, @darken-5);
+}
+.sx-sky-dark-45 {
+  background: darken(@sx-sky, @darken-15);
+}
+.sx-sky-dark-65 {
+  background: darken(@sx-sky, @darken-25);
+}
+.sx-sky-dark-85 {
+  background: darken(@sx-sky, @darken-35);
+}
+.sx-sky-dark-95 {
+  background: darken(@sx-sky, @darken-40);
+}
+
+.sx-azure-light-25 {
+  background: lighten(@sx-azure, @lighten-10);
+}
+.sx-azure-light-45 {
+  background: lighten(@sx-azure, @lighten-20);
+}
+.sx-azure-light-65 {
+  background: lighten(@sx-azure, @lighten-30);
+}
+.sx-azure-light-85 {
+  background: lighten(@sx-azure, @lighten-40);
+}
+.sx-azure-light-95 {
+  background: lighten(@sx-azure, @lighten-45);
+}
+
+.sx-azure-dark-25 {
+  background: darken(@sx-azure, @darken-5);
+}
+.sx-azure-dark-45 {
+  background: darken(@sx-azure, @darken-15);
+}
+.sx-azure-dark-65 {
+  background: darken(@sx-azure, @darken-25);
+}
+.sx-azure-dark-85 {
+  background: darken(@sx-azure, @darken-35);
+}
+.sx-azure-dark-95 {
+  background: darken(@sx-azure, @darken-40);
+}
+
+.sx-grape-light-25 {
+  background: lighten(@sx-grape, @lighten-10);
+}
+.sx-grape-light-45 {
+  background: lighten(@sx-grape, @lighten-20);
+}
+.sx-grape-light-65 {
+  background: lighten(@sx-grape, @lighten-30);
+}
+.sx-grape-light-85 {
+  background: lighten(@sx-grape, @lighten-40);
+}
+.sx-grape-light-95 {
+  background: lighten(@sx-grape, @lighten-45);
+}
+
+.sx-grape-dark-25 {
+  background: darken(@sx-grape, @darken-5);
+}
+.sx-grape-dark-45 {
+  background: darken(@sx-grape, @darken-15);
+}
+.sx-grape-dark-65 {
+  background: darken(@sx-grape, @darken-25);
+}
+.sx-grape-dark-85 {
+  background: darken(@sx-grape, @darken-35);
+}
+.sx-grape-dark-95 {
+  background: darken(@sx-grape, @darken-40);
+}
+
+.sx-guava-light-25 {
+  background: lighten(@sx-guava, @lighten-10);
+}
+.sx-guava-light-45 {
+  background: lighten(@sx-guava, @lighten-20);
+}
+.sx-guava-light-65 {
+  background: lighten(@sx-guava, @lighten-25);
+}
+.sx-guava-light-85 {
+  background: lighten(@sx-guava, @lighten-35);
+}
+.sx-guava-light-95 {
+  background: lighten(@sx-guava, @lighten-40);
+}
+
+.sx-guava-dark-25 {
+  background: darken(@sx-guava, @darken-10);
+}
+.sx-guava-dark-45 {
+  background: darken(@sx-guava, @darken-20);
+}
+.sx-guava-dark-65 {
+  background: darken(@sx-guava, @darken-30);
+}
+.sx-guava-dark-85 {
+  background: darken(@sx-guava, @darken-40);
+}
+.sx-guava-dark-95 {
+  background: darken(@sx-guava, @darken-45);
+}
+
+.sx-tango-light-25 {
+  background: lighten(@sx-tango, @lighten-10);
+}
+.sx-tango-light-45 {
+  background: lighten(@sx-tango, @lighten-20);
+}
+.sx-tango-light-65 {
+  background: lighten(@sx-tango, @lighten-30);
+}
+.sx-tango-light-85 {
+  background: lighten(@sx-tango, @lighten-40);
+}
+.sx-tango-light-95 {
+  background: lighten(@sx-tango, @lighten-45);
+}
+
+.sx-tango-dark-25 {
+  background: darken(@sx-tango, @darken-5);
+}
+.sx-tango-dark-45 {
+  background: darken(@sx-tango, @darken-15);
+}
+.sx-tango-dark-65 {
+  background: darken(@sx-tango, @darken-25);
+}
+.sx-tango-dark-85 {
+  background: darken(@sx-tango, @darken-35);
+}
+.sx-tango-dark-95 {
+  background: darken(@sx-tango, @darken-40);
+}
+
+.sx-mandarin-light-25 {
+  background: lighten(@sx-mandarin, @lighten-10);
+}
+.sx-mandarin-light-45 {
+  background: lighten(@sx-mandarin, @lighten-20);
+}
+.sx-mandarin-light-65 {
+  background: lighten(@sx-mandarin, @lighten-30);
+}
+.sx-mandarin-light-85 {
+  background: lighten(@sx-mandarin, @lighten-40);
+}
+.sx-mandarin-light-95 {
+  background: lighten(@sx-mandarin, @lighten-45);
+}
+
+.sx-mandarin-dark-25 {
+  background: darken(@sx-mandarin, @darken-5);
+}
+.sx-mandarin-dark-45 {
+  background: darken(@sx-mandarin, @darken-15);
+}
+.sx-mandarin-dark-65 {
+  background: darken(@sx-mandarin, @darken-25);
+}
+.sx-mandarin-dark-85 {
+  background: darken(@sx-mandarin, @darken-35);
+}
+.sx-mandarin-dark-95 {
+  background: darken(@sx-mandarin, @darken-40);
+}
+
+.sx-lemon-light-25 {
+  background: lighten(@sx-lemon, @lighten-10);
+}
+.sx-lemon-light-45 {
+  background: lighten(@sx-lemon, @lighten-20);
+}
+.sx-lemon-light-65 {
+  background: lighten(@sx-lemon, @lighten-30);
+}
+.sx-lemon-light-85 {
+  background: lighten(@sx-lemon, @lighten-40);
+}
+.sx-lemon-light-95 {
+  background: lighten(@sx-lemon, @lighten-45);
+}
+
+.sx-lemon-dark-25 {
+  background: darken(@sx-lemon, @darken-5);
+}
+.sx-lemon-dark-45 {
+  background: darken(@sx-lemon, @darken-15);
+}
+.sx-lemon-dark-65 {
+  background: darken(@sx-lemon, @darken-25);
+}
+.sx-lemon-dark-85 {
+  background: darken(@sx-lemon, @darken-35);
+}
+.sx-lemon-dark-95 {
+  background: darken(@sx-lemon, @darken-40);
+}
+
+
+.swatch-container {
+  display: flex;
+  padding: 20px;
+  margin-top: 65px;
+  .swatch-section {
+    flex: 1;
+    margin: 0 5px;
+    legend {
+      font-size: 18px;
+      color: #555;
+      border: none;
+      margin-bottom: 40px;
+      font-style: italic;
+      text-transform: lowercase;
+    }
+    .swatch-list {
+      padding: 0;
+      margin: 0;
+      list-style: none;
+      li {
+        &:nth-child(1),
+        &:nth-child(11) {
+          height: 50px;
+        }
+        &:nth-child(2),
+        &:nth-child(10) {
+          height: 55px;
+        }
+        &:nth-child(3),
+        &:nth-child(9) {
+          height: 60px;
+        }
+        &:nth-child(4),
+        &:nth-child(8) {
+          height: 65px;
+        }
+        &:nth-child(5),
+        &:nth-child(7) {
+          height: 70px;
+        }
+      }
+    }
+    &.secondary {
+      width: 54%;
+      .swatch-list {
+        width: 18%;
+        margin: 0 2% 0 0;
+      }
+    }
+    &.brand {
+      padding: 0;
+      margin: 0;
+      border: none;
+      padding-right: 0 5px;
+    }
+  }
+  .swatch {
+    float: left;
+    width: 100%;
+    margin-bottom: 1px;
+    color: @white;
+    text-align: center;
+    cursor: default;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    &:hover {
+      span {
+        opacity: 1;
+        -webkit-transition: all ease-out 0.3s;
+        transition: all ease-out 0.3s;
+      }
+    }
+    span {
+      opacity: 0;
+      font-size: 16px;
+      text-align: center;
+      color: @black;
+      -webkit-transition: all ease-out 0.3s;
+      transition: all ease-out 0.3s;
+      &.hex {
+        font-size: 12px;
+      }
+      &.light {
+        color: @white;
+      }
+      &.name {
+        opacity: 1;
+      }
+    }
+    &.default {
+      height: 100px;
+      span {
+        color: @white;
+        opacity: 1;
+        text-shadow: 1px 1px rgba(0, 0, 0, .7);
+      }
+    }
+  }
+}

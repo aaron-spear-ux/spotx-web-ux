@@ -1,0 +1,51 @@
+//
+// Typefaces
+// --------------------------------------------------
+
+
+.font-top {
+	padding-top: 20px;
+	h2 {
+		float: left;
+	}
+	.btn {
+		float: right;
+		margin: 5px 0;
+	}
+}
+
+.gotham-bold {
+	font-family: 'Gotham-Bold', 'Open Sans', "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+.gotham-book {
+	font-family: 'Gotham-Book', 'Open Sans', "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+.gotham-book-italic {
+	font-family: 'Gotham-BookItalic', 'Open Sans', "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+.gotham-light {
+	font-family: 'Gotham-Light', 'Open Sans', "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+.gotham-medium {
+	font-family:'Gotham-Medium', 'Open Sans', "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+
+.open-sans-light {
+	font-family: 'Open Sans', "Helvetica Neue", Helvetica, Arial, sans-serif;
+	font-weight: 300;
+}
+
+.open-sans-reg {
+	font-family: 'Open Sans', "Helvetica Neue", Helvetica, Arial, sans-serif;
+	font-weight: 400;
+}
+
+.open-sans-semi {
+	font-family: 'Open Sans', "Helvetica Neue", Helvetica, Arial, sans-serif;
+	font-weight: 600;
+}
+
+.open-sans-bold {
+	font-family: 'Open Sans', "Helvetica Neue", Helvetica, Arial, sans-serif;
+	font-weight: 700;
+}

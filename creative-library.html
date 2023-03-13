@@ -1,0 +1,660 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="styleApp">
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description" content="" />
+    <meta name="author" content="" />
+    <link rel="icon" href="dist/img/favicon.ico" />
+
+    <title>Custom Library</title>
+
+    <script src="dist/js/requirejs/require.js"></script>
+
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+    <!-- Google fonts Source Sans -->
+    <link
+      href="http://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700"
+      rel="stylesheet"
+      type="text/css"
+    />
+    <style type="text/css">
+      [ng\:cloak],
+      [ng-cloak],
+      [data-ng-cloak],
+      [x-ng-cloak],
+      .ng-cloak,
+      .x-ng-cloak {
+        display: none !important;
+      }
+    </style>
+  </head>
+
+  <body
+    class="spotx stones-throw side-nav madm maximize"
+    ng-controller="mainCtrl"
+    ng-cloak
+  >
+    <div ng-controller="tableFilterCtrl"></div>
+    <div ng-controller="formsController"></div>
+
+    <div class="container-fluid">
+      <div class="row">
+        <div class="nav-drop-container"></div>
+        <div class="side-bar">
+          <ul class="nav nav-pills flex-column" ng-controller="navCtrl">
+            <nav-side-accordian class="nav-side">
+              <li class="level-1">
+                <a href="#">
+                  <i class="search fa icon-zoom"></i>
+                  <span>Search</span>
+                </a>
+              </li>
+            </nav-side-accordian>
+            <nav-side-accordian class="nav-side">
+              <li class="level-1 publisher">
+                <a href="dashboard.html">
+                  <i class="fa fa-tachometer"></i>
+                  <span>Dashboard</span>
+                </a>
+              </li>
+            </nav-side-accordian>
+            <nav-side-accordian class="nav-side">
+              <li class="level-1 publisher">
+                <a href="#" closesub>
+                  <i class="fa fa-line-chart"></i>
+                  <span>Campaings</span>
+                  <i class="icon fa"></i>
+                </a>
+                <ul class="accordion-items collapse">
+                  <li><a href="campaign-create.html">Campaign Create</a></li>
+                  <li><a href="endpoint-create.html">Endpoint Create</a></li>
+                </ul>
+              </li>
+            </nav-side-accordian>
+            <nav-side-accordian class="nav-side">
+              <li class="level-1 publisher">
+                <a href="custom-report-builder.html">
+                  <i class="fa fa-bar-chart"></i>
+                  <span>Report Builder</span>
+                </a>
+              </li>
+            </nav-side-accordian>
+            <nav-side-accordian class="nav-side">
+              <li class="level-1 publisher active">
+                <a href="creative-library.html">
+                  <i class="fa fa-play"></i>
+                  <span>Creative Library</span>
+                </a>
+              </li>
+            </nav-side-accordian>
+            <nav-side-accordian class="nav-side">
+              <li class="level-1 publisher">
+                <a href="header-bidding.html">
+                  <i class="fa fa-exchange"></i>
+                  <span>Header Bidding</span>
+                </a>
+              </li>
+            </nav-side-accordian>
+            <nav-side-accordian class="nav-side">
+              <li class="level-1 publisher">
+                <a href="maintenance.html" target="_blank">
+                  <i class="fa fa-question-circle-o"></i>
+                  <span>Maintenance</span>
+                </a>
+              </li>
+            </nav-side-accordian>
+          </ul>
+        </div>
+        <div class="page-header">
+          <a class="minimize-toggle open">
+            <div class="patty"></div>
+          </a>
+          <div class="header-left">
+            <a class="logo" href="dashboard.html"></a>
+          </div>
+          <h4>Creative Library</h4>
+          <ul class="top-nav">
+            <li class="top-link">
+              <a href="#" class="account"
+                ><i class="fa account-icon"></i> auto1_pub</a
+              >
+              <ul class="dropdown-content account-dropdown">
+                <li><a href="#">Account Information</a></li>
+                <li><a href="#">Manage Users</a></li>
+                <li><a href="#">Settings</a></li>
+                <li class="drop-divider"></li>
+                <li><a href="#">Change Password</a></li>
+                <li><a href="#">Logout</a></li>
+              </ul>
+            </li>
+          </ul>
+        </div>
+        <div class="search-bg"></div>
+        <div class="search-expanded">
+          <div class="search icon icon-zoom"></div>
+          <input
+            type="text"
+            class="form-control"
+            id="sitewide"
+            autofocus
+            placeholder="Search..."
+          />
+          <a href="#" class="close-search">
+            <span class="ex"></span>
+          </a>
+        </div>
+        <ul class="search-dropdown dropdown-content">
+          <li class="dropdown-header">Quick Links</li>
+          <li><a href="#">Campaigns</a></li>
+          <li><a href="#">Channels</a></li>
+          <li><a href="#">Reports</a></li>
+          <li><a href="#">Forecasting</a></li>
+          <li class="drop-divider"></li>
+          <li class="dropdown-header">Suggested Searches</li>
+          <li><a href="#">Scheduled Reports</a></li>
+          <li><a href="#">Custom Reports</a></li>
+          <li><a href="#">Campaign Reports</a></li>
+        </ul>
+        <div class="main">
+          <div class="form-horizontal creative-show">
+            <div class="table-controller clearfix">
+              <div class="create-new">
+                <a href="add-creative.html" class="btn btn-success"
+                  >Add Creative</a
+                >
+              </div>
+              <div class="clearfix" style="padding: 15px 20px 0">
+                <div class="pull-left" style="width: 420px">
+                  <label for="date" class="pull-left control-label">
+                    Choose an advertiser:
+                  </label>
+                  <div class="adv_picker_container">
+                    <select class="form-control select2-search adv_picker">
+                      <option value="tubemogul">TubeMogul</option>
+                      <option value="dblclick">DoubleClick</option>
+                    </select>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="table-container creative-table">
+              <div class="form-horizontal form-table">
+                <div class="container">
+                  <div class="filter-header clearfix">
+                    <div class="row">
+                      <div class="col col-md-4" style="padding: 0">
+                        <div class="header-section">Creative Name</div>
+                      </div>
+                      <div class="col col-md-2" style="padding: 0">
+                        <div class="header-section" style="text-align: center">
+                          Banner
+                        </div>
+                      </div>
+                      <div class="col col-md-2" style="padding: 0">
+                        <div class="header-section">Date Created</div>
+                      </div>
+                      <div class="col col-md-2" style="padding: 0">
+                        <div class="header-section" style="text-align: center">
+                          Status
+                        </div>
+                      </div>
+                      <div class="col col-md-1 right" style="padding: 0">
+                        <div class="header-section" style="text-align: center">
+                          Campaigns
+                        </div>
+                      </div>
+                      <div class="col col-md-1 right" style="padding: 0">
+                        <div class="header-section"></div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="sub-filter-header clearfix">
+                    <div class="row">
+                      <div class="col-md-4" style="padding: 0 10px">
+                        <input
+                          placeholder="search name"
+                          class="form-control-sm form-control"
+                          type="search"
+                        />
+                      </div>
+                      <div class="col-md-2" style="padding: 0"></div>
+                      <div class="col-md-2" style="padding: 0"></div>
+                      <div class="col-md-2" style="padding: 0 10px">
+                        <select class="form-control select2-sm" title="Active">
+                          <option>Ready</option>
+                          <option>Uploading</option>
+                          <option>Pending upload</option>
+                          <option>In Queue</option>
+                          <option>Transcoding</option>
+                          <option>Failed</option>
+                        </select>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="row-container">
+                    <div class="filter-form clearfix">
+                      <div class="filter-row row">
+                        <div
+                          class="col-md-4"
+                          style="padding: 0 10px; line-height: 30px"
+                        >
+                          <a href="#" class="create-name">InMotion</a>
+                        </div>
+                        <div
+                          class="col-md-2"
+                          style="padding: 0 10px; line-height: 30px"
+                        >
+                          <i
+                            class="fa fa-check-circle"
+                            style="padding-top: 6px"
+                          ></i>
+                        </div>
+                        <div
+                          class="col-md-2"
+                          style="padding: 0 10px; line-height: 30px"
+                        >
+                          2017-05-17 16:00:10
+                        </div>
+                        <div
+                          class="col-md-2"
+                          style="padding: 0 10px; line-height: 30px"
+                        >
+                          <div class="pill-container pill-target">
+                            <span
+                              href="#"
+                              class="pill pill-green"
+                              style="width: 110px"
+                              >Ready</span
+                            >
+                          </div>
+                        </div>
+                        <div class="col-md-1 pill-container center">2</div>
+                        <div class="hide-dropdown col-md-1">
+                          <div class="dropdown tools">
+                            <a
+                              class="btn btn-secondary btn-sm dropdown-toggle"
+                              href="#"
+                              role="button"
+                              id="dropdownMenuLink"
+                              data-toggle="dropdown"
+                              aria-haspopup="true"
+                              aria-expanded="false"
+                            >
+                              <i class="icon icon-cog-gear"></i>
+                              <span class="caret"></span>
+                            </a>
+                            <div
+                              class="dropdown-menu dropdown-menu-right"
+                              aria-labelledby="dropdownMenuLink"
+                            >
+                              <li>
+                                <a href="#" class="dropdown-item">Edit</a>
+                              </li>
+                              <li>
+                                <a href="#" class="dropdown-item">Preview</a>
+                              </li>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="row-container video-only">
+                    <div class="filter-form clearfix">
+                      <div class="filter-row row">
+                        <div
+                          class="col-md-4"
+                          style="padding: 0 10px; line-height: 30px"
+                        >
+                          <a href="#" class="create-name">InMotion</a>
+                        </div>
+                        <div
+                          class="col-md-2"
+                          style="padding: 0 10px; line-height: 30px"
+                        >
+                          <i
+                            class="fa fa-minus-circle"
+                            style="padding-top: 6px"
+                          ></i>
+                        </div>
+                        <div
+                          class="col-md-2"
+                          style="padding: 0 10px; line-height: 30px"
+                        >
+                          2017-05-17 16:00:10
+                        </div>
+                        <div
+                          class="col-md-2"
+                          style="padding: 0 10px; line-height: 30px"
+                        >
+                          <div class="pill-container pill-target">
+                            <span
+                              href="#"
+                              class="pill pill-orange"
+                              style="width: 110px"
+                              >Uploading</span
+                            >
+                          </div>
+                        </div>
+                        <div class="col-md-1 pill-container center">2</div>
+                        <div class="hide-dropdown col-md-1">
+                          <div class="dropdown tools">
+                            <a
+                              class="btn btn-secondary btn-sm dropdown-toggle"
+                              href="#"
+                              role="button"
+                              id="dropdownMenuLink"
+                              data-toggle="dropdown"
+                              aria-haspopup="true"
+                              aria-expanded="false"
+                            >
+                              <i class="icon icon-cog-gear"></i>
+                              <span class="caret"></span>
+                            </a>
+                            <div
+                              class="dropdown-menu dropdown-menu-right"
+                              aria-labelledby="dropdownMenuLink"
+                            >
+                              <li>
+                                <a href="#" class="dropdown-item">Edit</a>
+                              </li>
+                              <li>
+                                <a href="#" class="dropdown-item">Preview</a>
+                              </li>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="row-container">
+                    <div class="filter-form clearfix">
+                      <div class="filter-row row">
+                        <div
+                          class="col-md-4"
+                          style="padding: 0 10px; line-height: 30px"
+                        >
+                          <a href="#" class="create-name">InMotion</a>
+                        </div>
+                        <div
+                          class="col-md-2"
+                          style="padding: 0 10px; line-height: 30px"
+                        >
+                          <i
+                            class="fa fa-check-circle"
+                            style="padding-top: 6px"
+                          ></i>
+                        </div>
+                        <div
+                          class="col-md-2"
+                          style="padding: 0 10px; line-height: 30px"
+                        >
+                          2017-05-17 16:00:10
+                        </div>
+                        <div
+                          class="col-md-2"
+                          style="padding: 0 10px; line-height: 30px"
+                        >
+                          <div class="pill-container pill-target">
+                            <span
+                              href="#"
+                              class="pill pill-blue"
+                              style="width: 110px"
+                              >Transcoding</span
+                            >
+                          </div>
+                        </div>
+                        <div class="col-md-1 pill-container center">2</div>
+                        <div class="hide-dropdown col-md-1">
+                          <div class="dropdown tools">
+                            <a
+                              class="btn btn-secondary btn-sm dropdown-toggle"
+                              href="#"
+                              role="button"
+                              id="dropdownMenuLink"
+                              data-toggle="dropdown"
+                              aria-haspopup="true"
+                              aria-expanded="false"
+                            >
+                              <i class="icon icon-cog-gear"></i>
+                              <span class="caret"></span>
+                            </a>
+                            <div
+                              class="dropdown-menu dropdown-menu-right"
+                              aria-labelledby="dropdownMenuLink"
+                            >
+                              <li>
+                                <a href="#" class="dropdown-item">Edit</a>
+                              </li>
+                              <li>
+                                <a href="#" class="dropdown-item">Preview</a>
+                              </li>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="row-container">
+                    <div class="filter-form clearfix">
+                      <div class="filter-row row">
+                        <div
+                          class="col-md-4"
+                          style="padding: 0 10px; line-height: 30px"
+                        >
+                          <a href="#" class="create-name">InMotion</a>
+                        </div>
+                        <div
+                          class="col-md-2"
+                          style="padding: 0 10px; line-height: 30px"
+                        >
+                          <i
+                            class="fa fa-check-circle"
+                            style="padding-top: 6px"
+                          ></i>
+                        </div>
+                        <div
+                          class="col-md-2"
+                          style="padding: 0 10px; line-height: 30px"
+                        >
+                          2017-05-17 16:00:10
+                        </div>
+                        <div
+                          class="col-md-2"
+                          style="padding: 0 10px; line-height: 30px"
+                        >
+                          <div class="pill-container pill-target">
+                            <span
+                              href="#"
+                              class="pill pill-grey"
+                              style="width: 110px"
+                              >In Queue</span
+                            >
+                          </div>
+                        </div>
+                        <div class="col-md-1 pill-container center">2</div>
+                        <div class="hide-dropdown col-md-1">
+                          <div class="dropdown tools">
+                            <a
+                              class="btn btn-secondary btn-sm dropdown-toggle"
+                              href="#"
+                              role="button"
+                              id="dropdownMenuLink"
+                              data-toggle="dropdown"
+                              aria-haspopup="true"
+                              aria-expanded="false"
+                            >
+                              <i class="icon icon-cog-gear"></i>
+                              <span class="caret"></span>
+                            </a>
+                            <div
+                              class="dropdown-menu dropdown-menu-right"
+                              aria-labelledby="dropdownMenuLink"
+                            >
+                              <li>
+                                <a href="#" class="dropdown-item">Edit</a>
+                              </li>
+                              <li>
+                                <a href="#" class="dropdown-item">Preview</a>
+                              </li>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div
+                    class="row-container video-only"
+                    style="border-bottom: 1px solid #dedede"
+                  >
+                    <div class="filter-form clearfix">
+                      <div class="filter-row row">
+                        <div
+                          class="col-md-4"
+                          style="padding: 0 10px; line-height: 30px"
+                        >
+                          <a href="#" class="create-name">InMotion</a>
+                        </div>
+                        <div
+                          class="col-md-2"
+                          style="padding: 0 10px; line-height: 30px"
+                        >
+                          <i
+                            class="fa fa-minus-circle"
+                            style="padding-top: 6px"
+                          ></i>
+                        </div>
+                        <div
+                          class="col-md-2"
+                          style="padding: 0 10px; line-height: 30px"
+                        >
+                          2017-05-17 16:00:10
+                        </div>
+                        <div
+                          class="col-md-2"
+                          style="padding: 0 10px; line-height: 30px"
+                        >
+                          <div class="pill-container pill-target">
+                            <span
+                              href="#"
+                              class="pill pill-red"
+                              style="width: 110px"
+                              >Failed</span
+                            >
+                          </div>
+                        </div>
+                        <div class="col-md-1 pill-container center">2</div>
+                        <div class="hide-dropdown col-md-1">
+                          <div class="dropdown tools">
+                            <a
+                              class="btn btn-secondary btn-sm dropdown-toggle"
+                              href="#"
+                              role="button"
+                              id="dropdownMenuLink"
+                              data-toggle="dropdown"
+                              aria-haspopup="true"
+                              aria-expanded="false"
+                            >
+                              <i class="icon icon-cog-gear"></i>
+                              <span class="caret"></span>
+                            </a>
+                            <div
+                              class="dropdown-menu dropdown-menu-right"
+                              aria-labelledby="dropdownMenuLink"
+                            >
+                              <li>
+                                <a href="#" class="dropdown-item">Edit</a>
+                              </li>
+                              <li>
+                                <a href="#" class="dropdown-item">Preview</a>
+                              </li>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="side-bar-right">
+            <form class="form-container">
+              <div class="form-section">
+                <fieldset class="form-group required" style="margin: 0">
+                  <legend>
+                    Creative Settings
+                    <div class="pull-right" style="width: 115px">
+                      <a
+                        href="#"
+                        class="close-preview"
+                        style="padding: 5px 0 0"
+                      >
+                        <span class="ex"></span>
+                      </a>
+                    </div>
+                  </legend>
+                  <div class="form-horizontal">
+                    <div class="container">
+                      <div class="row" style="margin-bottom: 10px">
+                        <div class="col col-md-12">
+                          <label>Name:</label>
+                          <span class="form-entry" style="display: inline"
+                            >InMotion</span
+                          >
+                        </div>
+                      </div>
+                      <div class="row" style="margin-bottom: 10px">
+                        <div class="col col-md-12">
+                          <label>Campaign(s):</label>
+                          <span class="form-entry">
+                            <a href="#">house ad test</a>
+                          </span>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </fieldset>
+              </div>
+              <div class="form-section">
+                <fieldset class="form-group required" style="margin: 0">
+                  <legend>Video</legend>
+                  <div class="form-horizontal">
+                    <div class="video-img"></div>
+                    <div class="container">
+                      <div class="row" style="margin-bottom: 10px">
+                        <div class="col col-md-12">
+                          <label>Transcoded Format(s):</label>
+                          <span class="form-entry">MP4, FlashVideo, AVI</span>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </fieldset>
+              </div>
+              <div class="form-section">
+                <fieldset class="form-group required" style="margin: 0">
+                  <legend>Banner</legend>
+                  <div class="form-horizontal">
+                    <div class="banner-img"></div>
+                  </div>
+                </fieldset>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script type="text/javascript">
+      require(["dist/js/main_new"]);
+    </script>
+  </body>
+</html>

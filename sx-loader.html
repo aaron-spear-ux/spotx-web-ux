@@ -1,0 +1,331 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="description" content="">
+        <meta name="author" content="">
+
+        <title>SX Loader</title>
+
+        <style type="text/css">
+          html, body {
+            height: 100%;
+          }
+          .xcross {
+            position: relative;
+            width: 7.5em;
+            height: 7.5em;
+            transform: rotate(45deg) skew(10deg, 10deg);
+          }
+          .xcross:before, .xcross:after {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            display: block;
+            width: 1.5em;
+            height: 1.5em;
+            border-radius: 0.075em;
+            transform: translate(-50%, -50%);
+          }
+          .xcross:before {
+            animation: before 2s alternate infinite linear both;
+            transform: skewX(-45deg);
+          }
+          .xcross:after {
+            animation: after 2s alternate infinite linear both;
+            transform: skewY(-45deg);
+          }
+          @keyframes before {
+            0% {
+              opacity: 0;
+              width: 1.5em;
+              box-shadow: 3em -1.5em rgba(130, 166, 32, 1), -3em 1.5em rgba(31, 155, 207, 1);
+            }
+            15% {
+              opacity: 0.25;
+              width: 1.5em;
+              box-shadow: 3em -1.5em rgba(130, 166, 32, 1), -3em 1.5em rgba(31, 155, 207, 1);
+            }
+            35% {
+              opacity: 0.75;
+              width: 7.5em;
+              box-shadow: 0 -1.5em rgba(130, 166, 32, 1), 0 1.5em rgba(31, 155, 207, 1);
+            }
+            70% {
+              opacity: 1;
+              width: 1.5em;
+              box-shadow: -3em -1.5em rgba(130, 166, 32, 1), 3em 1.5em rgba(31, 155, 207, 1);
+            }
+            70% {
+              opacity: 1;
+              width: 1.5em;
+              box-shadow: -3em -1.5em rgba(130, 166, 32, 1), 3em 1.5em rgba(31, 155, 207, 1);
+            }
+          }
+          @keyframes after {
+            0% {
+              opacity: 0;
+              height: 1.5em;
+              box-shadow: 1.5em 3em rgba(31, 155, 207, 1), -1.5em -3em rgba(163, 196, 21, 1);
+            }
+            15% {
+              opacity: 0.25;
+              height: 1.5em;
+              box-shadow: 1.5em 3em rgba(31, 155, 207, 1), -1.5em -3em rgba(163, 196, 21, 1);
+            }
+            35% {
+              opacity: 0.75;
+              height: 7.5em;
+              box-shadow: 1.5em 0 rgba(31, 155, 207, 1), -1.5em 0 rgba(163, 196, 21, 1);
+            }
+            70% {
+              opacity: 1;
+              height: 1.5em;
+              box-shadow: 1.5em -3em rgba(31, 155, 207, 1), -1.5em 3em rgba(163, 196, 21, 1);
+            }
+            70% {
+              opacity: 1;
+              height: 1.5em;
+              box-shadow: 1.5em -3em rgba(31, 155, 207, 1), -1.5em 3em rgba(163, 196, 21, 1);
+            }
+          }
+          .xcross {
+            position: absolute;
+            top: 11px;
+            left: 41px;
+          }
+          .xmask {
+            position: relative;
+            overflow: hidden;
+            width: 200px;
+            height: 200px;
+          }
+          .xmask svg {
+            position: relative;
+            z-index: 1000;
+          }
+          .sx-container {
+            position: absolute;
+            top: 32px;
+            left: 33px;
+            z-index: 100;
+          }
+          .sx-container .sx-folding-cube {
+            width: 125px;
+            height: 125px;
+            position: relative;
+            -webkit-transform: rotateZ(90deg);
+            transform: rotateZ(90deg);
+          }
+          .sx-container .sx-folding-cube .sx-cube {
+            float: left;
+            width: 50%;
+            height: 50%;
+            position: relative;
+          }
+          .sx-container .sx-folding-cube .sx-cube:before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: #00a1e1;
+            -webkit-animation: sx-foldCubeAngle 4s alternate infinite both;
+            animation: sx-foldCubeAngle 4s alternate infinite both;
+            -webkit-transform-origin: 100% 100%;
+            -ms-transform-origin: 100% 100%;
+            transform-origin: 100% 100%;
+          }
+          .sx-container .sx-folding-cube .sx-cube1 {
+            transform: skew(30deg, 20deg) rotateZ(120deg);
+          }
+          .sx-container .sx-folding-cube .sx-cube1:before {
+            -webkit-animation-delay: 0.9s;
+            animation-delay: 0.9s;
+          }
+          .sx-container .sx-folding-cube .sx-cube2 {
+            transform: skew(-40deg, -10deg) rotateZ(140deg);
+            left: 15px;
+          }
+          .sx-container .sx-folding-cube .sx-cube2:before {
+            -webkit-animation-delay: 0.6s;
+            animation-delay: 0.6s;
+          }
+          .sx-container .sx-folding-cube .sx-cube3 {
+            transform: skew(40deg, 10deg) rotateZ(40deg);
+            left: 15px;
+            top: -10px;
+          }
+          .sx-container .sx-folding-cube .sx-cube3:before {
+            -webkit-animation: sx-slideCubeAngle 4s alternate infinite both;
+            animation: sx-slideCubeAngle 4s alternate infinite both;
+            -webkit-animation-delay: 0.3s;
+            animation-delay: 0.3s;
+            background-color: #80bd01;
+          }
+          .sx-container .sx-folding-cube .sx-cube4 {
+            transform: skew(-30deg, -20deg) rotateZ(240deg);
+            top: -9px;
+          }
+          .sx-container .sx-folding-cube .sx-cube4:before {
+            background-color: #60a644;
+          }
+          .sx-container .sx-folding-cube .diamond {
+            width: 100px;
+            height: 100px;
+            background: #fff;
+            position: absolute;
+            top: 50px;
+            left: 18px;
+            transform: rotate(38deg) skew(-15deg);
+          }
+          @-webkit-keyframes sx-foldCubeAngle {
+            0%, 10% {
+              -webkit-transform: perspective(140px) rotateX(-180deg);
+              transform: perspective(140px) rotateX(-180deg);
+              opacity: 0;
+            }
+            25%, 75% {
+              -webkit-transform: perspective(140px) rotateX(0deg);
+              transform: perspective(140px) rotateX(0deg);
+              opacity: 1;
+            }
+            90%, 100% {
+              -webkit-transform: perspective(140px) rotateY(180deg);
+              transform: perspective(140px) rotateY(180deg);
+              opacity: 0;
+            }
+          }
+          @keyframes sx-foldCubeAngle {
+            0%, 10% {
+              -webkit-transform: perspective(140px) rotateX(-180deg);
+              transform: perspective(140px) rotateX(-180deg);
+              opacity: 0;
+            }
+            25%, 75% {
+              -webkit-transform: perspective(140px) rotateX(0deg);
+              transform: perspective(140px) rotateX(0deg);
+              opacity: 1;
+            }
+            90%, 100% {
+              -webkit-transform: perspective(140px) rotateY(180deg);
+              transform: perspective(140px) rotateY(180deg);
+              opacity: 0;
+            }
+          }
+          @keyframes sx-slideCubeAngle {
+            0%, 10% {
+              -webkit-transform: rotateX(-180deg);
+              transform: rotateX(-180deg);
+              opacity: 0;
+            }
+            25%, 75% {
+              -webkit-transform: rotateX(0deg);
+              transform: rotateX(0deg);
+              opacity: 1;
+            }
+            90%, 100% {
+              -webkit-transform: rotateY(180deg);
+              transform: rotateY(180deg);
+              opacity: 0;
+            }
+          }
+          .sx-loader-container {
+            position: absolute;
+            left: 0;
+            top: 0;
+            z-index: 100000;
+            width: 100%;
+            height: 100%;
+            background: rgba(255, 255, 255, 1);
+          }
+          .sx-loader-container .sx-loader-center {
+            position: absolute;
+            left: calc(50% - 100px);
+            top: calc(50% - 200px);
+          }
+          .sx-loader-container .sx-loader {
+            width: 200px;
+            height: 50px;
+            text-align: center;
+            position: relative;
+            top: -20px;
+            z-index: 10000;
+          }
+          .sx-loader-container .sx-loader h2 {
+            color: #ccc;
+            margin: 0;
+            font: 0.8em verdana;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+          }
+          .sx-loader-container .sx-loader .loading span {
+            display: inline-block;
+            vertical-align: middle;
+            width: 10px;
+            height: 10px;
+            margin: 3px;
+            background: rgba(31, 155, 207, 1);
+            border-radius: 5px;
+            animation: loading 1s infinite alternate;
+          }
+          .sx-loader-container .sx-loader .loading span:nth-of-type(2) {
+            background: rgba(163, 196, 21, 1);
+            animation-delay: 0.2s;
+          }
+          .sx-loader-container .sx-loader .loading span:nth-of-type(3) {
+            background: rgba(130, 166, 32, 1);
+            animation-delay: 0.4s;
+          }
+          @keyframes loading {
+            0% {
+              opacity: 0;
+            }
+            100% {
+              opacity: 1;
+            }
+          }
+        </style>
+    </head>
+
+    <body>
+        <div class="sx-loader-container">
+            <div class="sx-loader-center">
+                <div class="xmask">
+                    <div class="sx-container">
+                        <div class="sx-folding-cube">
+                            <div class="sx-cube1 sx-cube"></div>
+                            <div class="sx-cube2 sx-cube"></div>
+                            <div class="diamond"></div>
+                            <div class="sx-cube4 sx-cube"></div>
+                            <div class="sx-cube3 sx-cube"></div>
+                        </div>
+                    </div>
+                    <div class="xcross"></div>
+                    <svg id="xmask" data-name="xmask" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 570 570">
+                        <defs>
+                            <style>.cls-1{fill:#fff;}.cls-2,.cls-3{fill:none;stroke-miterlimit:10;stroke-width:2px;}.cls-2{stroke:#1c9dd1;}.cls-3{stroke:#a2c43a;}</style>
+                        </defs>
+                        <title>xmask</title>
+                        <path class="cls-1" d="M284.62,346.32,205.4,450.69H119.74L240.29,285h.12L119.86,119.34h85.66l46,60.57,0,0,17.17,22.86-.08.08,15.39,20.29,46.6,62.14ZM299,361l44.43-59L450.26,450.69H366.18Zm151.27-241.7L343.09,268.43l-44.37-59.05,67.46-90.05ZM570,0H0V570H570Z"/>
+                        <polygon class="cls-2" points="449.99 119.46 342.82 268.57 298.45 209.51 365.91 119.46 449.99 119.46"/>
+                        <polygon class="cls-2" points="298.58 361.35 343.01 302.35 449.86 451.02 365.77 451.02 298.58 361.35"/>
+                        <polyline class="cls-3" points="284.77 346.31 205.54 450.68 119.88 450.68 240.56 284.99 120.01 119.33 205.67 119.33 251.66 179.89 284.09 223.16 330.69 285.3 284.77 346.31"/>
+                    </svg>
+                </div>
+                <div class="sx-loader">
+                    <h2>Loading</h2>
+                    <div class="loading">
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </body>
+</html>

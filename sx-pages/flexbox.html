@@ -1,0 +1,74 @@
+<h4 class="fixed-header" ng-cloak>Flexbox</h4>
+<div class="form-container">
+    <div class="form-section">
+        <legend>What is Flexbox?</legend>
+        <p>The Flexbox Layout module aims to provide a more efficient way to lay out, align and distribute space among items in a container, 
+            even when their size is unknown and/or dynamic.</p>
+        <p>The main idea behind flexbox layout is to give the container the ability to alter its items' width, 
+            height and order to best fill the available space. 
+            A flex container expands items to fill available free space or shrinks them to prevent overflow.</p>
+        <p><strong>Flexbox layout is most appropriate to the components of an application, 
+            and small-scale layouts, while the Grid layout is intended for larger scale layouts.</strong></p>
+    </div>
+
+    <div class="form-section">
+        <legend>Flex Properties</legend>
+        <div class="flex-section">
+            <legend>Display</legend>
+            <p>This defines a flex container; inline or block depending on the given value. It enables a flex context for all its direct children.</p>
+            <pre rel="CSS" class="language-css">
+                <code>
+    .container {
+        display: flex; /* or inline-flex */
+    }
+                </code>
+            </pre>
+        </div>
+        <div class="flex-section">
+            <legend>Flex Direction</legend>
+            <p>This establishes the main-axis, thus defining the direction flex items are placed in the flex container.</p>
+            <pre rel="CSS" class="language-css">
+                <code>
+    .container {
+        flex-direction: row | row-reverse | column | column-reverse;
+    }
+                </code>
+            </pre>
+        </div>
+        <div class="flex-section">
+            <legend>Justify Content</legend>
+            <p>This defines the alignment along the main axis. It helps distribute extra free space leftover when either all the flex items on a line are inflexible, or are flexible but have reached their maximum size. It also exerts some control over the alignment of items when they overflow the line.</p>
+            <pre rel="CSS" class="language-css">
+                <code>
+    .container {
+        justify-content: flex-start | flex-end | center | space-between | space-around | space-evenly | start | end | left | right ... + safe | unsafe;
+    }
+                </code>
+            </pre>
+        </div>
+        <div class="flex-section">
+            <legend>Flex</legend>
+            <p>This is the shorthand for flex-grow, flex-shrink and flex-basis combined. The second and third parameters (flex-shrink and flex-basis) are optional. Default is 0 1 auto.</p>
+            <pre rel="CSS" class="language-css">
+                <code>
+    .item {
+        flex: none | [ <'flex-grow'> <'flex-shrink'>? || <'flex-basis'> ]
+    }
+                </code>
+            </pre>
+        </div>
+    </div>
+
+    <div class="form-section">
+        <legend>Flex Layout Example</legend>
+        <p class="codepen" data-height="525" data-theme-id="0" data-default-tab="css,result" data-user="aspear_spotx" data-slug-hash="abbOOgQ" style="height: 265px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; border: 2px solid; margin: 1em 0; padding: 1em;" data-pen-title="Flexbox Grid">
+            <span>See the Pen 
+                <a href="https://codepen.io/aspear_spotx/pen/abbOOgQ">Flexbox Grid</a> 
+                by Aaron Spear (<a href="https://codepen.io/aspear_spotx">@aspear_spotx</a>)
+                on <a href="https://codepen.io">CodePen</a>.</span>
+        </p>
+        <script async src="https://static.codepen.io/assets/embed/ei.js"></script>
+    </div>
+</div>
+
+<script src="dist/js/lib/prism/prism.js"></script>

@@ -1,0 +1,487 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="styleApp">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="description" content="">
+        <meta name="author" content="">
+        <link rel="icon" href="dist/img/favicon.ico">
+
+        <title>Create Custom Report</title>
+
+        <script src="dist/js/requirejs/require.js"></script>
+
+        <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+        <!--[if lt IE 9]>
+          <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+          <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+        <![endif]-->
+
+        <!-- Google fonts Source Sans -->
+        <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700' rel='stylesheet' type='text/css'>
+        <style type="text/css">
+            [ng\:cloak], [ng-cloak], [data-ng-cloak], [x-ng-cloak], .ng-cloak, .x-ng-cloak {
+                display: none !important;
+            }
+        </style>
+    </head>
+
+    <body class="spotx stones-throw side-nav madm maximize" ng-controller="mainCtrl" ng-cloak>
+
+        <div ng-controller="tableFilterCtrl"></div>
+        <div ng-controller="formsController"></div>
+
+        <div class="container-fluid">
+            <div class="row">
+                <div class="nav-drop-container"></div>
+                <div class="side-bar">
+                    <ul class="nav nav-pills flex-column" ng-controller="navCtrl">
+                      <nav-side-accordian class="nav-side">
+                        <li class="level-1">
+                          <a href="#">
+                            <i class="search fa icon-zoom"></i>
+                            <span>Search</span>
+                          </a>
+                        </li>
+                      </nav-side-accordian>
+                      <nav-side-accordian class="nav-side">
+                        <li class="level-1 publisher">
+                          <a href="dashboard.html">
+                            <i class="fa fa-tachometer"></i>
+                            <span>Dashboard</span>
+                          </a>
+                        </li>
+                      </nav-side-accordian>
+                      <nav-side-accordian class="nav-side">
+                        <li class="level-1 publisher active">
+                          <a href="#" closesub>
+                            <i class="fa fa-line-chart"></i>
+                            <span>Campaings</span>
+                            <i class="icon fa"></i>
+                          </a>
+                          <ul class="accordion-items collapse show">
+                            <li><a href="campaign-create.html" class="active">Campaign Create</a></li>
+                            <li><a href="endpoint-create.html">Endpoint Create</a></li>
+                          </ul>
+                        </li>
+                      </nav-side-accordian>
+                      <nav-side-accordian class="nav-side">
+                        <li class="level-1 publisher">
+                          <a href="custom-report-builder.html">
+                            <i class="fa fa-bar-chart"></i>
+                            <span>Report Builder</span>
+                          </a>
+                        </li>
+                      </nav-side-accordian>
+                      <nav-side-accordian class="nav-side">
+                        <li class="level-1 publisher">
+                          <a href="creative-library.html">
+                            <i class="fa fa-play"></i>
+                            <span>Creative Library</span>
+                          </a>
+                        </li>
+                      </nav-side-accordian>
+                      <nav-side-accordian class="nav-side">
+                        <li class="level-1 publisher">
+                          <a href="header-bidding.html">
+                            <i class="fa fa-exchange"></i>
+                            <span>Header Bidding</span>
+                          </a>
+                        </li>
+                      </nav-side-accordian>
+                      <nav-side-accordian class="nav-side">
+                        <li class="level-1 publisher">
+                          <a href="maintenance.html" target="_blank">
+                            <i class="fa fa-question-circle-o"></i>
+                            <span>Maintenance</span>
+                          </a>
+                        </li>
+                      </nav-side-accordian>
+                      <!-- <nav-side-accordian class="nav-side">
+                          <li class="level-1 publisher">
+                            <a href="campaign-filter.html">
+                              <i class="fa fa-cogs"></i>
+                              <span>Campaign Filter</span>
+                            </a>
+                          </li>
+                        </nav-side-accordian> -->
+                    </ul>
+                  </div>
+                <div class="page-header">
+                    <a class="minimize-toggle open">
+                        <div class="patty"></div>
+                    </a>
+                    <div class="header-left">
+                        <a class="logo" href="dashboard.html"></a>
+                    </div>
+                    <h4>Create DSP Campaign</h4>
+                    <ul class="top-nav">
+                        <li class="top-link">
+                            <a href="#" class="account"><i class="fa account-icon"></i> Aaron Spear</a>
+                            <ul class="dropdown-content account-dropdown">
+                                <li><a href="#">Account Information</a></li>
+                                <li><a href="#">Manage Users</a></li>
+                                <li><a href="#">Settings</a></li>
+                                <li class="drop-divider"></li>
+                                <li><a href="#">Change Password</a></li>
+                                <li><a href="#">Logout</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+                <div class="search-bg"></div>
+                <div class="search-expanded">
+                    <div class="search icon icon-zoom"></div>
+                    <input type="text" class="form-control" id="sitewide" autofocus placeholder="Search..."/>
+                    <a href="#" class="close-search">
+                        <span class="ex"></span>
+                    </a>
+                </div>
+                <ul class="search-dropdown dropdown-content">
+                    <li class="dropdown-header">Quick Links</li>
+                    <li><a href="#">Campaigns</a></li>
+                    <li><a href="#">Channels</a></li>
+                    <li><a href="#">Reports</a></li>
+                    <li><a href="#">Forecasting</a></li>
+                    <li class="drop-divider"></li>
+                    <li class="dropdown-header">Suggested Searches</li>
+                    <li><a href="#">Scheduled Reports</a></li>
+                    <li><a href="#">Custom Reports</a></li>
+                    <li><a href="#">Campaign Reports</a></li>
+                </ul>
+                <div class="main sx-toast">
+                    <div class="alert alert-red" role="alert">
+                        Please complete the required fields.
+                        <a href="#" class="close-alert">
+                            <span class="ex"></span>
+                        </a>
+                    </div>
+                    <form class="form-horizontal deal-adv required">
+                        <div class="adv-name">
+                            <label for="adv" class="control-label">
+                                <span>Advertiser:</span>
+                            </label>
+                            <div class="form-data">
+                                DoubleClick
+                            </div>
+                        </div>
+                    </form>  
+                    <form class="form-container">
+                        <div class="form-section">
+                            <fieldset class="form-group required">
+                                <legend>Campaign Settings</legend>
+                                <div class="form-horizontal">
+                                    <div class="container">
+                                        <div class="row form-group">
+                                            <div class="col col-md-5 error required invalid">
+                                                <label class="required-remove">Campaign Name</label>
+                                                <label class="validation-text">Please enter a campaign name.</label>
+                                                <span class="required-dot"></span>
+                                                <input type="text" class="form-control required-control" id="name">
+                                                <small class="form-text text-muted">Enter campaign name in 50 characters or less.</small>
+                                            </div>
+                                        </div>
+                                        <div class="row form-group">
+                                            <div class="col col-md-4">
+                                                <label style="float: none;">Filter Unknown Audiences</label>
+                                                <div class="path">
+                                                    <span class="shape trail"></span> 
+                                                    <div class="radio-custom auto-gran-btn">
+                                                        <input type="radio" name="radio" class="btn-radio" checked id="radio1"/>
+                                                        <label for="radio1" class="select">No</label>
+                                                    </div>    
+                                                    <div class="radio-custom dense-gran-btn">
+                                                        <input type="radio" name="radio" class="btn-radio" id="radio2"/>
+                                                        <label for="radio2" class="unselect">Yes</label>
+                                                    </div>    
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>    
+                            </fieldset>
+                        </div>
+                        <div class="form-section">
+                            <fieldset class="form-group hide-row">
+                                <legend>Targeting</legend>
+                                <p>Select which targeting options you would like for this campaign.</p>
+                                <div class="col">
+                                    <div class="form-horizontal form-table">
+                                        <div class="container">
+                                            <div class="filter-header clearfix">
+                                                <div class="row">
+                                                    <div class="col col-md-3" style="padding: 0;">
+                                                        <div class="header-section">
+                                                            Category
+                                                        </div>
+                                                    </div>
+                                                    <div class="col col-md-3" style="padding: 0;">
+                                                        <div class="header-section">
+                                                            Operator
+                                                        </div>
+                                                    </div>
+                                                    <div class="col col-md-5" style="padding: 0;">
+                                                        <div class="header-section">
+                                                            Targeting Options
+                                                        </div>
+                                                    </div>
+                                                    <div class="col col-md-1" style="padding: 0;">
+                                                    </div>
+                                                </div>
+                                            </div>    
+                                            <div class="filter-form clearfix">
+                                                <div class="filter-row row">
+                                                    <div class="col col-md-3">
+                                                        <select class="form-control select2-search">
+                                                            <option>Channel</option>
+                                                            <option>Publisher</option>
+                                                            <option>Device Type</option>
+                                                            <option>Device OS</option>
+                                                            <option>DMA</option>
+                                                            <option>Geography</option>
+                                                            <option>Host</option>
+                                                            <option>Inventory Source</option>
+                                                            <option>Player Size</option>
+                                                            <option>User Initiation Type</option>
+                                                            <option>US Zip Code</option>
+                                                        </select>
+                                                    </div>
+                                                    <div class="col col-md-3">
+                                                        <select class="form-control select2-search">
+                                                            <option>is any of</option>
+                                                            <option>is not any of</option>
+                                                        </select>
+                                                    </div>
+                                                    <div class="col col-md-5">
+                                                        <div class="pull-left" style="width: 75%; margin-right: 15px;">
+                                                            <select multiple="" class="form-control select2">
+                                                                <option>Option1</option>
+                                                                <option>Option2</option>
+                                                                <option>Option3</option>
+                                                                <option>Option4</option>
+                                                                <option>Option5</option>
+                                                                <option>Option6</option>
+                                                                <option>Option7</option>
+                                                                <option>Option8</option>
+                                                            </select>
+                                                        </div>
+                                                        <input type="file" class="upload-btn pull-left"/>
+                                                    </div>
+                                                    <div class="col col-md-1" style="padding: 5px 8px;">
+                                                        <div class="pull-right" style="width: 115px;">
+                                                            <a href="#" class="remove-line">
+                                                                <span class="ex"></span>
+                                                            </a>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <!-- <div class="filter-row row">
+                                                    <div class="col col-md-3">
+                                                        <select class="form-control select2-search">
+                                                            <option>Channel</option>
+                                                            <option>Device Type</option>
+                                                            <option>Device OS</option>
+                                                            <option>DMA</option>
+                                                            <option>Geography</option>
+                                                            <option>Host</option>
+                                                            <option>Inventory Source</option>
+                                                            <option>Player Size</option>
+                                                            <option>User Initiation Type</option>
+                                                            <option>US Zip Code</option>
+                                                        </select>
+                                                    </div>
+                                                    <div class="col col-md-3">
+                                                        <select class="form-control select2-search">
+                                                            <option>is any of</option>
+                                                            <option>is not any of</option>
+                                                        </select>
+                                                    </div>
+                                                    <div class="col col-md-5">
+                                                        <select multiple="" class="form-control select2">
+                                                            <option>Option1</option>
+                                                            <option>Option2</option>
+                                                            <option>Option3</option>
+                                                            <option>Option4</option>
+                                                            <option>Option5</option>
+                                                            <option>Option6</option>
+                                                            <option>Option7</option>
+                                                            <option>Option8</option>
+                                                        </select>
+                                                    </div>
+                                                    <div class="col col-md-1" style="padding: 5px 8px;">
+                                                        <div class="pull-right" style="width: 115px;">
+                                                            <a href="#" class="remove-line">
+                                                                <span class="ex"></span>
+                                                            </a>
+                                                        </div>
+                                                    </div>
+                                                </div> -->
+                                            </div> 
+                                        </div>    
+                                        <div class="btns-group clearfix" style="padding: 20px 0 0; text-align: right;">
+                                            <a href="#" class="btn btn-success btn-row">Add Targeting</a>
+                                        </div>  
+                                    </div>
+                                </div> 
+                            </fieldset>  
+                        </div>
+                        <div class="form-section">
+                            <fieldset class="form-group hide-row" style="padding-right: 30px;">
+                                <legend>Beacons</legend>
+                                <p>Select which 3rd party beacons you would like for this campaign.</p>
+                                <div>
+                                    <table st-table="rowCollection" class="table table-sort">
+                                        <thead>
+                                            <tr>
+                                                <th st-sort="label">Label<i class="icon"></i></th>
+                                                <th st-sort="urltype">URL Type<i class="icon"></i></th>
+                                                <th st-sort="protocol">Protocol<i class="icon"></i></th>
+                                                <th st-sort="type">Type<i class="icon"></i></th>
+                                                <th st-sort="url">URL<i class="icon"></i></th>
+                                                <th></th>
+                                            </tr>
+                                        </thead>
+                                        <tbody ng-controller="collapseCtrl">
+                                            <tr class="filter-row">
+                                                <td>
+                                                    <input class="form-control" type="text"/>
+                                                </td>
+                                                <td>
+                                                    <select class="form-control select2">
+                                                        <option>Image</option>
+                                                        <option>Javascript</option>
+                                                    </select>
+                                                </td>
+                                                <td>
+                                                    <select class="form-control select2">
+                                                        <option>Dynamic</option>
+                                                        <option>Fixed</option>
+                                                    </select>
+                                                </td>
+                                                <td style="width: 200px;">
+                                                    <select class="form-control select2" style="min-width: 230px;">
+                                                        <option>Start</option>
+                                                        <option>Image</option>
+                                                        <option>25% View Complete</option>
+                                                        <option>50% View Complete</option>
+                                                        <option>75% View Complete</option>
+                                                    </select>
+                                                </td>
+                                                <td>
+                                                    <input class="form-control" type="text"/>
+                                                </td>
+                                                <td>
+                                                    <div class="pull-right" style="width: 115px;">
+                                                        <a href="#" class="remove-line">
+                                                            <span class="ex"></span>
+                                                        </a>
+                                                    </div>
+                                                </td> 
+                                            </tr>
+                                            <!-- <tr>
+                                                <td>
+                                                    <input class="form-control" type="text"/>
+                                                </td>
+                                                <td>
+                                                    <select class="form-control select2">
+                                                        <option>Image</option>
+                                                        <option>Javascript</option>
+                                                    </select>
+                                                </td>
+                                                <td>
+                                                    <select class="form-control select2">
+                                                        <option>Dynamic</option>
+                                                        <option>Fixed</option>
+                                                    </select>
+                                                </td>
+                                                <td width="200px">
+                                                    <select class="form-control select2" style="min-width: 130px;">
+                                                        <option>Start</option>
+                                                        <option>Image</option>
+                                                        <option>25% View Complete</option>
+                                                        <option>50% View Complete</option>
+                                                        <option>75% View Complete</option>
+                                                    </select>
+                                                </td>
+                                                <td>
+                                                    <input class="form-control" type="text"/>
+                                                </td>
+                                                <td>
+                                                    <div class="pull-right" style="width: 115px;">
+                                                        <a href="#" class="remove-line">
+                                                            <span class="ex"></span>
+                                                        </a>
+                                                    </div>
+                                                </td> 
+                                            </tr> -->
+                                        </tbody>
+                                    </table>
+                                    <div class="btns-group" style="padding: 0; text-align: right;">
+                                        <div>
+                                            <a href="#" class="btn btn-success btn-row">Add Beacon</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </fieldset>    
+                        </div>
+                        <div class="form-section">
+                            <fieldset class="form-group required" style="padding-right: 30px;">
+                            <legend>Creative Endpoints</legend>
+                            <p class="required-remove">Select which endpoints you would like for this campaign.</p>
+                            <span class="validation-text">Please select at least one creative endpoint.</span>
+                            <div ng-controller="tableCreativeCtrl" class="endpoint-table">
+                                <table st-table="rowCollection" class="table table-sort">
+                                    <thead>
+                                        <tr>
+                                            <th st-sort="name">Creative Endpoint Name<i class="icon"></i></th>
+                                            <th st-sort="type">Endpoint Type<i class="icon"></i></th>
+                                            <th st-sort="type">Feed Url<i class="icon"></i></th>
+                                            <th st-sort="type" class="center">Targeting<i class="icon"></i></th>
+                                        </tr>
+                                        <tr>
+                                            <th><input st-search="'name'" placeholder="search name" class="input-sm form-control" type="search"/></th>
+                                            <th></th>
+                                            <th></th>
+                                            <th></th>
+                                        </tr>
+                                    </thead>
+                                    <tbody ng-controller="collapseCtrl">
+                                        <tr ng-repeat="row in rowCollection">
+                                            <td class="name row-{{row.status}}">
+                                                <div class="checkbox checkbox-primary">
+                                                    <input type="checkbox" name="checkbox" id="{{row.name}}" value="{{row.name}}">
+                                                    <label for="{{row.name}}" class="required-radio">{{row.name}}</label>
+                                                </div>
+                                            </td>
+                                            <td class="row-{{row.status}}">{{row.type}}</td>
+                                            <td class="row-{{row.status}}">
+                                                <div class="truncate" style="display: block;">{{row.feed}}</div>
+                                            </td>
+                                            <td class="row-{{row.status}}">
+                                                <div class="pill-container pill-target">
+                                                    <span href="#" class="pill pill-blue">2</span>   
+                                                </div>
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div> 
+                            <div class="btns-group btns-divider">
+                                <button type="submit" class="btn btn-link cancel">Cancel</button>
+                                <button type="submit" class="btn btn-success validate">Create Campaign</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <script type="text/javascript">
+            require(["dist/js/main_new"]);
+        </script>
+
+    </body>
+</html>
+
+
